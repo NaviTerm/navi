@@ -18,8 +18,7 @@ class ArticleController extends SystemController{
 				$this->error($article->getError());
 			}
 		}else{
-			$category = new \Model\CategoryModel();//获取分类	
-			$cate = $category->select();
+			$cate = M('category')->select();//获取分类
 			$this->assign('category',$cate);
 			$this->display();				
 		}
@@ -84,8 +83,7 @@ class ArticleController extends SystemController{
 				$this->error($article->getError());
 			}
 		}else{
-			$category = new \Model\CategoryModel();//获取分类	
-			$cate = $category->select();
+			$cate = M('category')->select();//获取分类
 			$this->assign('category',$cate);
 			$list = $article->where("itemid=".$itemid)->find();//获取当前文章信息
 			$content = M('article_data')->where("itemid=".$itemid)->find();
@@ -97,7 +95,8 @@ class ArticleController extends SystemController{
 	}
 	function index(){
 		$article = M("article");
-
+		$category = M('category')->select();
+		$this->assign('category',$category);
 		$count = $article->where("status=3")->count();
 		$page = new \Think\Page($count,10);  // 实例化分页类 传入总记录数和每页显示的记录数
 		$show = $page->show();              // 分页显示输出

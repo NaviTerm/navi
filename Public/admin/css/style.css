@@ -108,7 +108,7 @@ h2{font-weight:normal;}
 .tablelist{border:solid 1px #cbcbcb; width:100%; clear:both;}
 .tablelist th{background:url(../images/th.gif) repeat-x; height:34px; line-height:34px; border-bottom:solid 1px #b6cad2; text-indent:11px; text-align:left;}
 .tablelist td{line-height:35px; text-indent:11px; border-right: dotted 1px #c7c7c7;}
-.tablelink{color:#056dae;}
+.tablelink{color:#056dae;cursor: pointer;}
 .tablelist tbody tr.odd{background:#f5f8fa;}
 .tablelist tbody tr:hover{background:#e5ebee;}
 .sort{padding-left:3px;}
@@ -319,3 +319,9 @@ h2{font-weight:normal;}
   cursor: default;
   color: #000000;
  }
+ .input30{
+     /*border: 1px solid #C2BDBD;*/
+     height: 30px;
+     width: 120px;
+     padding: 0 0 0 10px;
+}

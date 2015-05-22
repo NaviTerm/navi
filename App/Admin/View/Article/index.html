@@ -53,6 +53,11 @@ $(document).ready(function(){
     
     	<ul class="toolbar">
         <li onclick="location='{:U('admin/article/add')}'"><span><img src="{$Think.AD_SKIN}images/t01.png" /></span>添加文章</li>
+        <li><select name="" id="" style="height:100%">
+        <foreach name="category" item="t">
+            <option value="{$t[id]}">{$t[name]}</option>
+        </foreach>    
+        </select></li>
 <!--         <li class="click"><span><img src="{$Think.AD_SKIN}images/t02.png" /></span>修改</li>
         <li><span><img src="{$Think.AD_SKIN}images/t03.png" /></span>删除</li>
         <li><span><img src="{$Think.AD_SKIN}images/t04.png" /></span>统计</li> -->

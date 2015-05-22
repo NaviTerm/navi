@@ -11,5 +11,9 @@ return array(
     'DB_PREFIX'             =>  'dh_',    // 数据库表前缀
     'SHOW_PAGE_TRACE' =>true, // 显示页面Trace信息
     // 'TMPL_ENGINE_TYPE'=>'Smarty'
-    'default_module'     => 'Admin', //默认模块
+    
+    'MODULE_ALLOW_LIST'    =>    array('Home','Admin'),// 允许访问的模块列表
+    'DEFAULT_MODULE'       =>    'Admin',  // 默认模块
+    // 'URL_HTML_SUFFIX'=>'htm'
+     'URL_MODEL' => '2',//开启伪静态
 );
