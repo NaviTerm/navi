@@ -34,10 +34,41 @@
 				break;	
 			case '2':
 				return "二级";
-				break;		
+				break;
+			case '3':
+				return "三级";
+				break;			
 			default:
 				break;
 		}
-
 	}
-	
+	function get_typeid_name($typeid){
+		switch($typeid){
+			case '1':
+				return "行业网站";
+				break;
+			case '2':
+				return "公司网站";
+				break;
+			default:
+				break;
+		}
+	}
+	function get_message_type($typeid){
+		switch($typeid){
+			case '1':
+				return "问题";
+				break;
+			case '2':
+				return "建议";
+				break;
+			case '3':
+				return "合作";
+				break;
+			case '4':
+				return "投诉";
+				break;
+			default:
+				break;
+		}
+	}
