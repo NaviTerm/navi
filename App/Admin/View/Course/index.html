@@ -31,13 +31,6 @@ $(document).ready(function(){
   $(".cancel").click(function(){
   $(".tip").fadeOut(100);
 });
-$("#Qx").click(function() { 
-    var flag = $(this).attr("checked"); 
-    $("[type]:checkbox").each(function() { 
-         $(this).attr("checked", flag); 
-        $(this).val();
-    });
-});
 $(".form_seva").click(function(){
     $("#form_seva").submit();
 });
@@ -48,19 +41,6 @@ $(".form_seva").click(function(){
 
 
 <body>
-<style type="text/css">
-.imgtable th{
-    text-align: center;
-    text-indent: 0 !important;
-}
-.imgtd input{
-    border: 1px solid gray;
-}
-.imgtable tr td{
-    text-align: center;
-    text-indent: 0 !important;
-}
-</style>
 
 	<div class="place">
     <span>位置：</span>
@@ -75,12 +55,13 @@ $(".form_seva").click(function(){
     <div class="tools">
     
     	<ul class="toolbar">
-        <li onclick="location='{:U('admin/link/add')}'">
-            <span><img src="{$Think.AD_SKIN}images/t01.png" /></span>添加友链
+        <li onclick="location='{:U('admin/course/add')}'">
+            <span><img src="{$Think.AD_SKIN}images/t01.png" /></span>添加企业历程
         </li>
         <li class="form_seva">
             <span><img src="{$Think.AD_SKIN}images/t02.png" /></span>更新排序
         </li>
+
 <!--         <li class="click"><span><img src="{$Think.AD_SKIN}images/t02.png" /></span>修改</li>
         <li><span><img src="{$Think.AD_SKIN}images/t03.png" /></span>删除</li>
         <li><span><img src="{$Think.AD_SKIN}images/t04.png" /></span>统计</li> -->
@@ -92,45 +73,40 @@ $(".form_seva").click(function(){
         </ul> -->
     
     </div>
-    
-<form method="post" id="form_seva" action="{:U('link/update_seva')}">
+
+<form method="post" id="form_seva" action="{:U('course/update_seva')}">
     <table class="imgtable">
-        <thead>
-            <tr>
-                <th width="100"><input type="checkbox" id="Qx" /></th>    
-                <th width="150">排序</th>
-                <th width="150">分类</th>
-                <th width="150">等级</th>
-                <th>标题</th>
-                <th>操作</th>    
-            </tr>
-        </thead>
-        <tbody>
-        <foreach name="lists" item="t">
-            <tr>
-                <td width="100">
-                    <input type="checkbox" name="{$t[itemid]}" value="{$t[itemid]}">
-                </td>    
-                <td class="imgtd" width="150">
-                    <input type="text" size="2" name="{$t[itemid]}" value="{$t[listorder]}">
-                </td>
-                <td width="150">
-                    {$t[typeid]|get_typeid_name}
-                </td>
-                <td width="150">
-                    {$t[level]|get_level_name}
-                </td>
-                <td>
-                    {$t[title]}
-                    <p>添加时间：{$t[addtime]|date='Y-m-d H:i:s',###}</p>
-                </td> 
-                <td>
-                    <a href="{:U('admin/link/update',array('itemid'=>$t[itemid]))}">编辑</a>&nbsp;&nbsp;
-                    <a href="{:U('admin/link/delete',array('itemid'=>$t[itemid]))}">删除</a>
-                </td>
-            </tr>
-        </foreach>
-        </tbody>
+    
+    <thead>
+    <tr> 
+    <th>id</th>
+    <th>排序</th>  
+    <th width="100px;">缩略图</th>
+    <th>标题</th>
+    <th>短标题</th>
+    <th>操作</th>    
+    </tr>
+    </thead>
+    
+    <tbody>
+<foreach name='lists' item='t'>
+    <tr>
+    <td>{$t[itemid]}</td>
+    <td>
+        <input type="text" size="2" name="{$t[itemid]}" value="{$t[listorder]}" style="border: 1px solid gray;">
+    </td>  
+    <td class="imgtd"><img src="{$t[thumb]|imgurl=###,150}" /></td>
+    <td><a href="#">{$t[title]}</a><p>发布时间：{$t[addtime]|date='Y-m-d H:i:s',###}</p><p>编辑时间：{$t[edittime]|date='Y-m-d H:i:s',###}</p></td>
+    <td>{$t[dtitle]}</td>
+    <td>
+        <a href="{:U('admin/course/update',array('itemid'=>$t[itemid]))}">编辑</a>&nbsp;&nbsp;
+        <a href="{:U('admin/course/delete',array('itemid'=>$t[itemid]))}">删除</a>
+    </td>
+    </tr>
+</foreach>
+    
+    </tbody>
+    
     </table>
 </form>
     
@@ -186,7 +162,11 @@ $(".form_seva").click(function(){
         </div>
     
     </div>
-
+    
+<script type="text/javascript">
+	$('.imgtable tbody tr:odd').addClass('odd');
+	</script>
+    
 </body>
 
 </html>

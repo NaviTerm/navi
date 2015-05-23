@@ -19,33 +19,34 @@
     <div class="formbody">
     
     <div class="formtitle"><span>基本信息</span></div>
-<form action="{:U('link/add')}" method="post">
+<form action="<if condition="$list">{:U('link/update')}<else />{:U('link/add')}</if>" method="post">
+    <input type="hidden" name="itemid" value="{$list[itemid]}">
     <ul class="forminfo">
     <li>
         <label style="height:25px;line-height:25px;"><span class="f_red">*</span>网站分类</label>
         <select name="typeid" id="typeid" style="border: 1px solid rgb(169, 169, 169);height:25px;">
-            <option value="1">行业网站</option>
-            <option value="2">公司网站</option>
+            <option value="1" <if condition="$list[typeid] == 1">selected</if>>行业网站</option>
+            <option value="2" <if condition="$list[typeid] == 2">selected</if>>公司网站</option>
         </select>
     </li>
     <li>
         <label>网站名称</label>
-        <input name="title" id="title" type="text" class="dfinput" value=""/>
+        <input name="title" id="title" type="text" placeholder="请填写网站名称" class="dfinput" value="{$list[title]}"/>
         <i>
             <select name="level" id="level" style="border: 1px solid rgb(169, 169, 169);">
-                <option value="1">1级别</option>
-                <option value="2">2级别</option>
-                <option value="3">3级别</option>
+                <option value="1" <if condition="$list[level] == 1">selected</if>>1级别</option>
+                <option value="2" <if condition="$list[level] == 2">selected</if>>2级别</option>
+                <option value="3" <if condition="$list[level] == 3">selected</if>>3级别</option>
             </select>
         </i>
     </li>
     <li>
         <label>网站介绍</label>
-        <textarea class="link-textarea" name="introduce" id="introduce"></textarea>
+        <textarea class="link-textarea" name="introduce" id="introduce">{$list[introduce]}</textarea>
     </li>
     <li>
         <label>网站地址</label>
-        <input name="linkurl" id="linkurl" type="text" class="dfinput" value=""/>
+        <input name="linkurl" id="linkurl" value="{$list[linkurl]}" type="url" class="dfinput" value="{$list[linkurl]}" placeholder="地址前面必须带http://"/>
     </li>
     <li>
         <label>&nbsp;</label>

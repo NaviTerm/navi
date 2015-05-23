@@ -1,12 +1,12 @@
 <?php
 namespace Admin\Controller;
 use Think\Controller;
-class LinkController extends SystemController {
+class CourseController extends SystemController {
     public function _initialize() {
         parent::_initialize();   
     }
     public function index(){
-        $link = M('link');
+        $link = M('course');
         $count = $link->where("status=2")->count();
         $page = new \Think\Page($count,10);
         $show = $page->show();
@@ -22,12 +22,12 @@ class LinkController extends SystemController {
             $data = I('post.');
             $data['addtime'] = time();
             $data['status'] = 2;
-            $link = M('link');
+            $link = M('course');
             $result = $link->create($data);
             if($result){
                 $result1 = $link->add($result);
                  if($result1){
-                    $this->success("添加成功",U('link/index'));
+                    $this->success("添加成功",U('course/index'));
                 }else{
                     $this->error("添加失败");
                 }
@@ -40,45 +40,51 @@ class LinkController extends SystemController {
         if(I('post.')){
             $data = I('post.');
             $arr = array();
-            $listorder = M('link');            
+            $listorder = M('course');
             foreach($data as $k => $v){
                 $arr['itemid'] = $k;
                 $arr['listorder'] = $v;
                 $result += $listorder->save($arr);
-            }
+            } 
             if($result){
-                $this->success("修改成功".$result."条数据",U('link/index'));
+                $this->success("修改成功".$result."条数据",U('course/index'));
             }else{
                 $this->error("修改失败");
             }
         }
     }
     public function update($itemid){
-        $link = M('link');
-        $list = $link->where("itemid=".$itemid)->find();
-        $this->assign('list',$list);
+        $link = M('course');
         if(I('post.')){
             $data = I('post.');
             if($data){
-                $result = $link->save($data);
+                $data['addtime'] = strtotime($data['addtime']);
+                $data['edittime'] = time();
+                $redata = $link->create($data);
+                $result = $link->save($redata);
                 if($result){
-                    $this->success("编辑成功",U('link/index'));
+                    $this->success("编辑成功",U('course/index'));
                 }else{
                     $this->error("编辑失败");
                 }
             }
         }else{
+            $list = $link->where("itemid=".$itemid)->find();
+            $this->assign('list',$list);           
             $this->display('add');
         }
     }
     public function delete($itemid){
-        $link = M('link');
+        $link = M('course');
         $result = $link->delete($itemid);
         if($result){
-            $this->success("世界那么大,它出去看看了",U('link/index'),3);
+            $this->success("世界那么大,它出去看看了",U('course/index'),3);
         }else{
             $this->error("删除失败");
         }
+    }
+    public function del_img($src){
+        return unlink($src) ? true : false ;//删除原图
     }
 
 }
