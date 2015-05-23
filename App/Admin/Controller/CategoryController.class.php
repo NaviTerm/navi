@@ -1,8 +1,10 @@
 <?php
 namespace Admin\Controller;
 use Think\Controller;
-class CategoryController extends Controller{
-
+class CategoryController extends SystemController{
+    public function _initialize() {
+        parent::_initialize();
+    }
 	public function index(){
 		$cate = new \Model\CategoryModel();
 		$up = $cate->update_items();//更新分类信息
@@ -41,12 +43,10 @@ class CategoryController extends Controller{
 				$array[$id]['id'] = $id;
 			}
 			foreach ($array as $k => $v) {
-				$result = $category->check_save($v);
-				// if(!$result)return false;
-				// dump($result);
+				$result += $category->check_save($v);
 			}
 
-			$this->success('分类修改成功',U('category/index'),0);
+			$this->success('成功修改'.$result.'个分类',U('category/index'),0);
 
 		}
 	}

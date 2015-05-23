@@ -340,3 +340,8 @@ h2{font-weight:normal;}
      width: 120px;
      padding: 0 0 0 10px;
 }
+.input10{
+	border:1px solid #ddd;
+	height:30px;
+	width:50px;
+}

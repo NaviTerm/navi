@@ -46,12 +46,12 @@ $(function(){
                         type:'POST',
                         data:{id,id},
                         success:function(data){
-                            var arr = id.split(',');
+/*                            var arr = id.split(',');
                             for (var i = arr.length - 1; i >= 0; i--) {
                                 $('#tr_'+arr[i]).remove();
-                            };
+                            };*/
                             //alert('分类删除成功');
-                            // location.reload();
+                            location.reload();
                             // console.log(data);
                         },
                         error:function(data){
@@ -140,7 +140,7 @@ $(function(){
     <table class="tablelist">
     	<thead>
     	<tr>
-        <th><input  type="checkbox"    id="checkall"/></th>
+        <th><input  type="checkbox"  id="checkall"/></th>
         <th>分类id<i class="sort"><img src="{$Think.AD_SKIN}images/px.gif" /></i></th>
          <th>排序</th>       
         <th>分类名称</th>

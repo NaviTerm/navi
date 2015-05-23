@@ -6,13 +6,12 @@ class ArticleModel extends Model{
 		if(!is_array($id)){
 			$art = $this->find($id);
 			$art['status'] = 0;
-			// dump($art);
-			$result =  $this->save($art) ? true : false ;
+			$result =  $this->save($art);
 		}else{
 			foreach ($id as $key => $value) {
 				$art = $this->find($value);
 				$art['status'] = 0;
-				$result = $this->save($art) ? true : false ;	
+				$result += $this->save($art);	
 			}
 		}
 		
@@ -38,9 +37,18 @@ class ArticleModel extends Model{
 			
 	}
 	function change($id){
-			$art = $this->find($id);
-			$art['status'] = 3;
-			$result =  $this->save($art) ? true : false ;
+			if(is_array($id)){
+				$art = array();
+				foreach($id as $k => $v){
+					$art['itemid'] = $v;
+					$art['status'] = 3;
+					$result =  $this->save($art);	
+				}
+			}else{
+				$art['itemid'] = $id;
+				$art['status'] = 3;
+				$result =  $this->save($art);			
+			}
 			return $result;
 	}
 }

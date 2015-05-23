@@ -37,10 +37,10 @@ class CategoryModel extends Model{
 
 	function del($id){
 		if(!is_array($id)){
-			$result =  $this->delete($id) ? true : false ;
+			$result =  $this->delete($id);
 		}else{
 			foreach ($id as $key => $value) {
-				$result =  $this->delete($value['id']) ? true : false ;
+				$result +=  $this->delete($value['id']);
 			}
 		}
 		return $result;
@@ -49,8 +49,8 @@ class CategoryModel extends Model{
 	function update_items(){
 		$article = M('article')->field('catid,count(*) as num')->where('status=3')->group('catid')->select();
 		foreach ($article as $key => $value) {
-			$this->where('id='.$value['catid'])->save(array('items'=>$value['num']));
+			$result += $this->where('id='.$value['catid'])->save(array('items'=>$value['num']));
 		}
-		return true;
+		return $result;
 	}
 }

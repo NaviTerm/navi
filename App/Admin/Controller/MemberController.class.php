@@ -75,7 +75,7 @@ class MemberController extends Controller{
 					 session('userid',$result['userid']);
 			 	     $ip = get_client_ip();//客户端ip
 	 				 $logintime = time();//登录时间
-					 $this->success('登录成功',U('admin/index/index'));
+					 $this->success('登录成功',U('admin/index/index'),1);
 				}
 		}else{
 			$this->display();

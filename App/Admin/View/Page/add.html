@@ -153,68 +153,19 @@ $(document).ready(function(e) {
     </div>  -->
     
   	<div id="tab1" class="tabson">
-    
-    <div class="formtext">Hi，<b><if condition="$_user['truename']">{$_user['truename']}<else />{$_user['username']}</if></b>，欢迎您使用新闻发布功能！</div>
-<form action="<if condition="$list">{:U('admin/article/update')}<else />{:U('admin/article/add')}</if>" method="post" enctype="multipart/form-data">
-<if condition="$list[itemid]"><input type="hidden" name="itemid" value="{$list['itemid']}" /></if>
+
+<form action="<if condition="$lists">{:U('admin/page/update')}<else />{:U('admin/page/add')}</if>" method="post" >
     <ul class="forminfo">
-    <li><label>标题<b>*</b></label><input name="title" type="text" class="dfinput" value="{$list[title]}"  placeholder="请填写标题" style="width:576px;" required="required"/></li>
-   
-    <li style="position: relative;"><label>标题图片</label><input type="text" name="thumb" id="thumb" class="dfinput" readonly="" value="{$list[thumb]}" />
-      <div id="img_div"style="background:url('{$a|imgurl=###,150}') no-repeat;background-size:100% 100%"><img src="{$list[thumb]}" alt="" id="img1" width="100%"/></div>
-    </li>
-    <li><label>&nbsp;</label>
-        <input  type="button" class="btn" value="上传" onclick="$('.select_img,#fun').show();"/>
-        <input  type="button" class="btn" value="删除" onclick="del_img('thumb','img1')"/>
-    </li>
-    <li><label>新闻分类<b>*</b></label>  
-    
-    <div class="vocation">
-    <select class="select1" name="catid">
-    <if condition="$list[catid]">
-       <option value="{$list[catid]}">{$list[catid]|get_catname}</option>
-    </if>
-<foreach name="category" item="t">
-    <option value="{$t['id']}">{$t[name]}</option>
-</foreach>
-    </select>
-    </div>
-    
+    <if condition="$lists[itemid]"><input type="hidden" name="itemid" value="{$lists[itemid]}" /></if>
+    <li><label>标题<b>*</b></label><input name="title" type="text" class="dfinput" value="{$lists[title]}"  placeholder="请填写标题" style="width:576px;" required="required"/></li>
+    <li><label>关键词</label><input type="text" name="keyword"  value="{$lists[keyword]}" class="dfinput"  style="width:576px;" /></li>
+    <li><label>内容<b>*</b></label>
+    <textarea id="content7" name="content" style="width:700px;height:250px;visibility:hidden;" >{$lists[content]}</textarea>
     </li>
 
-    <li><label>级别</label>  
-    
-    <div class="vocation">
-    <select class="select1" name="level" onchange="show_div(this.value)">
-
-    <option value="0" <if condition="$list[level] == 0">selected</if>>无</option>
-    <option value="1" <if condition="$list[level] == 1">selected</if>>一级[显示到首页右侧]</option>
-    <option value="2" <if condition="$list[level] == 2">selected</if>>二级[显示到首页左侧]</option>
-    </select>
-    </div>
-    
-    </li>
-
-    <li style="position: relative;<if condition="$list[level] == 2">display:block</if>" class="tj_img"><label>推荐图<b>*</b></label><input type="text" name="thumb_tj" id="thumb_tj" class="dfinput" readonly="" value="{$list[thumb_tj]}" />
-      <div id="img_tj_div" style="background:url('{$a|imgurl=###,150}') no-repeat;background-size:100% 100%"><img src="{$list[thumb_tj]}" width="100%"  alt="" id="img_tj1" /></div>
-    </li>
-    <li class="tj_img" <if condition="$list[level] == 2">style="display:block"</if>><label>&nbsp;</label>
-        <input  type="button" class="btn" value="上传" onclick="$('.select_img_tj,#fun').show();"/>
-        <input  type="button" class="btn" value="删除" onclick="del_img('thumb_tj','img_tj1')"/>
-    </li>
-
-    <li><label>描述<b>*</b></label>
-    
-
-    <textarea id="content7" name="content" style="width:700px;height:250px;visibility:hidden;" >{$list[content]}</textarea>
-    
-    </li>
-
-    <li><label>新闻标签</label><input name="tag" type="text" class="dfinput" value="{$list[tag]}" placeholder="多个标签用空格隔开 例如:  头条 爆料 民生"/></li>
-
-    <li><label>发布时间</label><input name="addtime" type="datetime" class="dfinput" value="{$list[addtime]|default=time()|date='Y-m-d H:i:s',###}
+    <li><label>编辑时间</label><input name="addtime" type="text" class="dfinput" value="{$lists[edittime]|default=time()|date='Y-m-d H:i:s',###}
 " /></li> 
-    <li><label>排序值</label><input name="listorder" type="number" class="dfinput" value="<if condition="$list[listorder]">{$list[listorder]}<else/>0</if>" placeholder="数字越小 越靠前"/></li> 
+    <li><label>排序值</label><input name="listorder" type="number" class="dfinput" value="<if condition="$lists[listorder]">{$lists[listorder]}<else/>0</if>" placeholder="数字越小 越靠前"/></li> 
 
     <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="马上发布"/></li>
     </ul>
