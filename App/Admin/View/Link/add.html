@@ -30,7 +30,7 @@
         </select>
     </li>
     <li>
-        <label>网站名称</label>
+        <label><span class="f_red">*</span>链接名称:</label>
         <input name="title" id="title" type="text" placeholder="请填写网站名称" class="dfinput" value="{$list[title]}"/>
         <i>
             <select name="level" id="level" style="border: 1px solid rgb(169, 169, 169);">
@@ -41,12 +41,30 @@
         </i>
     </li>
     <li>
-        <label>网站介绍</label>
-        <textarea class="link-textarea" name="introduce" id="introduce">{$list[introduce]}</textarea>
+        <label><span class="f_red">*</span>链接URL:</label>
+        <input name="linkurl" id="linkurl" value="{$list[linkurl]}" type="url" class="dfinput" value="{$list[linkurl]}" placeholder="地址前面必须带http://"/>
     </li>
     <li>
-        <label>网站地址</label>
-        <input name="linkurl" id="linkurl" value="{$list[linkurl]}" type="url" class="dfinput" value="{$list[linkurl]}" placeholder="地址前面必须带http://"/>
+        <label>排序值:</label>
+        <input type="number" name="listorder" value="{$list[listorder]}" id="listorder" placeholder="排序值越大越在前面" class="dfinput" />
+    </li>
+    <li>
+        <label>首页显示:</label>
+        <select name="elite" id="elite" class="dfinput">
+            <option value="1" <if condition="$list[elite] == 1">selected</if>>否</option>
+            <option value="2" <if condition="$list[elite] == 2">selected</if>>是</option>
+        </select>
+    </li>
+    <li>
+        <label>状态:</label>
+        <select name="status" id="status" class="dfinput">
+            <option value="1" <if condition="$list[status] == 1">selected</if>>待审</option>
+            <option value="2" <if condition="$list[status] == 2">selected</if>>通过</option>
+        </select>
+    </li>
+    <li>
+        <label>备注信息:</label>
+        <textarea class="link-textarea" name="introduce" id="introduce">{$list[introduce]}</textarea>
     </li>
     <li>
         <label>&nbsp;</label>

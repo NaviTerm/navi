@@ -79,7 +79,7 @@ $(".form_seva").click(function(){
             <span><img src="{$Think.AD_SKIN}images/t01.png" /></span>添加友链
         </li>
         <li class="form_seva">
-            <span><img src="{$Think.AD_SKIN}images/t02.png" /></span>更新排序
+            <span><img src="{$Think.AD_SKIN}images/t02.png" /></span>更新
         </li>
 <!--         <li class="click"><span><img src="{$Think.AD_SKIN}images/t02.png" /></span>修改</li>
         <li><span><img src="{$Think.AD_SKIN}images/t03.png" /></span>删除</li>
@@ -97,22 +97,34 @@ $(".form_seva").click(function(){
     <table class="imgtable">
         <thead>
             <tr>
-                <th width="100"><input type="checkbox" id="Qx" /></th>    
-                <th width="150">排序</th>
+                <th width="50">
+                    <input type="checkbox" id="Qx" />
+                </th>
+                <th width="50">排序</th>
+                <th>首页</th>
                 <th width="150">分类</th>
                 <th width="150">等级</th>
                 <th>标题</th>
-                <th>操作</th>    
+                <th>URL</th>
+                <th width="50">备注</th>
+                <th width="50">状态</th>
+                <th>操作</th>
             </tr>
         </thead>
         <tbody>
         <foreach name="lists" item="t">
             <tr>
-                <td width="100">
-                    <input type="checkbox" name="{$t[itemid]}" value="{$t[itemid]}">
+                <td width="50">
+                    <input type="checkbox" name="itemid_{$t[itemid]}" value="{$t[itemid]}">
                 </td>    
-                <td class="imgtd" width="150">
-                    <input type="text" size="2" name="{$t[itemid]}" value="{$t[listorder]}">
+                <td class="imgtd" width="50">
+                    <input type="text" size="2" name="listorder_{$t[itemid]}" value="{$t[listorder]}">
+                </td>
+                <td>
+                    <select name="elite_{$t[itemid]}"  style="border: 1px solid gray">
+                        <option value="1" <if condition="$t[elite] == 1">selected</if>>否</option>
+                        <option value="2" <if condition="$t[elite] == 2">selected</if>>是</option>
+                    </select>
                 </td>
                 <td width="150">
                     {$t[typeid]|get_typeid_name}
@@ -123,7 +135,20 @@ $(".form_seva").click(function(){
                 <td>
                     {$t[title]}
                     <p>添加时间：{$t[addtime]|date='Y-m-d H:i:s',###}</p>
-                </td> 
+                </td>
+                <td>
+                    {$t[linkurl]}
+                </td>
+                <td>
+                    <if condition="$t[introduce]">有<else />无</if>
+                </td>
+                <td>
+                    <if condition="$t[status] == 2">
+                    <span style="color: green;">通过</span>
+                    <else />
+                    <span style="color red;">待审核</span>
+                    </if>
+                </td>
                 <td>
                     <a href="{:U('admin/link/update',array('itemid'=>$t[itemid]))}">编辑</a>&nbsp;&nbsp;
                     <a href="{:U('admin/link/delete',array('itemid'=>$t[itemid]))}">删除</a>
