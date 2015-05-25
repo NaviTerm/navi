@@ -1,0 +1,114 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
+<meta name="viewport" content="width=1024" />
+<title>服务_我的网站！建荣博客:www.njro168.com</title>
+<meta name="keywords" content="建荣博客:www.njro168.com" />
+<meta name="description" content="建荣博客:www.njro168.com" />      
+<link rel="stylesheet" href="{$Think.DH_SKIN}css/style.css"  type="text/css" />
+<!--[if lt IE 9]>
+	<script type="text/javascript" src="{$Think.DH_SKIN}js/html5.js"></script><![endif]-->
+</head>
+<body >
+
+<include file="Public:header" />
+
+<!-- 查找最顶级栏目  -->
+<section id="single">
+	<!-- 查找子栏目  -->
+	<div class="cat_title">
+		<div class="wrapper">
+			<h2><strong>Message</strong>在线留言</h2>
+			<p><br/>Online message</p>
+		</div>
+	</div>
+	<div class="cate_abso">
+		<a href="about.html" class="news_category">关于我们</a>
+		<a href="contact.html" class="news_category">联系我们</a>
+		<a href="message.html" class="news_category">在线留言</a>
+		<a href="link.html" class="news_category">友情链接</a>
+		<a href="advan.html" class="news_category">我们的优势</a>
+    </div>
+	<article class="serv_detailed">
+    	<div id="detailed">
+    		<form action="{:U('home/message/add')}" method="post">
+    		<ul class="message">
+    			<li class="class">
+    				<span class="fl">类型:</span>
+    				<span class="radio fr">
+    					<input type="radio" value="问题" name="typeid" checked="checked">问题
+    					<input type="radio" value="建议" name="typeid">建议
+    					<input type="radio" value="合作" name="typeid">合作
+    					<input type="radio" value="投诉" name="typeid">投诉
+    				</span>
+    			</li>
+    			<li>
+    				<span class="fl">
+    				<span class="f_red">*</span>
+    					内容:
+    				</span>
+    				<span class="radio fr">
+    					<textarea name="content" id="content" style="width:368px;height:100px;"></textarea>
+    				</span>
+    			</li>
+    			<li>
+    				<span class="fl">
+    				<span class="f_red">*</span>
+    					联系人:
+    				</span>
+    				<span class="radio fr">
+    					<input type="text" name="truename" id="truename" size="30" value="Origin" class="mess-text">
+    				</span>
+    			</li>
+    			<li>
+    				<span class="fl">
+    				<span class="f_red">*</span>
+    					手机号码:
+    				</span>
+    				<span class="radio fr">
+    					<input type="text" name="telephone" id="telephone" size="30" value="13642482411" class="mess-text">
+    				</span>
+    			</li>
+    			<li>
+    				<span class="fl">
+    					QQ:
+    				</span>
+    				<span class="radio fr">
+    					<input type="text" name="qq" id="qq" size="20" value="854598416" class="mess-text">
+    				</span>
+    			</li>
+    			<li>
+    				<span class="fl">
+    					Email:
+    				</span>
+    				<span class="radio fr">
+    					<input type="text" name="email" id="email" size="30" value="854598416@qq.com" class="mess-text">
+    				</span>
+    			</li>
+    			<li>
+    				<input type="submit" value="提交" class="submit">
+    			</li>
+    		</ul>
+    		</form>
+    	</div>
+	</article>
+</section>
+
+<include file="Public:footer" />
+
+<div class="bottom_tools">
+	<a href="http://qiao.baidu.com/v3/?module=default&controller=im&action=index&ucid=1588640&type=n&siteid=6550019" class="kf_tools" target="_blank">客服</a>
+	<a href="javascrip:void(0);" class="qr_tool">二维码</a>
+	<a href="http://www.pibu.com/services/advise.html" target="_blank" title="意见、建议、反馈、投诉、举报等" class="feedback">意见反馈</a>
+	<a href="javascript:void(0);" id="scrollup" title="返回页面顶部" class="scrollup"></a>
+	<div class="qrcode_box" style="display: none;"></div>
+</div>
+<script type="text/javascript" src="js/jquery.1.8.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.plugin.min.js"></script>
+<!--[if IE 6]>
+<script type="text/javascript" src="js/killie6.js"></script>
+<![endif]-->
+<script type="text/javascript" src="js/mouse.js"></script>
+</body>
+</html>

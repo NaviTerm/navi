@@ -1,0 +1,101 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
+<meta name="viewport" content="width=1024" />
+<title>新闻_我的网站</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />      
+<link rel="stylesheet" href="{$Think.DH_SKIN}css/style.css" type="text/css" media="all" />
+<!--[if lt IE 9]><script type="text/javascript" src="../js/html5.js" ></script><![endif]-->
+</head>
+<body>
+
+
+<include file="Public:header" />
+
+
+<section id="newslist">
+	<div class="cat_title">
+		<div class="wrapper">
+			<h2><strong>NEWS</strong>新闻</h2>
+			<p>最近正在折腾...<br/>Recently is to do ...</p>
+		</div>
+		<div class="cate_abso">
+            <volist name="Category" id="Category">
+                <a href="{:U('index?c='.$Category['id'])}" class="news_category">{$Category.name}</a>
+            </volist>
+    	</div>
+	</div>
+				<ul class="news wrapper">
+                <volist name="list" id="list">
+                    <li>
+                        <a href="{:U('show?id='.$list['itemid'])}" tppabs="{:U('show?id='.$list['itemid'])}"><img src="{$list.thumb}" tppabs="{$list.thumb}" data-original="" alt="{$list.title}" /></a>
+                        <div class="newslist">
+                            <a href="{:U('show?id='.$list['itemid'])}" tppabs="{:U('show?id='.$list['itemid'])}">{$list.title}</a>
+                            <span>UPTATED: {$list['edittime']|date='Y-m-d',###} </span>
+                            <p>{$list.introduce|msubstr=0,200}</p>
+                        </div>
+                    </li>
+                </volist>
+				</ul>
+
+    <div id="pagination">{$page}</div>
+
+
+
+		 <!--div class="dede_pages">
+			<ul class="pagelist">
+             <li><span class="pageinfo">共 <strong>1</strong>页<strong>4</strong>条记录</span></li>
+
+			</ul>
+		</div--><!-- /pages -->
+            
+            
+	
+</section>
+
+<include file="Public:footer" />
+
+
+<div class="bottom_tools">
+  <a href="http://qiao.baidu.com/v3/?module=default&controller=im&action=index&ucid=1588640&type=n&siteid=6550019" class="kf_tools" target="_blank">客服</a>
+  <a href="javascrip:void(0);" class="qr_tool">二维码</a>
+  <a href="http://www.pibu.com/services/advise.html" target="_blank" title="意见、建议、反馈、投诉、举报等" class="feedback">意见反馈</a>
+  <a href="javascript:void(0);" id="scrollup" title="返回页面顶部" class="scrollup"></a>
+  <div class="qrcode_box" style="display: none;"></div>
+</div>
+<script type="text/javascript" src="../js/jquery.1.8.2.min.js" ></script>
+<script type="text/javascript" src="../js/jquery.plugin.min.js" ></script>
+<!--[if IE 6]>
+<script type="text/javascript" src="../js/killie6.js" ></script>
+<![endif]-->
+
+<script type="text/javascript">
+//<![CDATA[
+	//Nav Start
+	$("header>div>nav>ul>li>a").hover(function(){
+		$(this).parent().stop(false,true).animate({"background-position-x":"6px",opacity:"0.7"},{duration:"normal", easing: "easeOutElastic"});
+	},function(){
+		$(this).parent().stop(false,true).animate({"background-position-x":"10px",opacity:"1"},{duration:"normal", easing: "easeOutElastic"});
+	});
+			<!----新闻---->
+	<!---- 新闻首页 ----->
+		//Nav End
+$("#gotop").click(function(){$('body,html').animate({scrollTop:0},500);})
+	var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+	document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F3fe5b2b119b5fc4931e9c73e7071b0c6' type='text/javascript'%3E%3C/script%3E"));
+	var bds_config = {"bdTop":203};
+	$("#bdshell_js").attr("src","http://share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours());
+$("#scrollup").click(function(){$('body,html').animate({scrollTop:0},500);})
+$(".qr_tool").mouseover(function(){
+    $(".qrcode_box").css("display","block");
+});
+$(".qr_tool").mouseout(function(){
+    $(".qrcode_box").css("display","none");
+});
+//]]>
+</script>
+</body>
+</html>

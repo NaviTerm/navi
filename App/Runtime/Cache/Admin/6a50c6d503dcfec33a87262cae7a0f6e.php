@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit();?>﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -52,7 +52,7 @@ $(function(){
     <ul class="menuson">
         <li><cite></cite><a href="<?php echo U('article/index');?>" target="rightFrame">文章列表</a><i></i></li>
         <li><cite></cite><a href="<?php echo U('article/add');?>" target="rightFrame">添加文章</a><i></i></li>
-        <li><cite></cite><a href="<?php echo U('article/category');?>" target="rightFrame">文章分类</a><i></i></li>
+        <li><cite></cite><a href="<?php echo U('category/index');?>" target="rightFrame">文章分类</a><i></i></li>
         <li id="change"><cite></cite><a href="<?php echo U('article/change');?>" target="rightFrame" >回收站</a><i></i></li>
         </ul>     
     </dd> 
@@ -62,10 +62,8 @@ $(function(){
     <span><img src="<?php echo (AD_SKIN); ?>images/leftico02.png" /></span>单页管理
     </div>
     <ul class="menuson">
-        <li><cite></cite><a href="<?php echo U('article/index');?>" target="rightFrame">单页列表</a><i></i></li>
-        <li><cite></cite><a href="<?php echo U('article/add');?>" target="rightFrame">添加单页</a><i></i></li>
-        <li><cite></cite><a href="<?php echo U('article/category');?>" target="rightFrame">单页分类</a><i></i></li>
-        <li><cite></cite><a href="<?php echo U('article/huishou');?>" target="rightFrame" id="">回收站</a><i></i></li>
+        <li><cite></cite><a href="<?php echo U('page/index');?>" target="rightFrame">单页列表</a><i></i></li>
+        <li><cite></cite><a href="<?php echo U('page/add');?>" target="rightFrame">添加单页</a><i></i></li>
         </ul>     
     </dd>
 
@@ -86,10 +84,28 @@ $(function(){
     <span><img src="<?php echo (AD_SKIN); ?>images/leftico02.png" /></span>友情链接
     </div>
     <ul class="menuson">
-        <li><cite></cite><a href="<?php echo U('news/index');?>" target="rightFrame">链接列表</a><i></i></li>
-        <li><cite></cite><a href="<?php echo U('news/add');?>" target="rightFrame">添加链接</a><i></i></li>
-        <li><cite></cite><a href="<?php echo U('news/category');?>" target="rightFrame">链接分类</a><i></i></li>
-        <li><cite></cite><a href="<?php echo U('news/huishou');?>" target="rightFrame">回收站</a><i></i></li>
+        <li><cite></cite><a href="<?php echo U('link/index');?>" target="rightFrame">链接列表</a><i></i></li>
+        <li><cite></cite><a href="<?php echo U('link/add');?>" target="rightFrame">添加链接</a><i></i></li>
+        </ul>     
+    </dd>
+
+    <dd>
+    <div class="title">
+    <span><img src="<?php echo (AD_SKIN); ?>images/leftico02.png" /></span>企业历程
+    </div>
+    <ul class="menuson">
+        <li><cite></cite><a href="<?php echo U('course/index');?>" target="rightFrame">历程列表</a><i></i></li>
+        <li><cite></cite><a href="<?php echo U('course/add');?>" target="rightFrame">添加历程</a><i></i></li>
+        </ul>     
+    </dd>
+
+    <dd>
+    <div class="title">
+    <span><img src="<?php echo (AD_SKIN); ?>images/leftico02.png" /></span>留言管理
+    </div>
+    <ul class="menuson">
+        <li><cite></cite><a href="<?php echo U('message/index');?>" target="rightFrame">留言列表</a><i></i></li>
+        <li><cite></cite><a href="<?php echo U('message/add');?>" target="rightFrame">添加留言</a><i></i></li>
         </ul>     
     </dd>
 

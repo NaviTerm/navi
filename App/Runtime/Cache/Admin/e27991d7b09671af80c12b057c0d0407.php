@@ -21,17 +21,57 @@ $(document).ready(function(){
   $(".cancel").click(function(){
   $(".tip").fadeOut(100);
 });
-$("#checkall").click(function() { 
-var flag = $(this).attr("checked"); 
-$("[name=check_input]:checkbox").each(function() { 
-$(this).attr("checked", flag); 
-});
-});
 $('.menuson li').remove('active');
 $('#change').addClass('active');
 });
 </script>
-
+<script type="text/javascript">
+$(function(){
+     $('.del_all').click(function(){
+            var result = confirm('确定要恢复所选文章吗?');
+            var id = '';
+            if(result){
+                $("[name=input_check]:checked").each(function() { 
+                   id = id+',' + $(this).val();
+                });
+                if (id != '' && id.substr(0,1)==','){
+                    id=id.substr(1);
+                    $.ajax({
+                        url:'<?php echo U("article/change");?>',
+                        type:'POST',
+                        data:{itemid:id,type:'back'},
+                        success:function(data){
+                            // var arr = id.split(',');
+                            // for (var i = arr.length - 1; i >= 0; i--) {
+                            //     $('#tr_'+arr[i]).remove();
+                            // };
+                            alert('恢复成功');
+                            location.reload();//直接刷新页面
+                            // console.log(data);
+                        },
+                        error:function(data){
+                            // console.log("错了");
+                            alert('删除失败,请刷新页面后重试');
+                        }
+                    });                    
+                }else{
+                    alert('请选择待恢复的文章!');
+                }
+                // console.log(id);
+            }
+      });
+      $("#checkall").click(function() { 
+            var flag = $(this).attr("checked"); 
+            $("[name=input_check]:checkbox").each(function() { 
+                $(this).attr("checked", flag); 
+          });
+      });
+      $('.huifu').click(function(){
+        alert('功能开发中 , 敬请期待');
+      })
+      
+})
+</script>
 
 </head>
 
@@ -52,15 +92,10 @@ $('#change').addClass('active');
     <div class="tools">
     
     	<ul class="toolbar">
-        <li class="click"><span><img src="<?php echo (AD_SKIN); ?>images/t01.png" /></span>添加</li>
-<!--         <li class="click"><span><img src="<?php echo (AD_SKIN); ?>images/t02.png" /></span>修改</li>
-<li><span><img src="<?php echo (AD_SKIN); ?>images/t03.png" /></span>删除</li>
+        <li class="del_all"><span><img src="<?php echo (AD_SKIN); ?>images/t01.png" /></span>一键恢复</li>
+        <!-- <li class="click"><span><img src="<?php echo (AD_SKIN); ?>images/t02.png" /></span></li> -->
+<!-- <li><span><img src="<?php echo (AD_SKIN); ?>images/t03.png" /></span>删除</li>
 <li><span><img src="<?php echo (AD_SKIN); ?>images/t04.png" /></span>统计</li> -->
-        </ul>
-        
-        
-        <ul class="toolbar1">
-        <li><span><img src="<?php echo (AD_SKIN); ?>images/t05.png" /></span>设置</li>
         </ul>
     
     </div>
@@ -81,7 +116,7 @@ $('#change').addClass('active');
         </thead>
         <tbody>
 <?php if(is_array($lists)): foreach($lists as $key=>$t): ?><tr>
-        <td><input name="check_input" type="checkbox" value="" /></td>
+        <td><input name="input_check" type="checkbox" value="<?php echo ($t[itemid]); ?>" /></td>
         <td><?php echo ($t['itemid']); ?></td>
         <td><?php echo ($t['title']); ?></td>
         <td><?php echo ($t['username']); ?></td>

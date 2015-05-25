@@ -155,7 +155,8 @@ $(document).ready(function(e) {
   	<div id="tab1" class="tabson">
     
     <div class="formtext">Hi，<b><?php if($_user['truename']): echo ($_user['truename']); else: echo ($_user['username']); endif; ?></b>，欢迎您使用新闻发布功能！</div>
-<form action="<?php echo U('admin/article/add');?>" method="post" enctype="multipart/form-data">
+<form action="<?php if($list): echo U('admin/article/update'); else: echo U('admin/article/add'); endif; ?>" method="post" enctype="multipart/form-data">
+<?php if($list[itemid]): ?><input type="hidden" name="itemid" value="<?php echo ($list['itemid']); ?>" /><?php endif; ?>
     <ul class="forminfo">
     <li><label>标题<b>*</b></label><input name="title" type="text" class="dfinput" value="<?php echo ($list[title]); ?>"  placeholder="请填写标题" style="width:576px;" required="required"/></li>
    
@@ -209,7 +210,7 @@ $(document).ready(function(e) {
 
     <li><label>发布时间</label><input name="addtime" type="datetime" class="dfinput" value="<?php echo (date('Y-m-d H:i:s',(isset($list[addtime]) && ($list[addtime] !== ""))?($list[addtime]):time())); ?>
 " /></li> 
-    <li><label>排序值</label><input name="listorder" type="number" class="dfinput" value="<?php if($list[listorder]): echo ($list[order]); else: ?>0<?php endif; ?>" placeholder="数字越小 越靠前"/></li> 
+    <li><label>排序值</label><input name="listorder" type="number" class="dfinput" value="<?php if($list[listorder]): echo ($list[listorder]); else: ?>0<?php endif; ?>" placeholder="数字越小 越靠前"/></li> 
 
     <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="马上发布"/></li>
     </ul>
