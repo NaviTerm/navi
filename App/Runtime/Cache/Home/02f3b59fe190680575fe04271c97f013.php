@@ -44,7 +44,7 @@
   
   
   
-  <?php if(is_array($show)): $i = 0; $__LIST__ = $show;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$show): $mod = ($i % 2 );++$i;?><h3><?php echo ($show["title"]); ?></h3>
+  <?php if(is_array($show)): $i = 0; $__LIST__ = $show;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$show): $mod = ($i % 2 );++$i;?><h3 class="news_title"><?php echo ($show["title"]); ?></h3>
         <div class="wrapper" id="detailed"> <img alt="" src="<?php echo ($show["thumb"]); ?>" tppabs="<?php echo ($show["thumb"]); ?>" style="width: 1024px; height: 533px;" /><br />
     <p><?php echo ($show["introduce"]); ?></p>
      </div><?php endforeach; endif; else: echo "" ;endif; ?>

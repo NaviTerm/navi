@@ -29,6 +29,11 @@ class NewsController extends Controller {
         //注入变量
         $this->assign( 'Category' , $Category );
 
+        var_dump( $_GET );
+
+
+
+
         //显示试图
         $this->display();
 

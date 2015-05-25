@@ -1,10 +1,10 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
-<link href="{$Think.AD_SKIN}css/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="{$Think.AD_SKIN}js/jquery.js"></script>
+<link href="<?php echo (AD_SKIN); ?>css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="<?php echo (AD_SKIN); ?>js/jquery.js"></script>
 <script language="javascript">
 $(function(){	
 	//导航切换
@@ -55,26 +55,26 @@ $(".form_seva").click(function(){
     <div class="tools">
     
     	<ul class="toolbar">
-        <li onclick="location='{:U('admin/course/add')}'">
-            <span><img src="{$Think.AD_SKIN}images/t01.png" /></span>添加企业历程
+        <li onclick="location='<?php echo U('admin/course/add');?>'">
+            <span><img src="<?php echo (AD_SKIN); ?>images/t01.png" /></span>添加企业历程
         </li>
         <li class="form_seva">
-            <span><img src="{$Think.AD_SKIN}images/t02.png" /></span>更新排序
+            <span><img src="<?php echo (AD_SKIN); ?>images/t02.png" /></span>更新排序
         </li>
 
-<!--         <li class="click"><span><img src="{$Think.AD_SKIN}images/t02.png" /></span>修改</li>
-        <li><span><img src="{$Think.AD_SKIN}images/t03.png" /></span>删除</li>
-        <li><span><img src="{$Think.AD_SKIN}images/t04.png" /></span>统计</li> -->
+<!--         <li class="click"><span><img src="<?php echo (AD_SKIN); ?>images/t02.png" /></span>修改</li>
+        <li><span><img src="<?php echo (AD_SKIN); ?>images/t03.png" /></span>删除</li>
+        <li><span><img src="<?php echo (AD_SKIN); ?>images/t04.png" /></span>统计</li> -->
         </ul>
 <!--         
         
         <ul class="toolbar1">
-        <li><span><img src="{$Think.AD_SKIN}images/t05.png" /></span>设置</li>
+        <li><span><img src="<?php echo (AD_SKIN); ?>images/t05.png" /></span>设置</li>
         </ul> -->
     
     </div>
 
-<form method="post" id="form_seva" action="{:U('course/update_seva')}">
+<form method="post" id="form_seva" action="<?php echo U('course/update_seva');?>">
     <table class="imgtable">
     
     <thead>
@@ -89,21 +89,19 @@ $(".form_seva").click(function(){
     </thead>
     
     <tbody>
-<foreach name='lists' item='t'>
-    <tr>
-    <td>{$t[itemid]}</td>
+<?php if(is_array($lists)): foreach($lists as $key=>$t): ?><tr>
+    <td><?php echo ($t[itemid]); ?></td>
     <td>
-        <input type="text" size="2" name="{$t[itemid]}" value="{$t[listorder]}" style="border: 1px solid gray;">
+        <input type="text" size="2" name="<?php echo ($t[itemid]); ?>" value="<?php echo ($t[listorder]); ?>" style="border: 1px solid gray;">
     </td>  
-    <td class="imgtd"><img src="{$t[thumb]|imgurl=###,150}" /></td>
-    <td><a href="#">{$t[title]}</a><p>发布时间：{$t[addtime]|date='Y-m-d H:i:s',###}</p><p>编辑时间：{$t[edittime]|date='Y-m-d H:i:s',###}</p></td>
-    <td>{$t[dtitle]}</td>
+    <td class="imgtd"><img src="<?php echo (imgurl($t[thumb],150)); ?>" /></td>
+    <td><a href="#"><?php echo ($t[title]); ?></a><p>发布时间：<?php echo (date('Y-m-d H:i:s',$t[addtime])); ?></p><p>编辑时间：<?php echo (date('Y-m-d H:i:s',$t[edittime])); ?></p></td>
+    <td><?php echo ($t[dtitle]); ?></td>
     <td>
-        <a href="{:U('admin/course/update',array('itemid'=>$t[itemid]))}">编辑</a>&nbsp;&nbsp;
-        <a href="{:U('admin/course/delete',array('itemid'=>$t[itemid]))}">删除</a>
+        <a href="<?php echo U('admin/course/update',array('itemid'=>$t[itemid]));?>">编辑</a>&nbsp;&nbsp;
+        <a href="<?php echo U('admin/course/delete',array('itemid'=>$t[itemid]));?>">删除</a>
     </td>
-    </tr>
-</foreach>
+    </tr><?php endforeach; endif; ?>
     
     </tbody>
     
@@ -115,9 +113,9 @@ $(".form_seva").click(function(){
     
    
     <div class="pagin">
-        <div class="message">共<i class="blue">{$count}</i>条记录</div>
+        <div class="message">共<i class="blue"><?php echo ($count); ?></i>条记录</div>
        <div class="page">
-           {$page}
+           <?php echo ($page); ?>
        </div>
     </div>
     
@@ -126,7 +124,7 @@ $(".form_seva").click(function(){
     	<div class="tiptop"><span>提示信息</span><a></a></div>
         
       <div class="tipinfo">
-        <span><img src="{$Think.AD_SKIN}images/ticon.png" /></span>
+        <span><img src="<?php echo (AD_SKIN); ?>images/ticon.png" /></span>
         <div class="tipright">
         <p>是否确认对信息的修改 ？</p>
         <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
@@ -149,7 +147,7 @@ $(".form_seva").click(function(){
     	<div class="tiptop"><span>提示信息</span><a></a></div>
         
       <div class="tipinfo">
-        <span><img src="{$Think.AD_SKIN}images/ticon.png" /></span>
+        <span><img src="<?php echo (AD_SKIN); ?>images/ticon.png" /></span>
         <div class="tipright">
         <p>是否确认对信息的修改 ？</p>
         <cite>如果是请点击确定按钮 ，否则请点取消。</cite>

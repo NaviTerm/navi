@@ -26,7 +26,7 @@
 <header>
     <div id="navbg"></div>
     <div class="wrapper">
-        <h1 class="logo"><a href="../../index.htm"  title="建荣博客:www.njro168.com"><img src="<?php echo (DH_SKIN); ?>images/logo.png"  width="213" height="36" alt="建荣博客:www.njro168.com" /></a></h1>
+        <h1 class="logo"><a href="<?php echo U('./index');?>"  title="建荣博客:www.njro168.com"><img src="<?php echo (DH_SKIN); ?>images/logo.png"  width="213" height="36" alt="建荣博客:www.njro168.com" /></a></h1>
         <nav>
             <ul>
                 <li class="home"><a href="<?php echo U('./index');?>" >首页<span>网站首页！</span></a></li>
@@ -54,68 +54,17 @@
 		<div id="detailed" style="background:#222222;width:100%;">
 			<div id="timeline">
 				<ul id="dates">
-					<li><a href="#">1900</a></li>
-					<li><a href="#">1930</a></li>
-					<li><a href="#">1944</a></li>
-					<li><a href="#">1950</a></li>
-					<li><a href="#">1971</a></li>
-					<li><a href="#">1977</a></li>
-					<li><a href="#">1989</a></li>
-					<li><a href="#">1999</a></li>
-					<li><a href="#">2001</a></li>
-					<li><a href="#">2011</a></li>
+                    <?php if(is_array($Course)): $i = 0; $__LIST__ = $Course;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$Course): $mod = ($i % 2 );++$i;?><li><a href="#"><?php echo ($Course["dtitle"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
 				</ul>
 				<ul id="issues">
-					<li id="#1900">
-						<img src="images/1.png" width="256" height="256" />
-						<h1>1900</h1>
-						<p>Donec semper quam scelerisque tortor dictum gravida. In hac habitasse platea dictumst. Nam pulvinar, odio sed rhoncus suscipit, sem diam ultrices mauris, eu consequat purus metus eu velit. Proin metus odio, aliquam eget molestie nec, gravida ut sapien. Phasellus quis est sed turpis sollicitudin venenatis sed eu odio. Praesent eget neque eu eros interdum malesuada non vel leo. Sed fringilla porta ligula.</p>
-					</li>
-					<li id="#1930">
-						<img src="images/2.png" width="256" height="256" />
-						<h1>1930</h1>
-						<p>Donec semper quam scelerisque tortor dictum gravida. In hac habitasse platea dictumst. Nam pulvinar, odio sed rhoncus suscipit, sem diam ultrices mauris, eu consequat purus metus eu velit. Proin metus odio, aliquam eget molestie nec, gravida ut sapien. Phasellus quis est sed turpis sollicitudin venenatis sed eu odio. Praesent eget neque eu eros interdum malesuada non vel leo. Sed fringilla porta ligula.</p>
-					</li>
-					<li id="#1944">
-						<img src="images/3.png" width="256" height="256" />
-						<h1>1944</h1>
-						<p>Donec semper quam scelerisque tortor dictum gravida. In hac habitasse platea dictumst. Nam pulvinar, odio sed rhoncus suscipit, sem diam ultrices mauris, eu consequat purus metus eu velit. Proin metus odio, aliquam eget molestie nec, gravida ut sapien. Phasellus quis est sed turpis sollicitudin venenatis sed eu odio. Praesent eget neque eu eros interdum malesuada non vel leo. Sed fringilla porta ligula.</p>
-					</li>
-					<li id="#1950">
-						<img src="images/4.png" width="256" height="256" />
-						<h1>1950</h1>
-						<p>Donec semper quam scelerisque tortor dictum gravida. In hac habitasse platea dictumst. Nam pulvinar, odio sed rhoncus suscipit, sem diam ultrices mauris, eu consequat purus metus eu velit. Proin metus odio, aliquam eget molestie nec, gravida ut sapien. Phasellus quis est sed turpis sollicitudin venenatis sed eu odio. Praesent eget neque eu eros interdum malesuada non vel leo. Sed fringilla porta ligula.</p>
-					</li>
-					<li id="#1971">
-						<img src="images/5.png" width="256" height="256" />
-						<h1>1971</h1>
-						<p>Donec semper quam scelerisque tortor dictum gravida. In hac habitasse platea dictumst. Nam pulvinar, odio sed rhoncus suscipit, sem diam ultrices mauris, eu consequat purus metus eu velit. Proin metus odio, aliquam eget molestie nec, gravida ut sapien. Phasellus quis est sed turpis sollicitudin venenatis sed eu odio. Praesent eget neque eu eros interdum malesuada non vel leo. Sed fringilla porta ligula.</p>
-					</li>
-					<li id="#1977">
-						<img src="images/6.png" width="256" height="256" />
-						<h1>1977</h1>
-						<p>Donec semper quam scelerisque tortor dictum gravida. In hac habitasse platea dictumst. Nam pulvinar, odio sed rhoncus suscipit, sem diam ultrices mauris, eu consequat purus metus eu velit. Proin metus odio, aliquam eget molestie nec, gravida ut sapien. Phasellus quis est sed turpis sollicitudin venenatis sed eu odio. Praesent eget neque eu eros interdum malesuada non vel leo. Sed fringilla porta ligula.</p>
-					</li>
-					<li id="#1989">
-						<img src="images/7.png" width="256" height="256" />
-						<h1>1989</h1>
-						<p>Donec semper quam scelerisque tortor dictum gravida. In hac habitasse platea dictumst. Nam pulvinar, odio sed rhoncus suscipit, sem diam ultrices mauris, eu consequat purus metus eu velit. Proin metus odio, aliquam eget molestie nec, gravida ut sapien. Phasellus quis est sed turpis sollicitudin venenatis sed eu odio. Praesent eget neque eu eros interdum malesuada non vel leo. Sed fringilla porta ligula.</p>
-					</li>
-					<li id="#1999">
-						<img src="images/8.png" width="256" height="256" />
-						<h1>1999</h1>
-						<p>Donec semper quam scelerisque tortor dictum gravida. In hac habitasse platea dictumst. Nam pulvinar, odio sed rhoncus suscipit, sem diam ultrices mauris, eu consequat purus metus eu velit. Proin metus odio, aliquam eget molestie nec, gravida ut sapien. Phasellus quis est sed turpis sollicitudin venenatis sed eu odio. Praesent eget neque eu eros interdum malesuada non vel leo. Sed fringilla porta ligula.</p>
-					</li>
-					<li id="#2001">
-						<img src="images/9.png" width="256" height="256" />
-						<h1>2001</h1>
-						<p>Donec semper quam scelerisque tortor dictum gravida. In hac habitasse platea dictumst. Nam pulvinar, odio sed rhoncus suscipit, sem diam ultrices mauris, eu consequat purus metus eu velit. Proin metus odio, aliquam eget molestie nec, gravida ut sapien. Phasellus quis est sed turpis sollicitudin venenatis sed eu odio. Praesent eget neque eu eros interdum malesuada non vel leo. Sed fringilla porta ligula.</p>
-					</li>
-					<li id="#2011">
-						<img src="images/10.png" width="256" height="256" />
-						<h1>2011</h1>
-						<p>Donec semper quam scelerisque tortor dictum gravida. In hac habitasse platea dictumst. Nam pulvinar, odio sed rhoncus suscipit, sem diam ultrices mauris, eu consequat purus metus eu velit. Proin metus odio, aliquam eget molestie nec, gravida ut sapien. Phasellus quis est sed turpis sollicitudin venenatis sed eu odio. Praesent eget neque eu eros interdum malesuada non vel leo. Sed fringilla porta ligula.</p>
-					</li>
+                    <volist>
+                        <li id="#<?php echo ($Course["dtitle"]); ?>">
+                            <img src="<?php echo ($Course["thumb"]); ?>" width="256" height="256" />
+                            <h1><?php echo ($Course["dtitle"]); ?></h1>
+                            <p><?php echo ($Course["content"]); ?></p>
+                        </li>
+                    </volist>
+
 				</ul>
 				<div id="grad_left"></div>
 				<div id="grad_right"></div>
@@ -192,10 +141,10 @@
 	<div class="qrcode_box" style="display: none;"></div>
 </div>
 
-<script type="text/javascript" src="js/jquery.plugin.min.js"></script>
+<script type="text/javascript" src="<?php echo (DH_SKIN); ?>js/jquery.plugin.min.js"></script>
 <!--[if IE 6]>
-<script type="text/javascript" src="js/killie6.js"></script>
+<script type="text/javascript" src="<?php echo (DH_SKIN); ?>js/killie6.js"></script>
 <![endif]-->
-<script type="text/javascript" src="js/mouse.js"></script>
+<script type="text/javascript" src="<?php echo (DH_SKIN); ?>js/mouse.js"></script>
 </body>
 </html>

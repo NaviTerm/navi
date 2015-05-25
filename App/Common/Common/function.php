@@ -104,3 +104,8 @@ function msubstr($str, $start=0, $length, $charset="utf-8", $suffix=true) {
     }
     return $suffix ? $slice.'...' : $slice;
 }
+
+/* 过滤html */
+function filter_default(&$value){
+    $value = htmlspecialchars($value);
+}

@@ -422,6 +422,8 @@ footer{clear:both;}
 .dede_pages ul li{ float:left; margin:0 3px; background:#ccc; padding:3px 8px}
 .dede_pages ul li a{ display:block; background:#ccc;color:#999}
 
+.news_title{ text-align: center; line-height: 30px; font-size: 18px; }
+
 
 
 #pagination{ width:30%; height:30px; line-height: 30px;  margin: 0 auto; }

@@ -1,14 +1,14 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
-<link href="{$Think.AD_SKIN}css/style.css" rel="stylesheet" type="text/css" />
-<link href="{$Think.AD_SKIN}css/select.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="{$Think.AD_SKIN}js/jquery.js"></script>
-<script type="text/javascript" src="{$Think.AD_SKIN}js/jquery.idTabs.min.js"></script>
-<script type="text/javascript" src="{$Think.AD_SKIN}js/select-ui.min.js"></script>
-<script type="text/javascript" src="{$Think.AD_SKIN}editor/kindeditor.js"></script>
+<link href="<?php echo (AD_SKIN); ?>css/style.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo (AD_SKIN); ?>css/select.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="<?php echo (AD_SKIN); ?>js/jquery.js"></script>
+<script type="text/javascript" src="<?php echo (AD_SKIN); ?>js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="<?php echo (AD_SKIN); ?>js/select-ui.min.js"></script>
+<script type="text/javascript" src="<?php echo (AD_SKIN); ?>editor/kindeditor.js"></script>
 <script type="text/javascript">
     KE.show({
         id : 'content7',
@@ -154,14 +154,14 @@ $(document).ready(function(e) {
     
   	<div id="tab1" class="tabson">
     
-    <div class="formtext">Hi，<b><if condition="$_user['truename']">{$_user['truename']}<else />{$_user['username']}</if></b>，欢迎您使用企业历程发布功能！</div>
-<form action="<if condition="$list">{:U('course/update')}<else />{:U('course/add')}</if>" method="post" enctype="multipart/form-data">
-    <input type="hidden" name="itemid" value="{$list[itemid]}" />
+    <div class="formtext">Hi，<b><?php if($_user['truename']): echo ($_user['truename']); else: echo ($_user['username']); endif; ?></b>，欢迎您使用企业历程发布功能！</div>
+<form action="<?php if($list): echo U('course/update'); else: echo U('course/add'); endif; ?>" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="itemid" value="<?php echo ($list[itemid]); ?>" />
     <ul class="forminfo">
-    <li><label>标题<b>*</b></label><input name="title" type="text" class="dfinput" value="{$list[title]}"  placeholder="请填写标题" style="width:576px;" required="required"/></li>
+    <li><label>标题<b>*</b></label><input name="title" type="text" class="dfinput" value="<?php echo ($list[title]); ?>"  placeholder="请填写标题" style="width:576px;" required="required"/></li>
    
-    <li style="position: relative;"><label>标题图片</label><input type="text" name="thumb" id="thumb" class="dfinput" readonly="" value="{$list[thumb]}" />
-      <div id="img_div"style="background:url('{$a|imgurl=###,150}') no-repeat;background-size:100% 100%"><img src="{$list[thumb]}" alt="" id="img1" width="100%"/></div>
+    <li style="position: relative;"><label>标题图片</label><input type="text" name="thumb" id="thumb" class="dfinput" readonly="" value="<?php echo ($list[thumb]); ?>" />
+      <div id="img_div"style="background:url('<?php echo (imgurl($a,150)); ?>') no-repeat;background-size:100% 100%"><img src="<?php echo ($list[thumb]); ?>" alt="" id="img1" width="100%"/></div>
     </li>
     <li><label>&nbsp;</label>
         <input  type="button" class="btn" value="上传" onclick="$('.select_img,#fun').show();"/>
@@ -170,20 +170,20 @@ $(document).ready(function(e) {
 
     <li>
       <label>年份<b>*</b></label>  
-      <input type="number" name="dtitle" id="dtitle" class="dfinput" value="{$list[dtitle]}" placeholder="请填写年份 例如日期2015" />
+      <input type="number" name="dtitle" id="dtitle" class="dfinput" value="<?php echo ($list[dtitle]); ?>" placeholder="请填写年份 例如日期2015" />
     </li>
 
     <li><label>描述<b>*</b></label>
     
 
-    <textarea id="content7" name="content" style="width:700px;height:250px;visibility:hidden;" >{$list[content]}</textarea>
+    <textarea id="content7" name="content" style="width:700px;height:250px;visibility:hidden;" ><?php echo ($list[content]); ?></textarea>
     
     </li>
 
-    <li><label>发布时间</label><input name="addtime" type="datetime" class="dfinput" value="{$list[addtime]|default=time()|date='Y-m-d H:i:s',###}
+    <li><label>发布时间</label><input name="addtime" type="datetime" class="dfinput" value="<?php echo (date('Y-m-d H:i:s',(isset($list[addtime]) && ($list[addtime] !== ""))?($list[addtime]):time())); ?>
 " /></li> 
 
-    <li><label>排序值</label><input name="listorder" type="number" class="dfinput" value="<if condition="$list[listorder]">{$list[listorder]}<else/>0</if>" placeholder="数字越小 越靠前"/></li> 
+    <li><label>排序值</label><input name="listorder" type="number" class="dfinput" value="<?php if($list[listorder]): echo ($list[listorder]); else: ?>0<?php endif; ?>" placeholder="数字越小 越靠前"/></li> 
 
     <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="马上发布"/></li>
     </ul>
@@ -194,7 +194,7 @@ $(document).ready(function(e) {
 	</div>
  <div class="select_img">
      <ul>
-     <form name="uploadfrom" id="uploadfrom" action="{:U('admin/images/imgup',array('formname'=>'img','id'=>'thumb'))}" method="post"  enctype="multipart/form-data" target="tarframe">
+     <form name="uploadfrom" id="uploadfrom" action="<?php echo U('admin/images/imgup',array('formname'=>'img','id'=>'thumb'));?>" method="post"  enctype="multipart/form-data" target="tarframe">
          <li><h3>图片上传</h3></li>
          <li>本地图片:<input type="file" name="img"  id="img" value="" /></li>
          <li><span>宽度:<input type="text" name="width" id="width" value="400" /></span><span>高度:<input type="text" name="height" id="height" value="400" /></span></li>
@@ -241,7 +241,7 @@ $(document).ready(function(e) {
       var src = $('#'+src_id).val();
       // alert(src);
       $.ajax({
-        url:"{:U('admin/article/del_img')}",
+        url:"<?php echo U('admin/article/del_img');?>",
         type:'post',
         data:{src:src},
         success:function(data){

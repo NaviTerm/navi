@@ -457,3 +457,147 @@ ERR: 无法加载控制器:Js
 [ 2015-05-25T14:46:32+08:00 ] 127.0.0.1 /js/jquery.plugin.min.js
 ERR: 无法加载控制器:Js
 
+[ 2015-05-25T15:14:25+08:00 ] 127.0.0.1 /index.htm
+ERR: 无法加载控制器:Index.htm
+
+[ 2015-05-25T15:14:28+08:00 ] 127.0.0.1 /index.htm
+ERR: 无法加载控制器:Index.htm
+
+[ 2015-05-25T15:14:28+08:00 ] 127.0.0.1 /index.htm
+ERR: 无法加载控制器:Index.htm
+
+[ 2015-05-25T15:14:28+08:00 ] 127.0.0.1 /index.htm
+ERR: 无法加载控制器:Index.htm
+
+[ 2015-05-25T15:14:31+08:00 ] 127.0.0.1 /index.htm
+ERR: 无法加载控制器:Index.htm
+
+[ 2015-05-25T15:14:58+08:00 ] 127.0.0.1 /admin/course/update/itemid/index.css
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'index.css' in 'where clause'
+
+[ 2015-05-25T15:15:45+08:00 ] 127.0.0.1 /admin/course/index.css
+ERR: 非法操作:index.css
+
+[ 2015-05-25T15:17:44+08:00 ] 127.0.0.1 /course/index.css
+ERR: 非法操作:index.css
+
+[ 2015-05-25T15:25:13+08:00 ] 127.0.0.1 /admin/course/index.css
+ERR: 非法操作:index.css
+
+[ 2015-05-25T15:25:31+08:00 ] 127.0.0.1 /course/index.css
+ERR: 非法操作:index.css
+
+[ 2015-05-25T15:53:33+08:00 ] 127.0.0.1 /admin/course/update/itemid/index.css
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'index.css' in 'where clause'
+
+[ 2015-05-25T15:58:04+08:00 ] 127.0.0.1 /Public/Home/js/jquery-1.6.2.min.js
+ERR: 无法加载控制器:Public
+
+[ 2015-05-25T15:58:20+08:00 ] 127.0.0.1 /Public/Home/js/jquery-1.6.2.min.js
+ERR: 无法加载控制器:Public
+
+[ 2015-05-25T16:18:36+08:00 ] 127.0.0.1 /js/jquery.1.8.2.min.js
+ERR: 无法加载控制器:Js
+
+[ 2015-05-25T16:18:36+08:00 ] 127.0.0.1 /js/jquery.plugin.min.js
+ERR: 无法加载控制器:Js
+
+[ 2015-05-25T16:24:19+08:00 ] 127.0.0.1 /js/jquery.plugin.min.js
+ERR: 无法加载控制器:Js
+
+[ 2015-05-25T16:24:19+08:00 ] 127.0.0.1 /js/jquery.1.8.2.min.js
+ERR: 无法加载控制器:Js
+
+[ 2015-05-25T16:24:45+08:00 ] 127.0.0.1 /js/jquery.1.8.2.min.js
+ERR: 无法加载控制器:Js
+
+[ 2015-05-25T16:24:45+08:00 ] 127.0.0.1 /js/jquery.plugin.min.js
+ERR: 无法加载控制器:Js
+
+[ 2015-05-25T16:25:16+08:00 ] 127.0.0.1 /js/jquery.1.8.2.min.js
+ERR: 无法加载控制器:Js
+
+[ 2015-05-25T16:25:16+08:00 ] 127.0.0.1 /js/jquery.plugin.min.js
+ERR: 无法加载控制器:Js
+
+[ 2015-05-25T16:40:27+08:00 ] 127.0.0.1 /course/index.css
+ERR: 非法操作:index.css
+
+[ 2015-05-25T16:40:32+08:00 ] 127.0.0.1 /admin/course/update/itemid/index.css
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'index.css' in 'where clause'
+
+[ 2015-05-25T16:40:57+08:00 ] 127.0.0.1 /admin/course/update/itemid/index.css
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'index.css' in 'where clause'
+
+[ 2015-05-25T16:41:00+08:00 ] 127.0.0.1 /admin/course/update/itemid/index.css
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'index.css' in 'where clause'
+
+[ 2015-05-25T16:41:32+08:00 ] 127.0.0.1 /Index/default.html
+ERR: 非法操作:default
+
+[ 2015-05-25T16:41:33+08:00 ] 127.0.0.1 /Index/imgtable.html
+ERR: 非法操作:imgtable
+
+[ 2015-05-25T16:41:34+08:00 ] 127.0.0.1 /Index/imglist.html
+ERR: 非法操作:imglist
+
+[ 2015-05-25T16:41:35+08:00 ] 127.0.0.1 /Index/tools.html
+ERR: 非法操作:tools
+
+[ 2015-05-25T16:41:35+08:00 ] 127.0.0.1 /Index/computer.html
+ERR: 非法操作:computer
+
+[ 2015-05-25T16:41:39+08:00 ] 127.0.0.1 /admin/course/update/itemid/index.css
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'index.css' in 'where clause'
+
+[ 2015-05-25T16:43:24+08:00 ] 127.0.0.1 /admin/course/update/itemid/index.css
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'index.css' in 'where clause'
+
+[ 2015-05-25T16:43:27+08:00 ] 127.0.0.1 /admin/article/del_img.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] unlink(): Invalid argument D:\wamp\www\navi\App\Admin\Controller\ArticleController.class.php 第 121 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-05-25T16:43:40+08:00 ] 127.0.0.1 /admin/course/update/itemid/index.css
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'index.css' in 'where clause'
+
+[ 2015-05-25T16:44:02+08:00 ] 127.0.0.1 /admin/course/update/itemid/index.css
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'index.css' in 'where clause'
+
+[ 2015-05-25T16:44:23+08:00 ] 127.0.0.1 /admin/course/update/itemid/index.css
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'index.css' in 'where clause'
+
+[ 2015-05-25T16:44:46+08:00 ] 127.0.0.1 /admin/article/index.css
+ERR: 非法操作:index.css
+
+[ 2015-05-25T16:46:16+08:00 ] 127.0.0.1 /news/index.html
+ERR: 无法加载控制器:News
+
+[ 2015-05-25T16:46:17+08:00 ] 127.0.0.1 /news/category.html
+ERR: 无法加载控制器:News
+
+[ 2015-05-25T16:46:18+08:00 ] 127.0.0.1 /news/add.html
+ERR: 无法加载控制器:News
+
+[ 2015-05-25T16:50:41+08:00 ] 127.0.0.1 /js/jquery.1.8.2.min.js
+ERR: 无法加载控制器:Js
+
+[ 2015-05-25T16:50:41+08:00 ] 127.0.0.1 /js/jquery.plugin.min.js
+ERR: 无法加载控制器:Js
+
+[ 2015-05-25T16:54:45+08:00 ] 127.0.0.1 /js/jquery.1.8.2.min.js
+ERR: 无法加载控制器:Js
+
+[ 2015-05-25T16:54:45+08:00 ] 127.0.0.1 /js/jquery.plugin.min.js
+ERR: 无法加载控制器:Js
+
+[ 2015-05-25T16:54:48+08:00 ] 127.0.0.1 /js/jquery.1.8.2.min.js
+ERR: 无法加载控制器:Js
+
+[ 2015-05-25T16:54:48+08:00 ] 127.0.0.1 /js/jquery.plugin.min.js
+ERR: 无法加载控制器:Js
+
