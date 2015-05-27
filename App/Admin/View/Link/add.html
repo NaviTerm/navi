@@ -34,6 +34,7 @@
         <input name="title" id="title" type="text" placeholder="请填写网站名称" class="dfinput" value="{$list[title]}"/>
         <i>
             <select name="level" id="level" style="border: 1px solid rgb(169, 169, 169);">
+                <option value="0" <if condition="$list[level] == 0">selected</if>>无</option>
                 <option value="1" <if condition="$list[level] == 1">selected</if>>1级别</option>
                 <option value="2" <if condition="$list[level] == 2">selected</if>>2级别</option>
                 <option value="3" <if condition="$list[level] == 3">selected</if>>3级别</option>
@@ -51,15 +52,15 @@
     <li>
         <label>首页显示:</label>
         <select name="elite" id="elite" class="dfinput">
-            <option value="1" <if condition="$list[elite] == 1">selected</if>>否</option>
-            <option value="2" <if condition="$list[elite] == 2">selected</if>>是</option>
+            <option value="0" <if condition="$list[elite] == 0">selected</if>>否</option>
+            <option value="1" <if condition="$list[elite] == 1">selected</if>>是</option>
         </select>
     </li>
     <li>
         <label>状态:</label>
         <select name="status" id="status" class="dfinput">
-            <option value="1" <if condition="$list[status] == 1">selected</if>>待审</option>
-            <option value="2" <if condition="$list[status] == 2">selected</if>>通过</option>
+            <option value="0" <if condition="$list[status] == 0">selected</if>>待审</option>
+            <option value="1" <if condition="$list[status] == 1">selected</if>>通过</option>
         </select>
     </li>
     <li>

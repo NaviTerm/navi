@@ -122,8 +122,8 @@ $(".form_seva").click(function(){
                 </td>
                 <td>
                     <select name="elite_{$t[itemid]}"  style="border: 1px solid gray">
-                        <option value="1" <if condition="$t[elite] == 1">selected</if>>否</option>
-                        <option value="2" <if condition="$t[elite] == 2">selected</if>>是</option>
+                        <option value="0" <if condition="$t[elite] == 0">selected</if>>否</option>
+                        <option value="1" <if condition="$t[elite] == 1">selected</if>>是</option>
                     </select>
                 </td>
                 <td width="150">
@@ -143,7 +143,7 @@ $(".form_seva").click(function(){
                     <if condition="$t[introduce]">有<else />无</if>
                 </td>
                 <td>
-                    <if condition="$t[status] == 2">
+                    <if condition="$t[status] == 3">
                     <span style="color: green;">通过</span>
                     <else />
                     <span style="color red;">待审核</span>
