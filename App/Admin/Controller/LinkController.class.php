@@ -3,14 +3,14 @@ namespace Admin\Controller;
 use Think\Controller;
 class LinkController extends SystemController {
     public function _initialize() {
-        parent::_initialize();   
+        parent::_initialize();
     }
     public function index(){
         $link = M('link');
         $count = $link->count();
         $page = new \Think\Page($count,10);
         $show = $page->show();
-        $lists = $link->order('listorder desc')->limit($page->firstRow.','.$page->listRows)->select();
+        $lists = $link->order('listorder desc,addtime desc')->limit($page->firstRow.','.$page->listRows)->select();
         // dump($lists);
         $this->assign("lists",$lists);
         $this->assign("page",$show);
@@ -21,7 +21,7 @@ class LinkController extends SystemController {
         if(I('post.')){
             $data = I('post.');
             $data['addtime'] = time();
-            $data['status'] = 2;
+            $data['status'] = 3;
             $link = M('link');
             $result = $link->create($data);
             if($result){

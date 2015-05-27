@@ -6,11 +6,11 @@ class MessageController extends SystemController {
         parent::_initialize();   
     }
     public function index(){
-        $link = M('message');
-        $count = $link->where("status=2")->count();
+        $message = M('message');
+        $count = $message->where("status=3")->count();
         $page = new \Think\Page($count,10);
         $show = $page->show();
-        $lists = $link->where('status=2')->order('itemid desc')->limit($page->firstRow.','.$page->listRows)->select();
+        $lists = $message->where('status=3')->order('itemid desc')->limit($page->firstRow.','.$page->listRows)->select();
         // dump($lists);
         $this->assign("lists",$lists);
         $this->assign("page",$show);
@@ -21,12 +21,12 @@ class MessageController extends SystemController {
         if(I('post.')){
             $data = I('post.');
             $data['addtime'] = time();
-            $data['status'] = 2;
+            $data['status'] = 3;
             $data['ip'] = get_client_ip();
-            $link = M('message');
-            $result = $link->create($data);
+            $message = M('message');
+            $result = $message->create($data);
             if($result){
-                $result1 = $link->add($result);
+                $result1 = $message->add($result);
                  if($result1){
                     $this->success("添加成功",U('message/index'));
                 }else{
@@ -55,14 +55,14 @@ class MessageController extends SystemController {
         }
     }
     public function update($itemid){
-        $link = M('message');
-        $list = $link->where("itemid=".$itemid)->find();
+        $message = M('message');
+        $list = $message->where("itemid=".$itemid)->find();
         $this->assign('list',$list);
         if(I('post.')){
             $data = I('post.');
             $data['ip'] = get_client_ip();
             if($data){
-                $result = $link->save($data);
+                $result = $message->save($data);
                 if($result){
                     $this->success("编辑成功",U('message/index'));
                 }else{
@@ -74,8 +74,8 @@ class MessageController extends SystemController {
         }
     }
     public function delete($itemid){
-        $link = M('message');
-        $result = $link->delete($itemid);
+        $message = M('message');
+        $result = $message->delete($itemid);
         if($result){
             $this->success("世界那么大,它出去看看了",U('message/index'),3);
         }else{
