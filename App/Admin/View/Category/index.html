@@ -42,7 +42,7 @@ $(function(){
                 if (id != '' && id.substr(0,1)==','){
                     id=id.substr(1);
                     $.ajax({
-                        url:'{:U("category/del")}',
+                        url:'{:U("category/del","moduleid=".$moduleid)}',
                         type:'POST',
                         data:{id,id},
                         success:function(data){
@@ -145,11 +145,11 @@ $(function(){
          <th>排序</th>       
         <th>分类名称</th>
         <th>分类目录</th>
-        <th>文章数</th>
+        <th><if condition="$moduleid == 2">产品<else />文章</if>数</th>
         <th>操作</th>
         </tr>
         </thead>
-<form action="{:U('category/update_all')}" method="post" id="form_all">
+<form action="{:U('category/update_all','moduleid='.$moduleid)}" method="post" id="form_all">
         <tbody id="fromdata">
         <foreach name="lists" item="t">
                 <tr id="tr_{$t[id]}">
@@ -157,9 +157,9 @@ $(function(){
                 <td>{$t[id]}</td>
                 <td><input type="text" name="listorder_{$t[id]}" value="{$t[listorder]}" class="input30"/></td>        
                 <td><input type="text" name="name_{$t[id]}" value="{$t[name]}"  class="input30" /></td>
-                <td><input type="text" name="dir_{$t[id]}" value="{$t[dir]}" class="input30"  /></td>
+                <td><input type="text" name="dir_{$t[id]}" value="{$t[dir]}" class="input30" <if condition="$moduleid == 2">disabled="disabled"</if> /></td>
                 <td>{$t[items]}</td>
-                <td><a onclick="change_cat({$t[id]})" class="tablelink">编辑</a>     <a href="{:U('category/del','id='.$t[id])}" class="tablelink"> 删除</a></td>
+                <td><a onclick="change_cat({$t[id]})" class="tablelink">编辑</a>     <a href="{:U('category/del',array('id'=>$t[id],'moduleid'=>$moduleid))}" class="tablelink"> 删除</a></td>
                 </tr> 
         </foreach>
         </tbody>
@@ -175,7 +175,7 @@ $(function(){
     </div>
  
      <div class="tip">
-         <form action="{:U('category/add')}" method="post">    
+         <form action="{:U('category/add','moduleid='.$moduleid)}" method="post">    
                 <div class="tiptop"><span>添加分类</span><a></a></div>  
               <div class="tipinfo" style="margin-left:0">
                <table class="tablelist">
@@ -187,7 +187,7 @@ $(function(){
 
                     <tr>
                         <td><input name="name" required="" type="text" class="input30" value="" /></td>
-                        <td><input name="dir" type="text" class="input30" value="" /></td>
+                        <td><input name="dir" type="text" class="input30" value="" <if condition="$moduleid == 2">disabled="disabled"</if>/></td>
                         <td><input name="listorder" type="number" class="input30" value="0" /></td>
                     </tr>
                   
@@ -202,7 +202,7 @@ $(function(){
     </div>   
 
      <div class="tip1" >
-         <form action="{:U('category/update')}" method="post">    
+         <form action="{:U('category/update','moduleid='.$moduleid)}" method="post">    
                 <div class="tiptop"><span>修改分类</span><a></a></div>  
               <div class="tipinfo" style="margin-left:0">
                <table class="tablelist">
@@ -213,7 +213,7 @@ $(function(){
                     </tr>
                     <tr>
                         <td><input id="change_id" type="hidden" name="id" value="" /><input id="change_name" name="name" required="" type="text" class="input30" value="" /></td>
-                        <td><input id="change_dir" name="dir" type="text" class="input30" value="" /></td>
+                        <td><input id="change_dir" name="dir" type="text" class="input30" value=""<if condition="$moduleid == 2">disabled="disabled"</if> /></td>
                         <td><input id="change_listorder" name="listorder" type="number" class="input30" value="0" /></td>
                     </tr>
                 </table>  
