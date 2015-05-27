@@ -99,7 +99,7 @@
     <div class="listtitle"><a href="#" class="more1">更多</a>待办事项</div>    
     <ul class="newlist">
 <foreach name="message" item="t">
-    <li><a href="#">{$t[title]|msubstr=###,0,15}</a><b>{$t[addtime]|date='Y-m-d',###}</b></li>
+    <li><a href="#">{$t[content]|msubstr=###,0,30}</a><b>{$t[addtime]|date='Y-m-d',###}</b></li>
 </foreach>    
     </ul>   
     
