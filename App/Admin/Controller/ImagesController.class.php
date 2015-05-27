@@ -28,7 +28,6 @@ return $imgurl
 				$result = $upload->uploadOne($img);
 				if($result){
 					$imgpath = '.'.PUB.$result['savepath'].$result['savename'];//生成图片地址
-
 					/*图片上传成功 开始制作缩略图*/
 					 $images=new \Think\Image();          //实例化图片处理类
 					 $images->open($imgpath);      		 //打开要处理的图片
@@ -41,17 +40,13 @@ return $imgurl
 		           	}else{
 		           		 echo "<script>parent.callback('".$thumb."',false,'".$id."')</script>";
 		           	}
-
 					/*缩略图结束*/
-
 				}else{
 					return $upload->getError();
 				}	
-
 			}else{
 				return $_FILES[$formname]['error'];
 			}
-	
 		}
 
 

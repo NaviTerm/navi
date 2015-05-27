@@ -8,14 +8,31 @@
 <script type="text/javascript" src="{$Think.AD_SKIN}js/jquery.js"></script>
 <script type="text/javascript" src="{$Think.AD_SKIN}js/jquery.idTabs.min.js"></script>
 <script type="text/javascript" src="{$Think.AD_SKIN}js/select-ui.min.js"></script>
-<script type="text/javascript" src="{$Think.AD_SKIN}editor/kindeditor.js"></script>
-
+<link rel="stylesheet" href="{$Think.PUB}kindeditor/themes/default/default.css" />
+<script charset="utf-8" src="{$Think.PUB}kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="{$Think.PUB}kindeditor/lang/zh_CN.js"></script>
+<!-- 屏蔽 -->
+<!-- <script type="text/javascript" src="{$Think.AD_SKIN}editor/kindeditor.js"></script> -->
 <script type="text/javascript">
-    KE.show({
-        id : 'content7',
-        cssPath : './index.css'
+  $(function(){
+    var editor;
+    KindEditor.ready(function(K) {
+        editor = K.create('textarea[name="content"]', {
+            allowFileManager : true,
+            autoHeightMode : true,
+            afterCreate : function() {
+                this.loadPlugin('autoheight');
+            },
+            afterUpload : function(url) {
+                var firstimageoption = '<option value="' + url + '">' + url + '</option>';
+                var selectoption = '<option value="' + url + '" selected="selected">' + url + '</option>';
+                $("#firstimage").append(firstimageoption);
+                $("#images").append(selectoption);
+            }
+        });
     });
-  </script>
+ })
+</script>
   
 <script type="text/javascript">
 $(document).ready(function(e) {

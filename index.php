@@ -20,6 +20,7 @@ define('APP_DEBUG',True);
 // 定义应用目录
 define('APP_PATH','./App/');
 
+define('DH_PATH','./');
 //定义样式目录
 define("DH_SKIN",'/Public/Home/');
 

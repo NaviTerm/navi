@@ -187,7 +187,7 @@ $(document).ready(function(e) {
 <form action="{:U('config/update_config')}" method="post">
     <ul class="forminfo">
     <li><label style="width:130px;">URL配置:</label><p><input type="radio" name="URL_MODEL" value="0" <if condition="C('URL_MODEL') == 0">checked=''</if>/>普通模式&nbsp;<input type="radio" name="URL_MODEL" value="1"<if condition="C('URL_MODEL') == 1">checked=''</if>/>PATHINFO模式&nbsp;<input type="radio" name="URL_MODEL" value="2"<if condition="C('URL_MODEL') == 2">checked=''</if>/>REWRITE模式&nbsp;<input type="radio" name="URL_MODEL" value="3"<if condition="C('URL_MODEL') == 3">checked=''</if>/>兼容模式&nbsp;</p></li>
-    <li><label style="width:130px;">TRACE调试信息:</label><p><input type="radio" name="SHOW_PAGE_TRACE" value="true" <if condition="C('SHOW_PAGE_TRACE') == true">checked=''</if> />开启&nbsp;<input type="radio" name="SHOW_PAGE_TRACE" value="false"<if condition="C('SHOW_PAGE_TRACE') == false">checked=''</if> />关闭</p></li>
+    <li><label style="width:130px;">TRACE调试信息:</label><p><input type="radio" name="SHOW_PAGE_TRACE" value="true" <if condition="C('SHOW_PAGE_TRACE') == 'true'">checked=''</if> />开启&nbsp;<input type="radio" name="SHOW_PAGE_TRACE" value="false"<if condition="C('SHOW_PAGE_TRACE') == 'false'">checked=''</if> />关闭</p></li>
     <li><label style="width:130px;">COOKIE有效期</label><input class="dfinput" type="text" name="COOKIE_EXPIRE" value="{:C('COOKIE_EXPIRE')}" /></li>
     <li><label style="width:130px;">模板引擎禁用函数</label><input class="dfinput" type="text" name="TMPL_DENY_FUNC_LIST" value="{:C('TMPL_DENY_FUNC_LIST')}" /></li>
     <!-- <li><label style="width:130px;">Mysql字段缓存</label><input class="dfinput" type="text" name="DB_FIELDS_CACHE" value="{:C('DB_FIELDS_CACHE')}" /><span>开启为1,关闭为0</span></li> -->

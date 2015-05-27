@@ -8,12 +8,30 @@
 <script type="text/javascript" src="{$Think.AD_SKIN}js/jquery.js"></script>
 <script type="text/javascript" src="{$Think.AD_SKIN}js/jquery.idTabs.min.js"></script>
 <script type="text/javascript" src="{$Think.AD_SKIN}js/select-ui.min.js"></script>
-<script type="text/javascript" src="{$Think.AD_SKIN}editor/kindeditor.js"></script>
+<link rel="stylesheet" href="{$Think.PUB}kindeditor/themes/default/default.css" />
+<script charset="utf-8" src="{$Think.PUB}kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="{$Think.PUB}kindeditor/lang/zh_CN.js"></script>
+<!-- 屏蔽 -->
+<!-- <script type="text/javascript" src="{$Think.AD_SKIN}editor/kindeditor.js"></script> -->
 <script type="text/javascript">
-    KE.show({
-        id : 'content7',
-        cssPath : './index.css'
+  $(function(){
+    var editor;
+    KindEditor.ready(function(K) {
+        editor = K.create('textarea[name="content"]', {
+            allowFileManager : true,
+            autoHeightMode : true,
+            afterCreate : function() {
+                this.loadPlugin('autoheight');
+            },
+            afterUpload : function(url) {
+                var firstimageoption = '<option value="' + url + '">' + url + '</option>';
+                var selectoption = '<option value="' + url + '" selected="selected">' + url + '</option>';
+                $("#firstimage").append(firstimageoption);
+                $("#images").append(selectoption);
+            }
+        });
     });
+ })
 </script>
 <script type="text/javascript">
 $(document).ready(function(e) {
@@ -145,12 +163,6 @@ $(document).ready(function(e) {
     
     <div id="usual1" class="usual"> 
     
-<!--     <div class="itab">
-  	<ul> 
-    <li><a href="#tab1" class="selected">发布资讯</a></li> 
-    <li><a href="#tab2">自定义</a></li> 
-  	</ul>
-    </div>  -->
     
   	<div id="tab1" class="tabson">
 
@@ -165,7 +177,7 @@ $(document).ready(function(e) {
 
     <li><label>编辑时间</label><input name="addtime" type="text" class="dfinput" value="{$lists[edittime]|default=time()|date='Y-m-d H:i:s',###}
 " /></li> 
-    <li><label>排序值</label><input name="listorder" type="number" class="dfinput" value="<if condition="$lists[listorder]">{$lists[listorder]}<else/>0</if>" placeholder="数字越小 越靠前"/></li> 
+    <li><label>排序值</label><input name="listorder" type="number" class="dfinput" value="<if condition="$lists[listorder]">{$lists[listorder]}<else/>0</if>" placeholder="数字越大 越靠前"/></li> 
 
     <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="马上发布"/></li>
     </ul>

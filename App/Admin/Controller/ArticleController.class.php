@@ -51,9 +51,7 @@ class ArticleController extends SystemController{
 					$result = $article->change($itemid);
 					$message = '文章已经恢复';
 				}
-				
-				// dump($result);
-				// exit();
+
 				if($result){
 					$this->success($message,U('article/change'),0);	
 				}else{
