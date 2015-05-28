@@ -4,6 +4,16 @@ use Think\Controller;
 class MessageController extends Controller {
     public function index(){
 
+
+        //查询过滤条件
+        $map['status']  =   array('egt',0);
+
+        //查询当前所有
+        $PageList = M('Page')->where($map)->order('itemid desc')->limit()->select();
+
+        //注入变量
+        $this->assign('PageList',$PageList);
+
         $this->display();
 
     }

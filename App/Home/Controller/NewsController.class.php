@@ -2,13 +2,35 @@
 namespace Home\Controller;
 use Think\Controller;
 class NewsController extends Controller {
+
     public function index(){
 
         //获取列表数据
         $model = 'Article' ;  //模型名称
 
+
+        $mapc['moduleid']  =   array('eq',1);
+
+        //查询新闻分类
+        $Category = M('Category')->where($mapc)->limit(5)->select();
+
+        //注入变量
+        $this->assign( 'Category' , $Category );
+
+
+
+        $cat = intval($_GET['cat']);
+
+        if( !empty($cat) ){
+            //查询过滤条件
+            $map['catid']  =   array('eq',$cat);
+
+        }
+
+
         //查询过滤条件
         $map['status']  =   array('egt',0);
+
 
         //查询总条数
         $count = M($model)->where($map)->count();
@@ -21,23 +43,12 @@ class NewsController extends Controller {
         $this->assign("count",$count);
 
 
-
-
-        //查询新闻分类
-        $Category = M('Category')->where()->order()->limit(5)->select();
-
-        //注入变量
-        $this->assign( 'Category' , $Category );
-
-        var_dump( $_GET );
-
-
-
-
         //显示试图
         $this->display();
 
     }
+
+
 
     public function show($id = 0){
 
@@ -54,4 +65,6 @@ class NewsController extends Controller {
         $this->display();
 
     }
+
+
 }

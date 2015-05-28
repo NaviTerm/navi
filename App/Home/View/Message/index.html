@@ -24,11 +24,13 @@
 		</div>
 	</div>
 	<div class="cate_abso">
-		<a href="about.html" class="news_category">关于我们</a>
-		<a href="contact.html" class="news_category">联系我们</a>
-		<a href="message.html" class="news_category">在线留言</a>
-		<a href="link.html" class="news_category">友情链接</a>
-		<a href="advan.html" class="news_category">我们的优势</a>
+        <volist name="PageList" id="PageList">
+            <a href="{:U('index?p='.$PageList['itemid'])}" class="news_category">{$PageList.title}</a>
+        </volist>
+        <a href="{:U('./message')}" class="news_category">在线留言</a>
+        <a href="{:U('./link')}" class="news_category">友情链接</a>
+
+
     </div>
 	<article class="serv_detailed">
     	<div id="detailed">

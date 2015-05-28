@@ -9,122 +9,37 @@
 <meta name="keywords" content="" />
 <link rel="stylesheet" href="{$Think.DH_SKIN}css/style.css"  type="text/css" media="all" />
 <!--[if lt IE 9]><script type="text/javascript" src="{$Think.DH_SKIN}js/html5.js"></script><![endif]-->
+    <link rel="stylesheet" href="{$Think.DH_SKIN}css/fa.css"  type="text/css" media="all" />
+    <script type="text/javascript" src="{$Think.DH_SKIN}js/jquery.js"></script>
+    <script type="text/javascript" src="{$Think.DH_SKIN}js/superslide.2.1.js"></script>
 </head>
 <body id="ruifoxHome">
 
 <include file="Public:header" />
 
-<!-- 查找最顶级栏目  -->
-<section id="banner">
-  <ul id="banner_img">
-    <li style="background-image:url({$Think.DH_SKIN}images/banner_bg1.jpg);display:block">
-      <div class="wrapper">
-        <div class="ad_txt">
-          <h2>互联网品牌传播解决方案</h2>
-          <p>成都顶级品牌网站建设公司！<br/>
-            基于互联网的品牌行销策略的策划与执行。<br/>
-            品牌形象挖掘、梳理、包装、表现与传播。<br/>
-            辅助企业实现品牌战略目标的互联网解决方案。</p>
-        </div>
-        <div class="ad_img"> <img src="{$Think.DH_SKIN}images/1.png"  width="506" height="404" alt="" /> </div>
-      </div>
-    </li>
-    <li style="background-image:url({$Think.DH_SKIN}images/banner_bg2.jpg);">
-      <div class="wrapper">
-        <div class="ad_txt">
-          <h2>Web应用(B/S)定制开发</h2>
-          <p>自主研发、完善的开发框架。<br/>
-            详细的需求调研及解决方案。<br/>
-            实施项目经验丰富的项目团队。</p>
-        </div>
-        <div class="ad_img"> <img src="{$Think.DH_SKIN}images/2.png" width="506" height="404" alt="" /> </div>
-      </div>
-    </li>
-    <li style="background-image:url({$Think.DH_SKIN}images/banner_bg3.jpg);">
-      <div class="wrapper">
-        <div class="ad_txt">
-          <h2>互联网时代的整合营销</h2>
-          <p>基于互联网的品牌营销策略的定制与执行。<br/>
-            品牌形象挖掘、梳理、包装、表现与传播。<br/>
-            坐拥着最为丰富的行业经验与优势资源。</p>
-        </div>
-        <div class="ad_img"> <img src="{$Think.DH_SKIN}images/3.png" width="506" height="404" alt="" /> </div>
-      </div>
-    </li>
-    <li style="background-image:url({$Think.DH_SKIN}images/banner_bg4.jpg);">
-      <div class="wrapper">
-        <div class="ad_txt">
-          <h2>您的网站全职管家</h2>
-          <p>成熟的监控与报警机制。<br/>
-            丰富的整合营销的能力和经验。<br/>
-            专业数据分析、开发和维护部门。</p>
-        </div>
-        <div class="ad_img"> <img src="{$Think.DH_SKIN}images/4.png"  width="506" height="404" alt="" /> </div>
-      </div>
-    </li>
-    <li style="background-image:url({$Think.DH_SKIN}images/banner_bg5.jpg);">
-      <div class="wrapper">
-        <div class="ad_txt">
-          <h2>不可忽略的移动终端</h2>
-          <p>IOS系统、Android系统应用开发。<br/>
-            App Store、Google Play 发布。<br/>
-            APP推广服务。</p>
-        </div>
-        <div class="ad_img"> <img src="{$Think.DH_SKIN}images/5.png" width="506" height="404" alt="" /> </div>
-      </div>
-    </li>
-    <li style="background-image:url({$Think.DH_SKIN}images/banner_bg6.jpg);">
-      <div class="wrapper">
-        <div class="ad_txt">
-          <h2>全新的学术会议体验</h2>
-          <p>工作更高效，主办方更轻松。<br/>
-            线上报名，让主办方不再为报名的事而费尽脑筋。<br/>
-            线上投稿、审稿，为主办方提高收寄、审稿效率。<br/>
-            酒店预订，会议行程更加轻松。</p>
-        </div>
-        <div class="ad_img"> <img src="{$Think.DH_SKIN}images/6.png" width="506" height="404" alt="" /> </div>
-      </div>
-    </li>
-    <li style="background-image:url({$Think.DH_SKIN}images/banner_bg7.jpg);">
-      <div class="wrapper">
-        <div class="ad_txt">
-          <h2>医院网站管理系统(HMS)</h2>
-          <p>与大型医院密切合作。<br/>
-            诊疗挂号很轻松，检验结果实时查询，在线医患服务。<br/>
-            便捷的数据处理能力，稳定的软件基础架构。</p>
-        </div>
-        <div class="ad_img"> <img src="{$Think.DH_SKIN}images/7.png"  width="506" height="404" alt="" /> </div>
-      </div>
-    </li>
-    <li style="background-image:url({$Think.DH_SKIN}images/banner_bg8.jpg);">
-      <div class="wrapper">
-        <div class="ad_txt">
-          <h2>智慧点亮网络(RUIFOX-LAB)</h2>
-          <p>互联网改变世界，我们改变互联网。<br/>
-            精彩前沿技术演练场。<br/>
-            新产品尝鲜体验。</p>
-        </div>
-        <div class="ad_img"> <img src="{$Think.DH_SKIN}images/8.png"  width="506" height="404" alt="" /> </div>
-      </div>
-    </li>
-  </ul>
-  <div id="banner_ctr">
-    <div id="drag_ctr"></div>
-    <ul>
-      <li class="first-item">网站建设</li>
-      <li>纺织产业平台</li>
-      <li>应用系统开发</li>
-      <li>品牌整合营销</li>
-      <li>纺织数据中心</li>
-      <li>展销会</li>
-      <li>担保交易</li>
-      <li>采购专场</li>
-      <li>在线寻放样</li>
-      <li class="last-item">网站设计</li>
-    </ul>
-    <div id="drag_arrow"></div>
-  </div>
-</section>
+
+
+<div class="slider">
+    <div class="bd">
+        <ul>
+            <volist name="Banner" id="Banner">
+                <li><a target="_blank" href="{$Banner.linkurl}"><img src="{$Banner.thumb}" /></a></li>
+            </volist>
+        </ul>
+    </div>
+    <div class="hd">
+        <ul>
+        </ul>
+    </div>
+    <div class="pnBtn prev"> <span class="blackBg"></span> <a class="arrow" href="javascript:void(0)"></a> </div>
+    <div class="pnBtn next"> <span class="blackBg"></span> <a class="arrow" href="javascript:void(0)"></a> </div>
+</div>
+<script type="text/javascript">
+    jQuery(".slider .bd li").first().before( jQuery(".slider .bd li").last() );
+    jQuery(".slider").hover(function(){ jQuery(this).find(".arrow").stop(true,true).fadeIn(300) },function(){ jQuery(this).find(".arrow").fadeOut(300) });				jQuery(".slider").slide({ titCell:".hd ul", mainCell:".bd ul", effect:"leftLoop",autoPlay:true, vis:3,autoPage:true, trigger:"click"});
+</script>
+
+
 <section id="cases">
   <div class="cat_title wrapper">
     <h2>产品<strong>Products</strong></h2>
@@ -277,15 +192,16 @@
     <a href="{:U('./news')}"  class="more">MORE+</a> </div>
   <div class="newsdata">
     <div class="newsad">
-      <span>广告位1</span>
-      <span>广告位2</span>
-      <span>广告位3</span>
+        <volist name="News_left" id="News_left">
+            <span><a href="{:U('News/show?id='.$News['itemid'])}"><img src="{$News_left.thumb}" /> </a></span>
+        </volist>
+
     </div>
     <ul>
       <volist name="News" id="News">
        <li> <a href="{:U('News/show?id='.$News['itemid'])}"><img src="{$list.thumb}"   width="90" height="90" alt="{$News.title}"/></a>
         <div class="newslist"> <a href="{:U('News/show?id='.$News['itemid'])}" title="{$News.title}">{$News.title}</a> <span>UPTATED:2013/11/02</span>
-          <p>很多人总是会问，为什么我的网站转化率总是居高不下？也许你的网站很美观大气，功能很完善，入口非常便捷丰富，但是就是转化不好！原因只在于，你....</p>
+          <p>{$News.introduce}</p>
         </div>
       </li>
       </volist>

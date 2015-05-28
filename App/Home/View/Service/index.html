@@ -27,16 +27,19 @@
 		</div>
 	</div>
 	<div class="cate_abso">
-		<a href="about.html" class="news_category">关于我们</a>
-		<a href="contact.html" class="news_category">联系我们</a>
-		<a href="message.html" class="news_category">在线留言</a>
-		<a href="link.html" class="news_category">友情链接</a>
-		<a href="advan.html" class="news_category">我们的优势</a>
+        <volist name="PageList" id="PageList">
+            <a href="{:U('index?p='.$PageList['itemid'])}" class="news_category">{$PageList.title}</a>
+        </volist>
+        <a href="{:U('./message')}" class="news_category">在线留言</a>
+        <a href="{:U('./link')}" class="news_category">友情链接</a>
     </div>
 	<article>
-    <div class="wrapper" id="detailed">
+        <volist name="PageValue" id="PageValue">
+            <div class="wrapper" id="detailed">
+                <p>{$PageValue.content}</p>
+            </div>
+        </volist>
 
-	</div>
 	<div id="case_footer">
 		<div class="wrapper showother">
 			<a class="backlist" href="index.html">返回案例列表</a>
