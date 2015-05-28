@@ -24,7 +24,8 @@
 		</div>
 		<div class="cate_abso">
             <volist name="Category" id="Category">
-                <a href="{:U('index?c='.$Category['id'])}" class="news_category">{$Category.name}</a>
+                <a href="{:U('index?cat='.$Category['id'])}" class="news_category">{$Category.name}</a>
+                <!--a href="{:U('news/index','itemid=12')}" class="news_category">{$Category.name}</a-->
             </volist>
     	</div>
 	</div>
@@ -44,15 +45,6 @@
     <div id="pagination">{$page}</div>
 
 
-
-		 <!--div class="dede_pages">
-			<ul class="pagelist">
-             <li><span class="pageinfo">共 <strong>1</strong>页<strong>4</strong>条记录</span></li>
-
-			</ul>
-		</div--><!-- /pages -->
-            
-            
 	
 </section>
 
@@ -66,10 +58,10 @@
   <a href="javascript:void(0);" id="scrollup" title="返回页面顶部" class="scrollup"></a>
   <div class="qrcode_box" style="display: none;"></div>
 </div>
-<script type="text/javascript" src="../js/jquery.1.8.2.min.js" ></script>
-<script type="text/javascript" src="../js/jquery.plugin.min.js" ></script>
+<script type="text/javascript" src="{$Think.DH_SKIN}/js/jquery.1.8.2.min.js" ></script>
+<script type="text/javascript" src="{$Think.DH_SKIN}/js/jquery.plugin.min.js" ></script>
 <!--[if IE 6]>
-<script type="text/javascript" src="../js/killie6.js" ></script>
+<script type="text/javascript" src="{$Think.DH_SKIN}/js/killie6.js" ></script>
 <![endif]-->
 
 <script type="text/javascript">
