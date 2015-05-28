@@ -49,7 +49,15 @@ class CaseController extends Controller {
 
     public function show($id = 0){
 
+        //频道名称
+        $model = 'Mall' ;
 
+        //查询当前文章id
+        $map['itemid']  =   array('eq',$id);
+
+        $show  =  M($model)->where($map)->select();
+
+        $this->assign( 'show' , $show );
 
         $this->display();
     }

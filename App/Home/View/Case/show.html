@@ -7,8 +7,8 @@
 <title>成都城市设计研究中心_我的网站</title>
 <meta name="keywords" content="成都城市设计研究中心" />
 <meta name="description" content="成都市城市设计研究中心（英文缩写：CDUDC）是以城市设计和研究为主要方向的研究性机构，提供以城市运营为着眼点的相关咨询服务。是整合各方设计、咨询、研究资源的合作平台。为政府决" />     
-<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
-<!--[if lt IE 9]><script type="text/javascript" src="js/html5.js" ></script><![endif]-->
+<link rel="stylesheet" href="{$Think.DH_SKIN}css/style.css" type="text/css" media="all" />
+<!--[if lt IE 9]><script type="text/javascript" src="{$Think.DH_SKIN}js/html5.js" ></script><![endif]-->
 </head>
 <body >
 
@@ -23,26 +23,28 @@
 			<p>我们的作品，他们的故事<br/>Our work, their stories </p>
 		</div>
 	</div>
+	
+	<volist name="show" id="show">
 	<article>
 		<div class="wrapper">
 			<div id="overview">
 				<div class="overview_bg"></div>
 				<div id="case_info">
-																																							<h1><img src="images/1-131102210430t2.png" tppabs="http://mc18.eatdou.com/uploads/131102/1-131102210430T2.png" width="180" height="120" alt="成都城市设计研究中心" /></h1>
+					<h1><img src="{$show.thumb}" tppabs="{$show.thumb}" width="180" height="120" alt="{$list.title}" /></h1>
 					<ul>
-						<li>名称：成都城市设计研究中心</li>
-						<li>分类：学校政府</li>
-						<li>TAG：食品优品道新象</li>
+						<li>名称：{$show.title}</li>
+						<li>分类：{$show.catid|get_catname}</li>
 					</ul>
 					<a href="javascript:if(confirm('http://www.cdudc.com/  点击这里给我发送临时消息'))window.location='http://www.cdudc.com/'" tppabs="http://www.cdudc.com/" class="btn_blue" target="_blank" rel="external nofollow">VISIT SITE 访问该网站</a>
-					<div class="brief">成都市城市设计研究中心（英文缩写：CDUDC）是以城市设计和研究为主要方向的研究性机构，提供以城市运营为着眼点的相关咨询服务。是整合各方设计、咨询、研究资源的合作平台。为政府决</div>
+					<div class="brief">{$addtime.introduce}</div>
 				</div>
 			</div>
 			<div id="detailed">
-				<img alt="" src="images/1-131102210508.jpg" tppabs="http://mc18.eatdou.com/uploads/allimg/131102/1-131102210508.jpg" /><img alt="" src="images/1-131102210509.jpg" tppabs="http://mc18.eatdou.com/uploads/allimg/131102/1-131102210509.jpg" /><img alt="" src="images/1-131102210509-50.jpg" tppabs="http://mc18.eatdou.com/uploads/allimg/131102/1-131102210509-50.jpg" />					
+				<img alt="" src="{$Think.DH_SKIN}images/1-131102210508.jpg" tppabs="http://mc18.eatdou.com/uploads/allimg/131102/1-131102210508.jpg" /><img alt="" src="{$Think.DH_SKIN}images/1-131102210509.jpg" tppabs="http://mc18.eatdou.com/uploads/allimg/131102/1-131102210509.jpg" /><img alt="" src="{$Think.DH_SKIN}images/1-131102210509-50.jpg" tppabs="http://mc18.eatdou.com/uploads/allimg/131102/1-131102210509-50.jpg" />					
 			</div>
 		</div>
 	</article>
+	</volist>
 	<div id="case_footer">
 		<div class="wrapper showother">
 						<a class="backlist" href="index.htm" tppabs="http://mc18.eatdou.com/case/gov/">返回案例列表</a>
@@ -54,8 +56,8 @@
 <include file="Public:footer" />
 
 
-<script type="text/javascript" src="js/jquery.1.8.2.min.js" ></script>
-<script type="text/javascript" src="js/jquery.plugin.min.js" ></script>
+<script type="text/javascript" src="{$Think.DH_SKIN}js/jquery.1.8.2.min.js" ></script>
+<script type="text/javascript" src="{$Think.DH_SKIN}js/jquery.plugin.min.js" ></script>
 <!--[if IE 6]>
 <script type="text/javascript" src="js/killie6.js" ></script>
 <![endif]-->
