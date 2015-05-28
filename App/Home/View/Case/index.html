@@ -40,7 +40,7 @@
       <volist name="list" id="list">
 
           <li class="item1"> <img src="{$list.thumb}" tppabs="{$list.thumb}"  width="240" height="152" alt="{$list.title}" /> <strong>{$list.title}</strong> UPTATED:2013/11/02
-              <p> <strong>{$list.title}</strong> <em>行业：{$list.catid|get_catname}<br/>
+              <p> <strong>{$list.title}</strong> <em>分类：{$list.catid|get_catname}<br/>
                   UPTATED:{$list['addtime']|date='Y-m-d',###}</em>{$addtime.introduce}<br/>
                   <a href="{:U('show?id='.$list['itemid'])}" tppabs="{:U('show?id='.$list['itemid'])}" class="btn_blue">查看品牌故事</a> <a href="javascript:if(confirm('xxxxxxxxxxxxx'))window.location='#'"  target="_blank" class="openurl" rel="external nofollow">访问品牌网站</a> </p>
           </li>

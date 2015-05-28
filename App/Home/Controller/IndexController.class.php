@@ -6,15 +6,18 @@ class IndexController extends Controller {
 
 
 
-
-
-
-
         //查询过滤条件
         $map['status']  =   array('egt',0);
 
         //执行SQL
         $News = M('Article')->where($map)->order('itemid desc')->limit(5)->select();
+
+
+        //执行SQL
+        $Mall = M('Mall')->where($map)->order('itemid desc')->select();
+
+        //注入产品变量
+        $this->assign('Mall',$Mall);
 
         //查询过滤条件
         $left['status']  =   array('egt',0);
@@ -23,7 +26,6 @@ class IndexController extends Controller {
 
         //执行SQL
         $News_left = M('Article')->where($left)->order('itemid desc')->limit(3)->select();
-
 
 
         //注入左边文章变量

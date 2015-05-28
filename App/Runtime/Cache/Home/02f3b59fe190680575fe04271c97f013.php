@@ -3,11 +3,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=1024" />
-<title>html5+js技术网站应用案例：三盛·都会城网站建设_我的网站</title>
+<title><?php echo (DH_SKIN); ?></title>
 <meta name="keywords" content="html5+js,技术网站,应用,案例,三盛,都会,城," />
 <meta name="description" content="三盛·都会城作为三盛地产在成都的全资开发项目，入主龙泉经开区，承载三盛地产在成都建立品牌的任务，三盛·都会城总投入近40亿元，前期将投入3亿重金，将该项目打造为龙泉乃至大成东" />
 <link rel="stylesheet" href="<?php echo (DH_SKIN); ?>css/style.css" type="text/css" media="all" />
-<!--[if lt IE 9]><script type="text/javascript" src="js/html5.js" ></script><![endif]-->
+<!--[if lt IE 9]><script type="text/javascript" src="<?php echo (DH_SKIN); ?>js/html5.js" ></script><![endif]-->
 </head>
 <body >
 
@@ -18,7 +18,7 @@
         <nav>
             <ul>
                 <li class="home"><a href="<?php echo U('./index');?>" >首页<span>网站首页！</span></a></li>
-                <li class="about"><a href="<?php echo U('./about');?>"  title="成都网页设计公司">关于<span>我们是谁？</span></a></li>
+                <li class="about"><a href="<?php echo U('./news');?>"  title="企业新闻">企业新闻<span>企业动态？</span></a></li>
                 <li class="service"><a href="<?php echo U('./service');?>"  title="网站建设">服务<span>我们能做什么？</span></a></li>
                 <li class="cases"><a href="<?php echo U('./case');?>"  title="网页制作">案例<span>我们做过什么？</span></a></li>
                 <li class="client"><a href="<?php echo U('./course');?>"  title="企业历程">企业历程<span>我们有什么？</span></a></li>
@@ -107,18 +107,10 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
             <h2>友情链接<strong>Links</strong></h2>
             <p>
             <ul>
-                <li>
-                    <a href="http://www.777moban.com/" target='_blank'>建荣博客</a>
-                </li>
-                <li>
-                    <a href="http://www.777moban.com/" target='_blank'>建荣博客</a>
-                </li>
-                <li>
-                    <a href="http://www.777moban.com/" target='_blank'>建荣博客</a>
-                </li>
-                <li>
-                    <a href="http://www.777moban.com/" target='_blank'>建荣博客</a>
-                </li>
+            <?php if(is_array($footer_Link)): $i = 0; $__LIST__ = $footer_Link;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$footer_Link): $mod = ($i % 2 );++$i;?><li>
+                    <a href="<?php echo ($footer_Link["linkurl"]); ?>" target='_blank'><?php echo ($footer_Link["title"]); ?></a>
+                </li><?php endforeach; endif; else: echo "" ;endif; ?>
+
             </ul>
             </p>
         </div>
@@ -136,10 +128,10 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
   <a href="javascript:void(0);" id="scrollup" title="返回页面顶部" class="scrollup"></a>
   <div class="qrcode_box" style="display: none;"></div>
 </div>
-<script type="text/javascript" src="js/jquery.1.8.2.min.js" ></script>
-<script type="text/javascript" src="js/jquery.plugin.min.js" ></script>
+<script type="text/javascript" src="<?php echo (DH_SKIN); ?>js/jquery.1.8.2.min.js" ></script>
+<script type="text/javascript" src="<?php echo (DH_SKIN); ?>js/jquery.plugin.min.js" ></script>
 <!--[if IE 6]>
-<script type="text/javascript" src="js/killie6.js" ></script>
+<script type="text/javascript" src="<?php echo (DH_SKIN); ?>js/killie6.js" ></script>
 <![endif]-->
 <script type="text/javascript">
 //<![CDATA[

@@ -1,17 +1,16 @@
-<?php if (!defined('THINK_PATH')) exit();?>
+<?php if (!defined('THINK_PATH')) exit();?>﻿
 <!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
 <meta name="viewport" content="width=1024" />
-<title>新闻_我的网站</title>
-<meta name="keywords" content="" />
-<meta name="description" content="" />      
+<title>成都城市设计研究中心_我的网站</title>
+<meta name="keywords" content="成都城市设计研究中心" />
+<meta name="description" content="成都市城市设计研究中心（英文缩写：CDUDC）是以城市设计和研究为主要方向的研究性机构，提供以城市运营为着眼点的相关咨询服务。是整合各方设计、咨询、研究资源的合作平台。为政府决" />     
 <link rel="stylesheet" href="<?php echo (DH_SKIN); ?>css/style.css" type="text/css" media="all" />
-<!--[if lt IE 9]><script type="text/javascript" src="../js/html5.js" ></script><![endif]-->
+<!--[if lt IE 9]><script type="text/javascript" src="<?php echo (DH_SKIN); ?>js/html5.js" ></script><![endif]-->
 </head>
-<body>
-
+<body >
 
 <header>
     <div id="navbg"></div>
@@ -30,32 +29,40 @@
 </header>
 
 
-<section id="newslist">
+<!-- 查找最顶级栏目  -->
+<section id="show_cases">
 	<div class="cat_title">
 		<div class="wrapper">
-			<h2><strong>NEWS</strong>新闻</h2>
-			<p>最近正在折腾...<br/>Recently is to do ...</p>
+			<h2><strong>CASES</strong>案例</h2>
+			<p>我们的作品，他们的故事<br/>Our work, their stories </p>
 		</div>
-		<div class="cate_abso">
-            <?php if(is_array($Category)): $i = 0; $__LIST__ = $Category;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$Category): $mod = ($i % 2 );++$i;?><a href="<?php echo U('index?cat='.$Category['id']);?>" class="news_category"><?php echo ($Category["name"]); ?></a>
-                <!--a href="<?php echo U('news/index','itemid=12');?>" class="news_category"><?php echo ($Category["name"]); ?></a--><?php endforeach; endif; else: echo "" ;endif; ?>
-    	</div>
 	</div>
-				<ul class="news wrapper">
-                <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$list): $mod = ($i % 2 );++$i;?><li>
-                        <a href="<?php echo U('show?id='.$list['itemid']);?>" tppabs="<?php echo U('show?id='.$list['itemid']);?>"><img src="<?php echo ($list["thumb"]); ?>" tppabs="<?php echo ($list["thumb"]); ?>" data-original="" alt="<?php echo ($list["title"]); ?>" /></a>
-                        <div class="newslist">
-                            <a href="<?php echo U('show?id='.$list['itemid']);?>" tppabs="<?php echo U('show?id='.$list['itemid']);?>"><?php echo ($list["title"]); ?></a>
-                            <span>UPTATED: <?php echo (date('Y-m-d',$list['edittime'])); ?> </span>
-                            <p><?php echo (msubstr($list["introduce"],0,200)); ?></p>
-                        </div>
-                    </li><?php endforeach; endif; else: echo "" ;endif; ?>
-				</ul>
-
-    <div id="pagination"><?php echo ($page); ?></div>
-
-
 	
+	<?php if(is_array($show)): $i = 0; $__LIST__ = $show;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$show): $mod = ($i % 2 );++$i;?><article>
+		<div class="wrapper">
+			<div id="overview">
+				<div class="overview_bg"></div>
+				<div id="case_info">
+					<h1><img src="<?php echo ($show["thumb"]); ?>" tppabs="<?php echo ($show["thumb"]); ?>" width="180" height="120" alt="<?php echo ($list["title"]); ?>" /></h1>
+					<ul>
+						<li>名称：<?php echo ($show["title"]); ?></li>
+						<li>分类：<?php echo (get_catname($show["catid"])); ?></li>
+					</ul>
+					<a href="javascript:if(confirm('http://www.cdudc.com/  点击这里给我发送临时消息'))window.location='http://www.cdudc.com/'" tppabs="http://www.cdudc.com/" class="btn_blue" target="_blank" rel="external nofollow">VISIT SITE 访问该网站</a>
+					<div class="brief"><?php echo ($addtime["introduce"]); ?></div>
+				</div>
+			</div>
+			<div id="detailed">
+				<img alt="" src="<?php echo (DH_SKIN); ?>images/1-131102210508.jpg" tppabs="http://mc18.eatdou.com/uploads/allimg/131102/1-131102210508.jpg" /><img alt="" src="<?php echo (DH_SKIN); ?>images/1-131102210509.jpg" tppabs="http://mc18.eatdou.com/uploads/allimg/131102/1-131102210509.jpg" /><img alt="" src="<?php echo (DH_SKIN); ?>images/1-131102210509-50.jpg" tppabs="http://mc18.eatdou.com/uploads/allimg/131102/1-131102210509-50.jpg" />					
+			</div>
+		</div>
+	</article><?php endforeach; endif; else: echo "" ;endif; ?>
+	<div id="case_footer">
+		<div class="wrapper showother">
+						<a class="backlist" href="index.htm" tppabs="http://mc18.eatdou.com/case/gov/">返回案例列表</a>
+						
+		</div>
+	</div>
 </section>
 
 <footer>
@@ -102,19 +109,11 @@
 </footer>
 
 
-<div class="bottom_tools">
-  <a href="http://qiao.baidu.com/v3/?module=default&controller=im&action=index&ucid=1588640&type=n&siteid=6550019" class="kf_tools" target="_blank">客服</a>
-  <a href="javascrip:void(0);" class="qr_tool">二维码</a>
-  <a href="http://www.pibu.com/services/advise.html" target="_blank" title="意见、建议、反馈、投诉、举报等" class="feedback">意见反馈</a>
-  <a href="javascript:void(0);" id="scrollup" title="返回页面顶部" class="scrollup"></a>
-  <div class="qrcode_box" style="display: none;"></div>
-</div>
-<script type="text/javascript" src="<?php echo (DH_SKIN); ?>/js/jquery.1.8.2.min.js" ></script>
-<script type="text/javascript" src="<?php echo (DH_SKIN); ?>/js/jquery.plugin.min.js" ></script>
+<script type="text/javascript" src="<?php echo (DH_SKIN); ?>js/jquery.1.8.2.min.js" ></script>
+<script type="text/javascript" src="<?php echo (DH_SKIN); ?>js/jquery.plugin.min.js" ></script>
 <!--[if IE 6]>
-<script type="text/javascript" src="<?php echo (DH_SKIN); ?>/js/killie6.js" ></script>
+<script type="text/javascript" src="js/killie6.js" ></script>
 <![endif]-->
-
 <script type="text/javascript">
 //<![CDATA[
 	//Nav Start
@@ -123,22 +122,39 @@
 	},function(){
 		$(this).parent().stop(false,true).animate({"background-position-x":"10px",opacity:"1"},{duration:"normal", easing: "easeOutElastic"});
 	});
-			<!----新闻---->
-	<!---- 新闻首页 ----->
-		//Nav End
-$("#gotop").click(function(){$('body,html').animate({scrollTop:0},500);})
+		<!--- 案例 ---->
+	<!--案例详细-->
+		//Cases Start
+		if($.browser.msie&&$.browser.version==6.0&&!$.support.style){
+			$("#overview").height($("#detailed").height());
+		}
+		$(window).scroll(function(){
+			if($.browser.msie&&$.browser.version==6.0&&!$.support.style){
+				return false;
+			}
+			if($(this).scrollTop()>110){
+				$("article").css("background-position","center 80px");
+			}else{
+				$("article").css("background-position","center "+(190-$(this).scrollTop())+"px");
+			}
+		});
+		$('#case_info h1').pngFix();
+		$("#detailed img").lazyload({effect:"fadeIn",failurelimit:10});
+		$("#case_footer>.showother>.previous,#case_footer>.showother>.next").hover(function(){
+			$("span>img",this).stop(false,true).animate({"left":"-20px"},{duration:"fast", easing: "easeOutQuad"});
+			$("#show_thumb>img").hide().eq($(this).index($("#case_footer>.showother>.previous,#case_footer>.showother>.next"))).show();
+			$("#show_thumb").css({display:"block",left:$(this).css("left"),right:$(this).css("right"),bottom:"20px",opacity:"0"}).stop(false,true).animate({bottom:"25px",opacity:"1"},{duration:"fast", easing: "easeOutQuad"});
+		},function(){
+			$("span>img",this).stop(false,true).animate({"left":"0"},{duration:"fast", easing: "easeOutQuad"});
+			$("#show_thumb").stop(false,true).animate({bottom:"20px",opacity:"0"},{duration:"fast", easing: "easeOutQuad"});
+		})
+		//Cases End
+		//Cases End
+					$("#gotop").click(function(){$('body,html').animate({scrollTop:0},500);})
 	var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
 	document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F3fe5b2b119b5fc4931e9c73e7071b0c6' type='text/javascript'%3E%3C/script%3E"));
 	var bds_config = {"bdTop":203};
 	$("#bdshell_js").attr("src","http://share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours());
-$("#scrollup").click(function(){$('body,html').animate({scrollTop:0},500);})
-$(".qr_tool").mouseover(function(){
-    $(".qrcode_box").css("display","block");
-});
-$(".qr_tool").mouseout(function(){
-    $(".qrcode_box").css("display","none");
-});
 //]]>
-</script>
-</body>
+</script></body>
 </html>
