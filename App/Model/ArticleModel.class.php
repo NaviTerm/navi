@@ -17,11 +17,26 @@ class ArticleModel extends Model{
 		
 		return $result;
 	}
+	function delete_all($id){
+
+		$content = M('article_data');
+		if(!is_array($id)){
+				$result = $this->delete($id);
+				$result += $content->delete($id);
+		}else{
+			foreach ($id as $key => $value) {
+				$result += $this->delete($value);
+				$result += $content->delete($value);
+			}
+		}
+
+		return $result;	
+	}
 	function add_article($data){
 
 			$data['addtime'] = $data['edittime'] = strtotime(I('post.addtime'));			
 			$data['status'] = 3;
-			$data['introduce'] = substr(I('post.content'), 0,200);
+			$data['introduce'] = substr(strip_tags(I('post.content')), 0,200);
 			$data['username'] = $_SESSION['username'] ? $_SESSION['username'] : get_client_ip();
 			$data['hits'] = mt_rand(0,10);
 			$update = $this->create($data);

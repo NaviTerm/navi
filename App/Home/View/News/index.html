@@ -1,12 +1,5 @@
+<include file="Public:meta" />
 
-<!DOCTYPE HTML>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
-<meta name="viewport" content="width=1024" />
-<title>新闻_我的网站</title>
-<meta name="keywords" content="" />
-<meta name="description" content="" />      
 <link rel="stylesheet" href="{$Think.DH_SKIN}css/style.css" type="text/css" media="all" />
 <!--[if lt IE 9]><script type="text/javascript" src="../js/html5.js" ></script><![endif]-->
 </head>
@@ -32,11 +25,11 @@
 				<ul class="news wrapper">
                 <volist name="list" id="list">
                     <li>
-                        <a href="{:U('show?id='.$list['itemid'])}" tppabs="{:U('show?id='.$list['itemid'])}"><img src="{$list.thumb}" tppabs="{$list.thumb}" data-original="" alt="{$list.title}" /></a>
+                        <a href="{:U('show?id='.$list['itemid'])}" tppabs="{:U('show?id='.$list['itemid'])}"><img src="{$list.thumb|imgurl=###,150}" tppabs="{$list.thumb|imgurl=###,150}" data-original="" alt="{$list.title|msubstr=0,50}" /></a>
                         <div class="newslist">
-                            <a href="{:U('show?id='.$list['itemid'])}" tppabs="{:U('show?id='.$list['itemid'])}">{$list.title}</a>
+                            <a href="{:U('show?id='.$list['itemid'])}" tppabs="{:U('show?id='.$list['itemid'])}">{$list.title|msubstr=0,50}</a>
                             <span>UPTATED: {$list['edittime']|date='Y-m-d',###} </span>
-                            <p>{$list.introduce|msubstr=0,200}</p>
+                            <p>{$list.introduce|strip_tags|msubstr=0,400}</p>
                         </div>
                     </li>
                 </volist>
@@ -44,8 +37,6 @@
 
     <div id="pagination">{$page}</div>
 
-
-	
 </section>
 
 <include file="Public:footer" />

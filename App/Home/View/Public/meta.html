@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="baidu-site-verification" content="3ztG4oI0ku" />
+    <title>{$current}-{$config_webname}</title>
+    <meta name="keywords" content="{$config_keyword}" />
+    <meta name="description" content="<?php
+            if( $channel == 'News_show' || $channel == 'Case_show' ){
+               echo mb_substr(strip_tags($content['0']['content']), 1,100,"UTF-8");
+            }else{
+                echo $config_description;
+            }
+
+        ?>" />
+

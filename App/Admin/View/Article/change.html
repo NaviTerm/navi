@@ -60,6 +60,39 @@ $(function(){
                 // console.log(id);
             }
       });
+     $('.delete_all').click(function(){
+            var result = confirm('确定要删除所选文章吗?');
+            var id = '';
+            if(result){
+                $("[name=input_check]:checked").each(function() { 
+                   id = id+',' + $(this).val();
+                });
+                if (id != '' && id.substr(0,1)==','){
+                    id=id.substr(1);
+                    $.ajax({
+                        url:'{:U("article/change")}',
+                        type:'POST',
+                        data:{itemid:id,type:'del'},
+                        success:function(data){
+                            // var arr = id.split(',');
+                            // for (var i = arr.length - 1; i >= 0; i--) {
+                            //     $('#tr_'+arr[i]).remove();
+                            // };
+                            alert('删除成功');
+                            location.reload();//直接刷新页面
+                            // console.log(data);
+                        },
+                        error:function(data){
+                            // console.log("错了");
+                            alert('删除失败,请刷新页面后重试');
+                        }
+                    });                    
+                }else{
+                    alert('请选择待删除的文章!');
+                }
+                // console.log(id);
+            }
+      });
       $("#checkall").click(function() { 
             var flag = $(this).attr("checked"); 
             $("[name=input_check]:checkbox").each(function() { 
@@ -94,8 +127,8 @@ $(function(){
     	<ul class="toolbar">
         <li class="del_all"><span><img src="{$Think.AD_SKIN}images/t01.png" /></span>一键恢复</li>
         <!-- <li class="click"><span><img src="{$Think.AD_SKIN}images/t02.png" /></span></li> -->
-<!-- <li><span><img src="{$Think.AD_SKIN}images/t03.png" /></span>删除</li>
-<li><span><img src="{$Think.AD_SKIN}images/t04.png" /></span>统计</li> -->
+<li class="delete_all"><span><img src="{$Think.AD_SKIN}images/t03.png" /></span>一键删除</li>
+<!-- <li><span><img src="{$Think.AD_SKIN}images/t04.png" /></span>统计</li> -->
         </ul>
     
     </div>
@@ -119,7 +152,7 @@ $(function(){
         <tr>
         <td><input name="input_check" type="checkbox" value="{$t[itemid]}" /></td>
         <td>{$t['itemid']}</td>
-        <td>{$t['title']}</td>
+        <td>{$t['title']|msubstr=###,0,20}</td>
         <td>{$t['username']}</td>
         <td>{$t['catid']|get_catname}</td>
         <td>{$t['addtime']|date='Y-m-d H:i:s',###}</td>

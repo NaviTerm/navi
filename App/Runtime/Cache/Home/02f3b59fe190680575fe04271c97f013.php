@@ -1,11 +1,15 @@
 <?php if (!defined('THINK_PATH')) exit();?>﻿<!DOCTYPE HTML>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=1024" />
-<title><?php echo (DH_SKIN); ?></title>
-<meta name="keywords" content="html5+js,技术网站,应用,案例,三盛,都会,城," />
-<meta name="description" content="三盛·都会城作为三盛地产在成都的全资开发项目，入主龙泉经开区，承载三盛地产在成都建立品牌的任务，三盛·都会城总投入近40亿元，前期将投入3亿重金，将该项目打造为龙泉乃至大成东" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="baidu-site-verification" content="3ztG4oI0ku" />
+    <title><?php echo ($current); ?>-<?php echo ($config_webname); ?></title>
+    <meta name="keywords" content="<?php echo ($config_keyword); ?>" />
+    <meta name="description" content="<?php
+ if( $channel == 'News_show' || $channel == 'Case_show' ){ echo mb_substr(strip_tags($content['0']['content']), 1,100,"UTF-8"); }else{ echo $config_description; } ?>" />
+
+
 <link rel="stylesheet" href="<?php echo (DH_SKIN); ?>css/style.css" type="text/css" media="all" />
 <!--[if lt IE 9]><script type="text/javascript" src="<?php echo (DH_SKIN); ?>js/html5.js" ></script><![endif]-->
 </head>
@@ -14,7 +18,7 @@
 <header>
     <div id="navbg"></div>
     <div class="wrapper">
-        <h1 class="logo"><a href="<?php echo U('./index');?>"  title="建荣博客:www.njro168.com"><img src="<?php echo (DH_SKIN); ?>images/logo.png"  width="213" height="36" alt="建荣博客:www.njro168.com" /></a></h1>
+        <h1 class="logo"><a href="<?php echo U('./index');?>" ><img src="<?php echo (DH_SKIN); ?>images/logo.png"  width="213" height="36" /></a></h1>
         <nav>
             <ul>
                 <li class="home"><a href="<?php echo U('./index');?>" >首页<span>网站首页！</span></a></li>
@@ -36,8 +40,7 @@
         Recently is to do ...</p>
     </div>
     <div class="cate_abso">
-		<a href="javascript:void(0);" class="news_category">公司新闻</a>
-		<a href="javascript:void(0);" class="news_category">行业动态</a>
+    	<?php if(is_array($Category)): $i = 0; $__LIST__ = $Category;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$Category): $mod = ($i % 2 );++$i;?><a href="<?php echo U('index?cat='.$Category['id']);?>" class="news_category"><?php echo ($Category["name"]); ?></a><?php endforeach; endif; else: echo "" ;endif; ?>
     </div>
   </div>
   <article>
@@ -45,32 +48,12 @@
   
   
   <?php if(is_array($show)): $i = 0; $__LIST__ = $show;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$show): $mod = ($i % 2 );++$i;?><h3 class="news_title"><?php echo ($show["title"]); ?></h3>
-        <div class="wrapper" id="detailed"> <img alt="" src="<?php echo ($show["thumb"]); ?>" tppabs="<?php echo ($show["thumb"]); ?>" style="width: 1024px; height: 533px;" /><br />
-    <p><?php echo ($show["introduce"]); ?></p>
+      <span>点击量：</span>
+        <div class="wrapper" id="detailed"> <!--img alt="" src="<?php echo ($show["thumb"]); ?>" tppabs="<?php echo ($show["thumb"]); ?>" style="width: 1024px; height: 533px;" /--><br /><?php endforeach; endif; else: echo "" ;endif; ?>
+	  <?php if(is_array($content)): $i = 0; $__LIST__ = $content;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$content): $mod = ($i % 2 );++$i;?><p><?php echo ($content["content"]); ?></p>
      </div><?php endforeach; endif; else: echo "" ;endif; ?>
- 
- 
- 
- 
-    <div class="wrapper related">
-      <h3> 你可能还对下面的新闻感兴趣
-        <div class="share">
-          <!-- Baidu Button BEGIN -->
-          <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare"> <a class="bds_qzone"></a> <a class="bds_tsina"></a> <a class="bds_tqq"></a> <a class="bds_renren"></a> <a class="bds_t163"></a> <span class="bds_more">更多</span> <a class="shareCount"></a> </div>
-          <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=0" ></script>
-          <script type="text/javascript" id="bdshell_js"></script>
-          <script type="text/javascript">
-document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
-</script>
-          <!-- Baidu Button END -->
-        </div>
-      </h3>
-      <ul>
-      
-        <li><a href="7.html" tppabs="http://mc18.eatdou.com/news/gsnews/7.html">html5+js技术网站应用案例：三盛·都会城网站建设</a></li>
 
-      </ul>
-    </div>
+
     <div id="case_footer">
       <div class="wrapper showother"> <a class="backlist" href="index.htm" tppabs="http://mc18.eatdou.com/news/gsnews/">返回案例列表</a> </div>
     </div>
@@ -93,13 +76,11 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
         <div class="wrapper">
             <h2>联系我们<strong>Contact</strong></h2>
             <p>
-                <a target="_blank" href="javascript:if(confirm('http://wpa.qq.com/msgrd?v=3&uin=429592913&site=qq&menu=yes'))window.location='http://wpa.qq.com/msgrd?v=3&uin=429592913&site=qq&menu=yes'"><img border="0" src="<?php echo (DH_SKIN); ?>images/qq.png"  alt="点击这里给我发消息" title="点击这里给我发消息"/></a><br/>
-                电话：400 8888 8888<br/>
-                传真：400 8888 8888<br/>
-                电子邮件：admin@unn114.com<br/>
-                公司地址：重庆市某某某某某某某某某<br/>
-                备案编号：蜀ICP备000000001<br/>
-                Copyright © 2013 - 2014 luidea.com All rights reserved.
+                <!--a target="_blank" href="javascript:if(confirm('http://wpa.qq.com/msgrd?v=3&uin=429592913&site=qq&menu=yes'))window.location='http://wpa.qq.com/msgrd?v=3&uin=429592913&site=qq&menu=yes'"><img border="0" src="<?php echo (DH_SKIN); ?>images/qq.png"  alt="点击这里给我发消息" title="点击这里给我发消息"/></a><br/-->
+                电话：<?php echo ($config_mobile); ?><br/>
+                电子邮件：<?php echo ($config_email); ?><br/>
+                公司地址：<?php echo ($config_address); ?><br/>
+                备案编号：<?php echo ($config_icp); ?><br/>
             </p>
             <img src="<?php echo (DH_SKIN); ?>images/map.png" id="homemap" width="260" height="190" alt="公司位置" />
         </div>
@@ -115,7 +96,8 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
             </p>
         </div>
         <div class="Copyright">
-            <p>Copyright © 2014 Pibu.com. All Rights Reserved. 版权所有 中国坯布网 苏ICP备10111637号-2 </p>
+            <p>Copyright © 2015 Pibu.com. All Rights Reserved. 版权所有 <a href="<?php echo ($config_domain); ?>"><?php echo ($config_webname); ?></a> <?php echo ($config_icp); ?> </p>
+            <a href="http://webscan.360.cn/index/checkwebsite/url/navi.simon8.com" style="display:none"><img border="0" src="http://img.webscan.360.cn/status/pai/hash/4a0f4c6e01eed3d9765ef06222fafb57"/></a>
         </div>
     </div>
 </footer>

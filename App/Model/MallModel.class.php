@@ -20,6 +20,7 @@ class MallModel extends Model{
 	function add_mall($data){	
 			$data['status'] = 3;
 			$data['addtime'] = strtotime($data['addtime']);
+			$data['introduce'] =  $data['introduce'] ? $data['introduce'] : trimall(msubstr(strip_tags($data['content']),0,100)) ;
 			$update = $this->create($data);
 			$insertid = $this->add($update);
 			if($insertid){

@@ -45,9 +45,12 @@ $(document).ready(function(e) {
 	$(".select3").uedSelect({
 		width : 100
 	});
-/*    $("#img").change(function(){
-   $("#uploadfrom").submit();
- });*/
+  $('.background-images img').click(function(){
+    $('.background-images img').removeClass();
+    $(this).addClass('checked');
+    $("input[name=background]").val($(this).attr('data-num'));
+  });
+
 });
 </script>
 <style>
@@ -139,12 +142,11 @@ $(document).ready(function(e) {
       background: rgba(0, 0, 0, 0.44);
       z-index: 999;
 }
-#img_div{
-  border: 1px solid #ddd;width: 980px;height: 335px;margin-top: 10px;
-}
+ #img_div{
+padding: 10px 0 0 85px;
+} 
 #img_div img{
-  width: 980px;
-  height: 335px;
+  max-width: 350px;
 }
 .tj_img{
   display: none;
@@ -152,6 +154,9 @@ $(document).ready(function(e) {
 #img_tj_div{
   position: absolute;left: 470px;border: 1px solid #ddd;width: 192px;height: 120px;top: -40px;overflow: hidden;
 }
+.background-images img{max-width:180px;opacity: 0.6;}
+.background-images img:hover{opacity:1;}
+.background-images .checked{opacity: 1}
 </style>
 <body>
 
@@ -168,34 +173,36 @@ $(document).ready(function(e) {
     
     <div id="usual1" class="usual"> 
     
-<!--     <div class="itab">
-  	<ul> 
-    <li><a href="#tab1" class="selected">发布资讯</a></li> 
-    <li><a href="#tab2">自定义</a></li> 
-  	</ul>
-    </div>  -->
-    
   	<div id="tab1" class="tabson">
     
     <div class="formtext">Hi，<b><if condition="$_user['truename']">{$_user['truename']}<else />{$_user['username']}</if></b>，欢迎您使用企业历程发布功能！</div>
 <form action="<if condition="$list">{:U('banner/update')}<else />{:U('banner/add')}</if>" method="post" enctype="multipart/form-data">
     <input type="hidden" name="itemid" value="{$list[itemid]}" />
     <ul class="forminfo">
-    <li><label>标题<b>*</b></label><input name="title" type="text" class="dfinput" value="{$list[title]}"  placeholder="请填写标题" style="width:576px;" required="required"/></li>
+    <li><label>标题<b>*</b></label><input name="title" type="text" class="dfinput" value="{$list[title]}" maxlength="20"  placeholder="请填写标题" style="width:576px;" required="required"/></li>
    
     <li><label>图片地址</label><input type="text" name="thumb" id="thumb" class="dfinput" readonly="" value="{$list[thumb]}" />
       <input  type="button" class="btn" value="上传" onclick="$('.select_img,#fun').show();"/>
         <input  type="button" class="btn" value="删除" onclick="del_img('thumb','img1')"/>
-      <div id="img_div"style="background:url('{$a|imgurl=###,150}') no-repeat;background-size:100% 100%"><img src="{$list[thumb]}" alt="" id="img1" width="100%"/></div>
+      <div id="img_div"style=""><img src="{$list[thumb]|imgurl=###,150}" alt="" id="img1"/></div>
     </li>
-
+    <li class="background-images"><label>选择背景</label>
+    <input type="hidden" name="background" value="{$list[background]}"/>
+    <img src="{$Think.DH_SKIN}images/banner_bg1.jpg" alt="" data-num="1"<if condition="$list[background] == 1">class="checked"</if>/>
+    <img src="{$Think.DH_SKIN}images/banner_bg2.jpg" alt="" data-num="2"<if condition="$list[background] == 2">class="checked"</if>/>
+    <img src="{$Think.DH_SKIN}images/banner_bg3.jpg" alt="" data-num="3"<if condition="$list[background] == 3">class="checked"</if>/><br />
+    <span style="width:82px;display:inline-block"></span>
+    <img src="{$Think.DH_SKIN}images/banner_bg4.jpg" alt="" data-num="4"<if condition="$list[background] == 4">class="checked"</if>/>
+    <img src="{$Think.DH_SKIN}images/banner_bg5.jpg" alt="" data-num="5"<if condition="$list[background] == 5">class="checked"</if>/>
+    <img src="{$Think.DH_SKIN}images/banner_bg6.jpg" alt="" data-num="6"<if condition="$list[background] == 6">class="checked"</if>/>
+    </li>
     <li>
       <label>URL<b>*</b></label>  
       <input type="url" name="linkurl" class="dfinput" value="{$list[linkurl]}" placeholder="请输入连接地址,必须带http://" />
     </li>
 
     <li><label>描述<b>*</b></label>
-    <textarea id="content7" name="content" style="width:700px;height:250px;visibility:hidden;" >{$list[introduce]}</textarea>
+    <textarea id="content7" name="content" style="width:700px;height:250px;visibility:hidden;background:black" >{$list[introduce]}</textarea>
     </li>
 
     <li><label>发布时间</label><input name="addtime" type="datetime" class="dfinput" value="{$list[addtime]|default=time()|date='Y-m-d H:i:s',###}
@@ -212,10 +219,10 @@ $(document).ready(function(e) {
 	</div>
  <div class="select_img">
      <ul>
-     <form name="uploadfrom" id="uploadfrom" action="{:U('admin/images/imgup',array('formname'=>'img','id'=>'thumb'))}" method="post"  enctype="multipart/form-data" target="tarframe">
+     <form name="uploadfrom" id="uploadfrom" action="{:U('admin/images/imgup_png',array('formname'=>'img','id'=>'thumb'))}" method="post"  enctype="multipart/form-data" target="tarframe">
          <li><h3>图片上传</h3></li>
          <li>本地图片:<input type="file" name="img"  id="img" value="" /></li>
-         <li><span>宽度:<input type="text" name="width" id="width" value="980" /></span><span>高度:<input type="text" name="height" id="height" value="335" /></span></li>
+         <li><span>宽度:<input type="text" name="width" id="width" value="500" /></span><span>高度:<input type="text" name="height" id="height" value="440" /></span></li>
          <li><a class="btn" onclick="$('#uploadfrom').submit();">上传</a><a class="btn" onclick="$('.select_img,#fun').hide();">取消</a></li>
        </form>
      </ul>
@@ -264,7 +271,7 @@ $(document).ready(function(e) {
         data:{src:src},
         success:function(data){
           $('#'+src_id).val('');
-          $('#'+img_id).attr('src','')
+          $('#'+img_id).attr('src','{$Think.AD_SKIN}images/nopic150.gif')
         },
         error:function(data){
           alert("删除失败");

@@ -228,7 +228,8 @@ K.basePath = _getBasePath();
 K.options = {
 	designMode : true,
 	fullscreenMode : false,
-	filterMode : true,
+	// filterMode : true,//过滤html代码
+	filterMode : false,//过滤html代码
 	wellFormatMode : true,
 	shadowMode : true,
 	loadStyleMode : true,

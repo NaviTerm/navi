@@ -9,8 +9,9 @@
 		return $data['name'];
 	}
 	function imgurl($imgurl = '', $width = '') {
-		if($imgurl) {
-			return strpos($imgurl, '://') === false ? $imgurl : $imgurl;
+
+		if( $imgurl and file_exists('.'.$imgurl) ) {
+			return $imgurl;
 		} else {
 			return AD_SKIN.'images/nopic'.$width.'.gif';
 		}
@@ -107,5 +108,11 @@
 
 	/* 过滤html */
 	function filter_default(&$value){
-	    $value = htmlspecialchars($value);
+	    $value = htmlspecialchars_decode($value);
+	}
+	
+	/*清除空格*/
+	function trimall($str){
+	    $qian=array(" ","　","\t","\n","\r");$hou=array("","","","","");
+	    return str_replace($qian,$hou,$str);    
 	}

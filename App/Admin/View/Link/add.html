@@ -31,7 +31,7 @@
     </li>
     <li>
         <label><span class="f_red">*</span>链接名称:</label>
-        <input name="title" id="title" type="text" placeholder="请填写网站名称" class="dfinput" value="{$list[title]}"/>
+        <input name="title" id="title" type="text" placeholder="请填写网站名称" class="dfinput"  maxlength="20" value="{$list[title]}"/>
         <i>
             <select name="level" id="level" style="border: 1px solid rgb(169, 169, 169);">
                 <option value="0" <if condition="$list[level] == 0">selected</if>>无</option>

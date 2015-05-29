@@ -1,24 +1,24 @@
 <?php if (!defined('THINK_PATH')) exit();?>﻿<!DOCTYPE HTML>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=1024" />
-<meta name="baidu-site-verification" content="3ztG4oI0ku" />
-<title>html5高档大气的企业网站模版-777模板www.777moban.com</title>
-<meta name="description" content="" />
-<meta name="keywords" content="" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="baidu-site-verification" content="3ztG4oI0ku" />
+    <title><?php echo ($current); ?>-<?php echo ($config_webname); ?></title>
+    <meta name="keywords" content="<?php echo ($config_keyword); ?>" />
+    <meta name="description" content="<?php
+ if( $channel == 'News_show' || $channel == 'Case_show' ){ echo mb_substr(strip_tags($content['0']['content']), 1,100,"UTF-8"); }else{ echo $config_description; } ?>" />
+
+
 <link rel="stylesheet" href="<?php echo (DH_SKIN); ?>css/style.css"  type="text/css" media="all" />
 <!--[if lt IE 9]><script type="text/javascript" src="<?php echo (DH_SKIN); ?>js/html5.js"></script><![endif]-->
-    <link rel="stylesheet" href="<?php echo (DH_SKIN); ?>css/fa.css"  type="text/css" media="all" />
-    <script type="text/javascript" src="<?php echo (DH_SKIN); ?>js/jquery.js"></script>
-    <script type="text/javascript" src="<?php echo (DH_SKIN); ?>js/superslide.2.1.js"></script>
 </head>
 <body id="ruifoxHome">
 
 <header>
     <div id="navbg"></div>
     <div class="wrapper">
-        <h1 class="logo"><a href="<?php echo U('./index');?>"  title="建荣博客:www.njro168.com"><img src="<?php echo (DH_SKIN); ?>images/logo.png"  width="213" height="36" alt="建荣博客:www.njro168.com" /></a></h1>
+        <h1 class="logo"><a href="<?php echo U('./index');?>" ><img src="<?php echo (DH_SKIN); ?>images/logo.png"  width="213" height="36" /></a></h1>
         <nav>
             <ul>
                 <li class="home"><a href="<?php echo U('./index');?>" >首页<span>网站首页！</span></a></li>
@@ -31,27 +31,37 @@
     </div>
 </header>
 
+<!-- 查找最顶级栏目  -->
+<section id="banner">
+  <ul id="banner_img">
+<?php if(is_array($banner)): foreach($banner as $k=>$t): ?><li style="background-image:url(<?php echo (DH_SKIN); ?>images/banner_bg<?php echo ($t[background]); ?>.jpg);<?php if($k==0): ?>display:block<?php endif; ?>">
+      <div class="wrapper">
+        <div class="ad_txt">
+          <h2><?php echo (msubstr($t[title],0,20)); ?></h2>
+          <p><?php echo ($t[introduce]); ?></p>
+        </div>
+        <div class="ban_img"> <img src="<?php echo ($t[thumb]); ?>"  width="506" height="404" alt="" /> </div>
+      </div>
+    </li><?php endforeach; endif; ?>
 
-
-<div class="slider">
-    <div class="bd">
-        <ul>
-            <?php if(is_array($Banner)): $i = 0; $__LIST__ = $Banner;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$Banner): $mod = ($i % 2 );++$i;?><li><a target="_blank" href="<?php echo ($Banner["linkurl"]); ?>"><img src="<?php echo ($Banner["thumb"]); ?>" /></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
-        </ul>
-    </div>
-    <div class="hd">
-        <ul>
-        </ul>
-    </div>
-    <div class="pnBtn prev"> <span class="blackBg"></span> <a class="arrow" href="javascript:void(0)"></a> </div>
-    <div class="pnBtn next"> <span class="blackBg"></span> <a class="arrow" href="javascript:void(0)"></a> </div>
-</div>
-<script type="text/javascript">
-    jQuery(".slider .bd li").first().before( jQuery(".slider .bd li").last() );
-    jQuery(".slider").hover(function(){ jQuery(this).find(".arrow").stop(true,true).fadeIn(300) },function(){ jQuery(this).find(".arrow").fadeOut(300) });				jQuery(".slider").slide({ titCell:".hd ul", mainCell:".bd ul", effect:"leftLoop",autoPlay:true, vis:3,autoPage:true, trigger:"click"});
-</script>
-
-
+  </ul>
+  <div id="banner_ctr">
+    <div id="drag_ctr"></div>
+    <ul>
+      <li class="first-item">网站建设</li>
+      <li>纺织产业平台</li>
+      <li>应用系统开发</li>
+      <li>品牌整合营销</li>
+      <li>纺织数据中心</li>
+      <li>展销会</li>
+      <li>担保交易</li>
+      <li>采购专场</li>
+      <li>在线寻放样</li>
+      <li class="last-item">网站设计</li>
+    </ul>
+    <div id="drag_arrow"></div>
+  </div>
+</section>
 <section id="cases">
   <div class="cat_title wrapper">
     <h2>产品<strong>Products</strong></h2>
@@ -59,10 +69,9 @@
       Our Story </p>
     <a href="<?php echo U('./case');?>"  class="more">MORE+</a> </div>
   <ul>
-      <?php if(is_array($Mall)): $i = 0; $__LIST__ = $Mall;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$Mall): $mod = ($i % 2 );++$i;?><li><img src="<?php echo ($Mall["thumb"]); ?>"   width="240" height="152" alt="<?php echo ($Mall["title"]); ?>"/>
-              <p> <strong><?php echo ($Mall["title"]); ?></strong><?php echo ($addtime["introduce"]); ?><br/>
-                  <a href="<?php echo U('Case/show?id='.$Mall['itemid']);?>"  class="btn_blue">查看品牌故事</a>
-                  <a href="javascript:if(confirm('http://www.777moban.com/'))window.location='http://www.777moban.com/'" target="_blank" class="openurl">访问品牌网站</a>
+      <?php if(is_array($Mall)): $i = 0; $__LIST__ = $Mall;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$Mall): $mod = ($i % 2 );++$i;?><li><img src="<?php echo (imgurl($Mall["thumb"],150)); ?>"   width="240" height="152" alt="<?php echo (msubstr($Mall["title"],0,14)); ?>"/>
+              <p> <strong><?php echo (msubstr($Mall["title"],0,14)); ?></strong><?php echo (msubstr($Mall["introduce"],0,14)); ?><br/>
+                  <a href="<?php echo U('Case/show?id='.$Mall['itemid']);?>"  class="btn_blue">查看详细</a>
               </p>
           </li><?php endforeach; endif; else: echo "" ;endif; ?>
   </ul>
@@ -77,18 +86,16 @@
   <div class="newsdata">
     <div class="newsad">
         <?php if(is_array($News_left)): $i = 0; $__LIST__ = $News_left;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$News_left): $mod = ($i % 2 );++$i;?><span><a href="<?php echo U('News/show?id='.$News['itemid']);?>"><img src="<?php echo ($News_left["thumb"]); ?>" /> </a></span><?php endforeach; endif; else: echo "" ;endif; ?>
-
     </div>
-    <ul>
-      <?php if(is_array($News)): $i = 0; $__LIST__ = $News;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$News): $mod = ($i % 2 );++$i;?><li> <a href="<?php echo U('News/show?id='.$News['itemid']);?>"><img src="<?php echo ($list["thumb"]); ?>"   width="90" height="90" alt="<?php echo ($News["title"]); ?>"/></a>
-        <div class="newslist"> <a href="<?php echo U('News/show?id='.$News['itemid']);?>" title="<?php echo ($News["title"]); ?>"><?php echo ($News["title"]); ?></a> <span>UPTATED:2013/11/02</span>
-          <p><?php echo ($News["introduce"]); ?></p>
-        </div>
-      </li><?php endforeach; endif; else: echo "" ;endif; ?>
-    </ul>
+      <ul>
+          <?php if(is_array($News)): $i = 0; $__LIST__ = $News;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$News): $mod = ($i % 2 );++$i;?><li> <a href="<?php echo U('News/show?id='.$News['itemid']);?>"><img src="<?php echo (imgurl($News["thumb"],150)); ?>"   width="90" height="90" alt="<?php echo ($News["title"]); ?>"/></a>
+                  <div class="newslist"> <a href="<?php echo U('News/show?id='.$News['itemid']);?>" title="<?php echo ($News["title"]); ?>"><?php echo (msubstr($News["title"],0,14)); ?></a> <span>UPTATED:<?php echo (date('Y-m-d',$News["edittime"])); ?></span>
+                      <p><?php echo (msubstr(strip_tags($News["introduce"]),0,200)); ?></p>
+                  </div>
+              </li><?php endforeach; endif; else: echo "" ;endif; ?>
+      </ul>
   </div>
 </section>
-
 
 <footer>
     <div id="footerlink">
@@ -106,13 +113,11 @@
         <div class="wrapper">
             <h2>联系我们<strong>Contact</strong></h2>
             <p>
-                <a target="_blank" href="javascript:if(confirm('http://wpa.qq.com/msgrd?v=3&uin=429592913&site=qq&menu=yes'))window.location='http://wpa.qq.com/msgrd?v=3&uin=429592913&site=qq&menu=yes'"><img border="0" src="<?php echo (DH_SKIN); ?>images/qq.png"  alt="点击这里给我发消息" title="点击这里给我发消息"/></a><br/>
-                电话：400 8888 8888<br/>
-                传真：400 8888 8888<br/>
-                电子邮件：admin@unn114.com<br/>
-                公司地址：重庆市某某某某某某某某某<br/>
-                备案编号：蜀ICP备000000001<br/>
-                Copyright © 2013 - 2014 luidea.com All rights reserved.
+                <!--a target="_blank" href="javascript:if(confirm('http://wpa.qq.com/msgrd?v=3&uin=429592913&site=qq&menu=yes'))window.location='http://wpa.qq.com/msgrd?v=3&uin=429592913&site=qq&menu=yes'"><img border="0" src="<?php echo (DH_SKIN); ?>images/qq.png"  alt="点击这里给我发消息" title="点击这里给我发消息"/></a><br/-->
+                电话：<?php echo ($config_mobile); ?><br/>
+                电子邮件：<?php echo ($config_email); ?><br/>
+                公司地址：<?php echo ($config_address); ?><br/>
+                备案编号：<?php echo ($config_icp); ?><br/>
             </p>
             <img src="<?php echo (DH_SKIN); ?>images/map.png" id="homemap" width="260" height="190" alt="公司位置" />
         </div>
@@ -128,7 +133,8 @@
             </p>
         </div>
         <div class="Copyright">
-            <p>Copyright © 2014 Pibu.com. All Rights Reserved. 版权所有 中国坯布网 苏ICP备10111637号-2 </p>
+            <p>Copyright © 2015 Pibu.com. All Rights Reserved. 版权所有 <a href="<?php echo ($config_domain); ?>"><?php echo ($config_webname); ?></a> <?php echo ($config_icp); ?> </p>
+            <a href="http://webscan.360.cn/index/checkwebsite/url/navi.simon8.com" style="display:none"><img border="0" src="http://img.webscan.360.cn/status/pai/hash/4a0f4c6e01eed3d9765ef06222fafb57"/></a>
         </div>
     </div>
 </footer>
@@ -136,7 +142,7 @@
 <div class="bottom_tools">
   <a href="http://qiao.baidu.com/v3/?module=default&controller=im&action=index&ucid=1588640&type=n&siteid=6550019" class="kf_tools" target="_blank">客服</a>
   <a href="javascrip:void(0);" class="qr_tool">二维码</a>
-  <a href="http://www.pibu.com/services/advise.html" target="_blank" title="意见、建议、反馈、投诉、举报等" class="feedback">意见反馈</a>
+  <a href="<?php echo U('./message');?>" target="_blank" title="意见、建议、反馈、投诉、举报等" class="feedback">意见反馈</a>
   <a href="javascript:void(0);" id="scrollup" title="返回页面顶部" class="scrollup"></a>
   <div class="qrcode_box" style="display: none;"></div>
 </div>

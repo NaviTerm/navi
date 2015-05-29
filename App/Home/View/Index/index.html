@@ -1,45 +1,44 @@
-﻿<!DOCTYPE HTML>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=1024" />
-<meta name="baidu-site-verification" content="3ztG4oI0ku" />
-<title>html5高档大气的企业网站模版-777模板www.777moban.com</title>
-<meta name="description" content="" />
-<meta name="keywords" content="" />
+﻿<include file="Public:meta" />
 <link rel="stylesheet" href="{$Think.DH_SKIN}css/style.css"  type="text/css" media="all" />
 <!--[if lt IE 9]><script type="text/javascript" src="{$Think.DH_SKIN}js/html5.js"></script><![endif]-->
-    <link rel="stylesheet" href="{$Think.DH_SKIN}css/fa.css"  type="text/css" media="all" />
-    <script type="text/javascript" src="{$Think.DH_SKIN}js/jquery.js"></script>
-    <script type="text/javascript" src="{$Think.DH_SKIN}js/superslide.2.1.js"></script>
 </head>
 <body id="ruifoxHome">
 
 <include file="Public:header" />
 
+<!-- 查找最顶级栏目  -->
+<section id="banner">
+  <ul id="banner_img">
+<foreach name="banner" item="t" key="k">
+    <li style="background-image:url({$Think.DH_SKIN}images/banner_bg{$t[background]}.jpg);<if condition='$k==0'>display:block</if>">
+      <div class="wrapper">
+        <div class="ad_txt">
+          <h2>{$t[title]|msubstr=###,0,20}</h2>
+          <p>{$t[introduce]}</p>
+        </div>
+        <div class="ban_img"> <img src="{$t[thumb]}"  width="506" height="404" alt="" /> </div>
+      </div>
+    </li>
+</foreach>
 
-
-<div class="slider">
-    <div class="bd">
-        <ul>
-            <volist name="Banner" id="Banner">
-                <li><a target="_blank" href="{$Banner.linkurl}"><img src="{$Banner.thumb}" /></a></li>
-            </volist>
-        </ul>
-    </div>
-    <div class="hd">
-        <ul>
-        </ul>
-    </div>
-    <div class="pnBtn prev"> <span class="blackBg"></span> <a class="arrow" href="javascript:void(0)"></a> </div>
-    <div class="pnBtn next"> <span class="blackBg"></span> <a class="arrow" href="javascript:void(0)"></a> </div>
-</div>
-<script type="text/javascript">
-    jQuery(".slider .bd li").first().before( jQuery(".slider .bd li").last() );
-    jQuery(".slider").hover(function(){ jQuery(this).find(".arrow").stop(true,true).fadeIn(300) },function(){ jQuery(this).find(".arrow").fadeOut(300) });				jQuery(".slider").slide({ titCell:".hd ul", mainCell:".bd ul", effect:"leftLoop",autoPlay:true, vis:3,autoPage:true, trigger:"click"});
-</script>
-
-
+  </ul>
+  <div id="banner_ctr">
+    <div id="drag_ctr"></div>
+    <ul>
+      <li class="first-item">网站建设</li>
+      <li>纺织产业平台</li>
+      <li>应用系统开发</li>
+      <li>品牌整合营销</li>
+      <li>纺织数据中心</li>
+      <li>展销会</li>
+      <li>担保交易</li>
+      <li>采购专场</li>
+      <li>在线寻放样</li>
+      <li class="last-item">网站设计</li>
+    </ul>
+    <div id="drag_arrow"></div>
+  </div>
+</section>
 <section id="cases">
   <div class="cat_title wrapper">
     <h2>产品<strong>Products</strong></h2>
@@ -48,10 +47,9 @@
     <a href="{:U('./case')}"  class="more">MORE+</a> </div>
   <ul>
       <volist name="Mall" id="Mall">
-          <li><img src="{$Mall.thumb}"   width="240" height="152" alt="{$Mall.title}"/>
-              <p> <strong>{$Mall.title}</strong>{$addtime.introduce}<br/>
-                  <a href="{:U('Case/show?id='.$Mall['itemid'])}"  class="btn_blue">查看品牌故事</a>
-                  <a href="javascript:if(confirm('http://www.777moban.com/'))window.location='http://www.777moban.com/'" target="_blank" class="openurl">访问品牌网站</a>
+          <li><img src="{$Mall.thumb|imgurl=###,150}"   width="240" height="152" alt="{$Mall.title|msubstr=0,14}"/>
+              <p> <strong>{$Mall.title|msubstr=0,14}</strong>{$Mall.introduce|msubstr=0,14}<br/>
+                  <a href="{:U('Case/show?id='.$Mall['itemid'])}"  class="btn_blue">查看详细</a>
               </p>
           </li>
       </volist>
@@ -69,27 +67,25 @@
         <volist name="News_left" id="News_left">
             <span><a href="{:U('News/show?id='.$News['itemid'])}"><img src="{$News_left.thumb}" /> </a></span>
         </volist>
-
     </div>
-    <ul>
-      <volist name="News" id="News">
-       <li> <a href="{:U('News/show?id='.$News['itemid'])}"><img src="{$list.thumb}"   width="90" height="90" alt="{$News.title}"/></a>
-        <div class="newslist"> <a href="{:U('News/show?id='.$News['itemid'])}" title="{$News.title}">{$News.title}</a> <span>UPTATED:2013/11/02</span>
-          <p>{$News.introduce}</p>
-        </div>
-      </li>
-      </volist>
-    </ul>
+      <ul>
+          <volist name="News" id="News">
+              <li> <a href="{:U('News/show?id='.$News['itemid'])}"><img src="{$News.thumb|imgurl=###,150}"   width="90" height="90" alt="{$News.title}"/></a>
+                  <div class="newslist"> <a href="{:U('News/show?id='.$News['itemid'])}" title="{$News.title}">{$News.title|msubstr=0,14}</a> <span>UPTATED:{$News.edittime|date='Y-m-d',###}</span>
+                      <p>{$News.introduce|strip_tags|msubstr=0,200}</p>
+                  </div>
+              </li>
+          </volist>
+      </ul>
   </div>
 </section>
-
 
 <include file="Public:footer" />
 
 <div class="bottom_tools">
   <a href="http://qiao.baidu.com/v3/?module=default&controller=im&action=index&ucid=1588640&type=n&siteid=6550019" class="kf_tools" target="_blank">客服</a>
   <a href="javascrip:void(0);" class="qr_tool">二维码</a>
-  <a href="http://www.pibu.com/services/advise.html" target="_blank" title="意见、建议、反馈、投诉、举报等" class="feedback">意见反馈</a>
+  <a href="{:U('./message')}" target="_blank" title="意见、建议、反馈、投诉、举报等" class="feedback">意见反馈</a>
   <a href="javascript:void(0);" id="scrollup" title="返回页面顶部" class="scrollup"></a>
   <div class="qrcode_box" style="display: none;"></div>
 </div>

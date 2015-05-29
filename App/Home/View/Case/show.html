@@ -1,12 +1,4 @@
-﻿
-<!DOCTYPE HTML>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
-<meta name="viewport" content="width=1024" />
-<title>成都城市设计研究中心_我的网站</title>
-<meta name="keywords" content="成都城市设计研究中心" />
-<meta name="description" content="成都市城市设计研究中心（英文缩写：CDUDC）是以城市设计和研究为主要方向的研究性机构，提供以城市运营为着眼点的相关咨询服务。是整合各方设计、咨询、研究资源的合作平台。为政府决" />     
+﻿<include file="Public:meta" />
 <link rel="stylesheet" href="{$Think.DH_SKIN}css/style.css" type="text/css" media="all" />
 <!--[if lt IE 9]><script type="text/javascript" src="{$Think.DH_SKIN}js/html5.js" ></script><![endif]-->
 </head>
@@ -24,9 +16,20 @@
 		</div>
 	</div>
 	
-	<volist name="show" id="show">
+	<div id="filter">
+    <div class="wrapper">
+      <ul>
+          <volist name="Category" id="Category">
+              <li><a href="{:U('index?cat='.$Category['id'])}" class="news_category">{$Category.name}</a></li>
+          </volist>
+      </ul>
+      
+    </div>
+  </div>
+	
 	<article>
 		<div class="wrapper">
+			<volist name="show" id="show">
 			<div id="overview">
 				<div class="overview_bg"></div>
 				<div id="case_info">
@@ -35,20 +38,18 @@
 						<li>名称：{$show.title}</li>
 						<li>分类：{$show.catid|get_catname}</li>
 					</ul>
-					<a href="javascript:if(confirm('http://www.cdudc.com/  点击这里给我发送临时消息'))window.location='http://www.cdudc.com/'" tppabs="http://www.cdudc.com/" class="btn_blue" target="_blank" rel="external nofollow">VISIT SITE 访问该网站</a>
-					<div class="brief">{$addtime.introduce}</div>
+					<div class="brief">{$show.introduce}</div>
 				</div>
 			</div>
-			<div id="detailed">
-				<img alt="" src="{$Think.DH_SKIN}images/1-131102210508.jpg" tppabs="http://mc18.eatdou.com/uploads/allimg/131102/1-131102210508.jpg" /><img alt="" src="{$Think.DH_SKIN}images/1-131102210509.jpg" tppabs="http://mc18.eatdou.com/uploads/allimg/131102/1-131102210509.jpg" /><img alt="" src="{$Think.DH_SKIN}images/1-131102210509-50.jpg" tppabs="http://mc18.eatdou.com/uploads/allimg/131102/1-131102210509-50.jpg" />					
-			</div>
+			</volist>
+			<volist name="content" id="content">
+				<div id="detailed">{$content.content}</div>
+			</volist>
 		</div>
 	</article>
-	</volist>
 	<div id="case_footer">
 		<div class="wrapper showother">
-						<a class="backlist" href="index.htm" tppabs="http://mc18.eatdou.com/case/gov/">返回案例列表</a>
-						
+			<a class="backlist" href="index.htm" >返回案例列表</a>
 		</div>
 	</div>
 </section>

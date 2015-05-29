@@ -1,11 +1,4 @@
-﻿<!DOCTYPE HTML>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=1024" />
-<title>{$Think.DH_SKIN}</title>
-<meta name="keywords" content="html5+js,技术网站,应用,案例,三盛,都会,城," />
-<meta name="description" content="三盛·都会城作为三盛地产在成都的全资开发项目，入主龙泉经开区，承载三盛地产在成都建立品牌的任务，三盛·都会城总投入近40亿元，前期将投入3亿重金，将该项目打造为龙泉乃至大成东" />
+﻿<include file="Public:meta" />
 <link rel="stylesheet" href="{$Think.DH_SKIN}css/style.css" type="text/css" media="all" />
 <!--[if lt IE 9]><script type="text/javascript" src="{$Think.DH_SKIN}js/html5.js" ></script><![endif]-->
 </head>
@@ -22,8 +15,9 @@
         Recently is to do ...</p>
     </div>
     <div class="cate_abso">
-		<a href="javascript:void(0);" class="news_category">公司新闻</a>
-		<a href="javascript:void(0);" class="news_category">行业动态</a>
+    	<volist name="Category" id="Category">
+			<a href="{:U('index?cat='.$Category['id'])}" class="news_category">{$Category.name}</a>
+        </volist>
     </div>
   </div>
   <article>
@@ -32,33 +26,15 @@
   
   <volist name="show" id="show">
       <h3 class="news_title">{$show.title}</h3>
-        <div class="wrapper" id="detailed"> <img alt="" src="{$show.thumb}" tppabs="{$show.thumb}" style="width: 1024px; height: 533px;" /><br />
-    <p>{$show.introduce}</p>
+      <div class="news_attribute"><span>点击量：{$show.hits}</span>&nbsp;&nbsp;&nbsp;<span>发布时间：{$show.addtime|date='Y-m-d',###}</span></div>
+        <div class="wrapper" id="detailed"> <!--img alt="" src="{$show.thumb}" tppabs="{$show.thumb}" style="width: 1024px; height: 533px;" /--><br />
+</volist>
+	  <volist name="content" id="content">	  
+    <p>{$content.content}</p>
      </div>
-  </volist>
- 
- 
- 
- 
-    <div class="wrapper related">
-      <h3> 你可能还对下面的新闻感兴趣
-        <div class="share">
-          <!-- Baidu Button BEGIN -->
-          <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare"> <a class="bds_qzone"></a> <a class="bds_tsina"></a> <a class="bds_tqq"></a> <a class="bds_renren"></a> <a class="bds_t163"></a> <span class="bds_more">更多</span> <a class="shareCount"></a> </div>
-          <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=0" ></script>
-          <script type="text/javascript" id="bdshell_js"></script>
-          <script type="text/javascript">
-document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
-</script>
-          <!-- Baidu Button END -->
-        </div>
-      </h3>
-      <ul>
-      
-        <li><a href="7.html" tppabs="http://mc18.eatdou.com/news/gsnews/7.html">html5+js技术网站应用案例：三盛·都会城网站建设</a></li>
+</volist>
 
-      </ul>
-    </div>
+
     <div id="case_footer">
       <div class="wrapper showother"> <a class="backlist" href="index.htm" tppabs="http://mc18.eatdou.com/news/gsnews/">返回案例列表</a> </div>
     </div>

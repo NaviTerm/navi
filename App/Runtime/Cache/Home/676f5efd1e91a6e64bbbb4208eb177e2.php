@@ -1,11 +1,16 @@
 <?php if (!defined('THINK_PATH')) exit();?>﻿<!DOCTYPE HTML>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=1024" />
-<title>案例_我的网站</title>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="baidu-site-verification" content="3ztG4oI0ku" />
+    <title><?php echo ($current); ?>-<?php echo ($config_webname); ?></title>
+    <meta name="keywords" content="<?php echo ($config_keyword); ?>" />
+    <meta name="description" content="<?php
+ if( $channel == 'News_show' || $channel == 'Case_show' ){ echo mb_substr(strip_tags($content['0']['content']), 1,100,"UTF-8"); }else{ echo $config_description; } ?>" />
+
+
+
 <link rel="stylesheet" href="<?php echo (DH_SKIN); ?>css/style.css" type="text/css" media="all" />
 <!--[if lt IE 9]><script type="text/javascript" src="<?php echo (DH_SKIN); ?>js/html5.js" ></script><![endif]-->
 </head>
@@ -15,7 +20,7 @@
 <header>
     <div id="navbg"></div>
     <div class="wrapper">
-        <h1 class="logo"><a href="<?php echo U('./index');?>"  title="建荣博客:www.njro168.com"><img src="<?php echo (DH_SKIN); ?>images/logo.png"  width="213" height="36" alt="建荣博客:www.njro168.com" /></a></h1>
+        <h1 class="logo"><a href="<?php echo U('./index');?>" ><img src="<?php echo (DH_SKIN); ?>images/logo.png"  width="213" height="36" /></a></h1>
         <nav>
             <ul>
                 <li class="home"><a href="<?php echo U('./index');?>" >首页<span>网站首页！</span></a></li>
@@ -49,10 +54,10 @@
   </div>
   <ul class="cases wrapper">
 
-      <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$list): $mod = ($i % 2 );++$i;?><li class="item1"> <img src="<?php echo ($list["thumb"]); ?>" tppabs="<?php echo ($list["thumb"]); ?>"  width="240" height="152" alt="<?php echo ($list["title"]); ?>" /> <strong><?php echo ($list["title"]); ?></strong> UPTATED:2013/11/02
+      <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$list): $mod = ($i % 2 );++$i;?><li class="item1"> <img src="<?php echo (imgurl($list["thumb"],150)); ?>" tppabs="<?php echo (imgurl($list["thumb"],150)); ?>"  width="240" height="152" alt="<?php echo ($list["title"]); ?>" /> <strong><?php echo ($list["title"]); ?></strong> UPTATED:2013/11/02
               <p> <strong><?php echo ($list["title"]); ?></strong> <em>分类：<?php echo (get_catname($list["catid"])); ?><br/>
                   UPTATED:<?php echo (date('Y-m-d',$list['addtime'])); ?></em><?php echo ($addtime["introduce"]); ?><br/>
-                  <a href="<?php echo U('show?id='.$list['itemid']);?>" tppabs="<?php echo U('show?id='.$list['itemid']);?>" class="btn_blue">查看品牌故事</a> <a href="javascript:if(confirm('xxxxxxxxxxxxx'))window.location='#'"  target="_blank" class="openurl" rel="external nofollow">访问品牌网站</a> </p>
+                  <a href="<?php echo U('show?id='.$list['itemid']);?>" tppabs="<?php echo U('show?id='.$list['itemid']);?>" class="btn_blue">查看详细</a></p>
           </li><?php endforeach; endif; else: echo "" ;endif; ?>
 
    
@@ -80,13 +85,11 @@
         <div class="wrapper">
             <h2>联系我们<strong>Contact</strong></h2>
             <p>
-                <a target="_blank" href="javascript:if(confirm('http://wpa.qq.com/msgrd?v=3&uin=429592913&site=qq&menu=yes'))window.location='http://wpa.qq.com/msgrd?v=3&uin=429592913&site=qq&menu=yes'"><img border="0" src="<?php echo (DH_SKIN); ?>images/qq.png"  alt="点击这里给我发消息" title="点击这里给我发消息"/></a><br/>
-                电话：400 8888 8888<br/>
-                传真：400 8888 8888<br/>
-                电子邮件：admin@unn114.com<br/>
-                公司地址：重庆市某某某某某某某某某<br/>
-                备案编号：蜀ICP备000000001<br/>
-                Copyright © 2013 - 2014 luidea.com All rights reserved.
+                <!--a target="_blank" href="javascript:if(confirm('http://wpa.qq.com/msgrd?v=3&uin=429592913&site=qq&menu=yes'))window.location='http://wpa.qq.com/msgrd?v=3&uin=429592913&site=qq&menu=yes'"><img border="0" src="<?php echo (DH_SKIN); ?>images/qq.png"  alt="点击这里给我发消息" title="点击这里给我发消息"/></a><br/-->
+                电话：<?php echo ($config_mobile); ?><br/>
+                电子邮件：<?php echo ($config_email); ?><br/>
+                公司地址：<?php echo ($config_address); ?><br/>
+                备案编号：<?php echo ($config_icp); ?><br/>
             </p>
             <img src="<?php echo (DH_SKIN); ?>images/map.png" id="homemap" width="260" height="190" alt="公司位置" />
         </div>
@@ -102,7 +105,8 @@
             </p>
         </div>
         <div class="Copyright">
-            <p>Copyright © 2014 Pibu.com. All Rights Reserved. 版权所有 中国坯布网 苏ICP备10111637号-2 </p>
+            <p>Copyright © 2014 Pibu.com. All Rights Reserved. 版权所有 <a href="<?php echo ($config_domain); ?>"><?php echo ($config_webname); ?></a> <?php echo ($config_icp); ?> </p>
+            <a href="http://webscan.360.cn/index/checkwebsite/url/navi.simon8.com" style="display:none"><img border="0" src="http://img.webscan.360.cn/status/pai/hash/4a0f4c6e01eed3d9765ef06222fafb57"/></a>
         </div>
     </div>
 </footer>

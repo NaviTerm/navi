@@ -9,8 +9,17 @@ return array(
     'DB_PWD'                =>  '12345678',          // 密码
     'DB_PORT'               =>  '3306',        // 端口
     'DB_PREFIX'             =>  'dh_',    // 数据库表前缀
+
+    'URL_CASE_INSENSITIVE' =>   true,   //URL不区分大小写
     // 'TMPL_ENGINE_TYPE'=>'Smarty'
-    'MODULE_ALLOW_LIST'    =>    array('Home','Admin'),// 允许访问的模块列表
-    'DEFAULT_MODULE'       =>    'Admin',  // 默认模块
+    'MODULE_ALLOW_LIST'      =>    array('Home','Admin'),// 允许访问的模块列表
+    'DEFAULT_MODULE'         =>    'Home',  // 默认模块
     // 'URL_HTML_SUFFIX'=>'htm'
+    'DEFAULT_FILTER'         =>  '', // 默认参数过滤方法 用于I函数...
+    'ERROR_PAGE'             =>  '/404.html',//定义404页面
+
+    /* 错误页面模板 */
+/*  'TMPL_ACTION_ERROR'     =>  MODULE_PATH.'View/Public/error.html', // 默认错误跳转对应的模板文件
+    'TMPL_ACTION_SUCCESS'   =>  MODULE_PATH.'View/Public/success.html', // 默认成功跳转对应的模板文件
+    'TMPL_EXCEPTION_FILE'   =>  MODULE_PATH.'View/Public/exception.html',// 异常页面的模板文件*/
 );

@@ -149,27 +149,28 @@ $(function(){
     
     <thead>
     <tr>
-    <th><input type="checkbox" id="checkall"/></th>
-    <th>id</th>
-    <th>排序</th>
-    <th width="100px;">缩略图</th>
+    <th width="50"><input type="checkbox" id="checkall"/></th>
+    <th width="50">id</th>
+    <th width="80">排序</th>
+    <th width="120">缩略图</th>
     <th>标题</th>
     <th>分类</th>
-    <th>级别</th>
-    <th>发布人</th>
-    <th>点击</th>
-    <th>操作</th>    
+    <th width="80">级别</th>
+    <th width="80">发布人</th>
+    <th width="50">点击</th>
+    <th width="100">操作</th>    
     </tr>
     </thead>
     
     <tbody>
+
     <form action="<?php echo U('article/listorder');?>" method="post" id="listorder">
 <?php if(is_array($lists)): foreach($lists as $key=>$t): ?><tr id="tr_<?php echo ($t[itemid]); ?>">
     <td><input class="input_check" name="input_check" type="checkbox" value="<?php echo ($t[itemid]); ?>" /></td>
     <td><?php echo ($t[itemid]); ?></td> 
     <td width="90"><input type="text" name="listorder_<?php echo ($t[itemid]); ?>" value="<?php echo ($t[listorder]); ?>" class="input10" /></td>   
     <td class="imgtd"><img src="<?php echo (imgurl($t[thumb],150)); ?>" /></td>
-    <td><a href="#" title="<?php echo ($t[title]); ?>" target="_blank"><?php echo ($t[title]); ?></a><p>发布时间：<?php echo (date('Y-m-d H:i:s',$t[addtime])); ?></p><p>编辑时间：<?php echo (date('Y-m-d H:i:s',$t[edittime])); ?></p></td>
+    <td><a href="#" title="<?php echo (msubstr($t[title],0,20)); ?>" target="_blank"><?php echo (msubstr($t[title],0,20)); ?></a><p>发布时间：<?php echo (date('Y-m-d H:i:s',$t[addtime])); ?></p><p>编辑时间：<?php echo (date('Y-m-d H:i:s',$t[edittime])); ?></p></td>
     <td><?php echo (get_catname($t[catid])); ?></td>
     <td><?php echo (get_level_name($t[level])); ?></td>
     <td><?php echo ($t[username]); ?></td>

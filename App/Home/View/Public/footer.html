@@ -14,13 +14,11 @@
         <div class="wrapper">
             <h2>联系我们<strong>Contact</strong></h2>
             <p>
-                <a target="_blank" href="javascript:if(confirm('http://wpa.qq.com/msgrd?v=3&uin=429592913&site=qq&menu=yes'))window.location='http://wpa.qq.com/msgrd?v=3&uin=429592913&site=qq&menu=yes'"><img border="0" src="{$Think.DH_SKIN}images/qq.png"  alt="点击这里给我发消息" title="点击这里给我发消息"/></a><br/>
-                电话：400 8888 8888<br/>
-                传真：400 8888 8888<br/>
-                电子邮件：admin@unn114.com<br/>
-                公司地址：重庆市某某某某某某某某某<br/>
-                备案编号：蜀ICP备000000001<br/>
-                Copyright © 2013 - 2014 luidea.com All rights reserved.
+                <!--a target="_blank" href="javascript:if(confirm('http://wpa.qq.com/msgrd?v=3&uin=429592913&site=qq&menu=yes'))window.location='http://wpa.qq.com/msgrd?v=3&uin=429592913&site=qq&menu=yes'"><img border="0" src="{$Think.DH_SKIN}images/qq.png"  alt="点击这里给我发消息" title="点击这里给我发消息"/></a><br/-->
+                电话：{$config_mobile}<br/>
+                电子邮件：{$config_email}<br/>
+                公司地址：{$config_address}<br/>
+                备案编号：{$config_icp}<br/>
             </p>
             <img src="{$Think.DH_SKIN}images/map.png" id="homemap" width="260" height="190" alt="公司位置" />
         </div>
@@ -39,7 +37,8 @@
             </p>
         </div>
         <div class="Copyright">
-            <p>Copyright © 2014 Pibu.com. All Rights Reserved. 版权所有 中国坯布网 苏ICP备10111637号-2 </p>
+            <p>Copyright © 2015 Pibu.com. All Rights Reserved. 版权所有 <a href="{$config_domain}">{$config_webname}</a> {$config_icp} </p>
+            <a href="http://webscan.360.cn/index/checkwebsite/url/navi.simon8.com" style="display:none"><img border="0" src="http://img.webscan.360.cn/status/pai/hash/4a0f4c6e01eed3d9765ef06222fafb57"/></a>
         </div>
     </div>
 </footer>

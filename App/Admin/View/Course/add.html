@@ -177,7 +177,7 @@ $(document).ready(function(e) {
 <form action="<if condition="$list">{:U('course/update')}<else />{:U('course/add')}</if>" method="post" enctype="multipart/form-data">
     <input type="hidden" name="itemid" value="{$list[itemid]}" />
     <ul class="forminfo">
-    <li><label>标题<b>*</b></label><input name="title" type="text" class="dfinput" value="{$list[title]}"  placeholder="请填写标题" style="width:576px;" required="required"/></li>
+    <li><label>标题<b>*</b></label><input name="title" type="text" class="dfinput" value="{$list[title]}"  maxlength="20"  placeholder="请填写标题" style="width:576px;" required="required"/></li>
    
     <li style="position: relative;"><label>标题图片</label><input type="text" name="thumb" id="thumb" class="dfinput" readonly="" value="{$list[thumb]}" />
       <div id="img_div"style="background:url('{$a|imgurl=###,150}') no-repeat;background-size:100% 100%"><img src="{$list[thumb]}" alt="" id="img1" width="100%"/></div>

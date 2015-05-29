@@ -9,7 +9,6 @@
 <script type="text/javascript" src="{$Think.AD_SKIN}js/jquery.idTabs.min.js"></script>
 <script type="text/javascript" src="{$Think.AD_SKIN}js/select-ui.min.js"></script>
 <!-- <script type="text/javascript" src="{$Think.AD_SKIN}editor/kindeditor.js"></script> -->
-<!-- ------------------ -->
 <link rel="stylesheet" href="{$Think.PUB}kindeditor/themes/default/default.css" />
 <script charset="utf-8" src="{$Think.PUB}kindeditor/kindeditor-min.js"></script>
 <script charset="utf-8" src="{$Think.PUB}kindeditor/lang/zh_CN.js"></script>
@@ -177,7 +176,7 @@ $(document).ready(function(e) {
 <form action="<if condition="$list">{:U('admin/article/update')}<else />{:U('admin/article/add')}</if>" method="post" enctype="multipart/form-data">
 <if condition="$list[itemid]"><input type="hidden" name="itemid" value="{$list['itemid']}" /></if>
     <ul class="forminfo">
-    <li><label>标题<b>*</b></label><input name="title" type="text" class="dfinput" value="{$list[title]}"  placeholder="请填写标题" style="width:576px;" required="required"/></li>
+    <li><label>标题<b>*</b></label><input name="title" type="text" class="dfinput" value="{$list[title]}"  placeholder="请填写标题" style="width:576px;" required="required" maxlength="30"/></li>
    
     <li style="position: relative;"><label>标题图片</label><input type="text" name="thumb" id="thumb" class="dfinput" readonly="" value="{$list[thumb]}" />
       <div id="img_div"style="background:url('{$a|imgurl=###,150}') no-repeat;background-size:100% 100%"><img src="{$list[thumb]}" alt="" id="img1" width="100%"/></div>
@@ -257,7 +256,7 @@ $(document).ready(function(e) {
  <form name="uploadfrom_tj" id="uploadfrom_tj" action="{:U('admin/images/imgup',array('formname'=>'img','id'=>'thumb_tj'))}" method="post"  enctype="multipart/form-data" target="tarframe">
      <li><h3>推荐图上传</h3></li>
      <li>本地图片:<input type="file" name="img"  id="img_tj" value="" /></li>
-     <li><span>宽度:<input type="text" name="width" id="width_tj" value="240" /></span><span>高度:<input type="text" name="height" id="height_tj" value="150" /></span></li>
+     <li><span>宽度:<input type="text" name="width" id="width_tj" value="320" /></span><span>高度:<input type="text" name="height" id="height_tj" value="200" /></span></li>
      <li><a class="btn" onclick="$('#uploadfrom_tj').submit();">上传</a><a class="btn" onclick="$('.select_img_tj,#fun').hide();">取消</a></li>
    </form>
  </ul>

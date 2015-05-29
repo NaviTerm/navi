@@ -1,4 +1,4 @@
-﻿@import url("reset.css");
+@import url("reset.css");
 /*public*/
 body{font-family:Microsoft YaHei,Segoe UI,Tahoma,Arial,Verdana,sans-serif;font-size:12px;color:#666;background:#fff;}
 a{color:#39f;text-decoration:none;}
@@ -87,6 +87,7 @@ a:hover{text-decoration:underline;}
 	color: white;
 	font-weight: bold;
 	margin-left: 80px;
+    cursor:pointer;
 }
 .f_red{
 	color: red;
@@ -153,7 +154,7 @@ header nav li span{display:block;color:#999;font-size:11px;-webkit-text-size-adj
 #banner{width:100%;height:650px;background:#000;overflow:hidden;position:relative;}
 #banner_img{display:block;position:relative;}
 #banner_img li{position:absolute;top:0;left:0;width:100%;height:650px;background-position:center;background-size:cover;display:none;}
-#banner_img .ad_img{position:absolute;right:10px;top:80px;width:506px;height:404px}
+#banner_img .ban_img{position:absolute;right:10px;top:80px;width:506px;height:404px}
 #banner_img .ad_txt{position:absolute;left:10px;top:170px;color:#fff;text-shadow:1px 1px rgba(51,51,51,0.3);}
 #banner_img .ad_txt h2{font:bold 36px/60px Microsoft YaHei;}
 #banner_img .ad_txt a{display:block;width:100px;height:25px;line-height:25px;text-align:center;margin-top:10px;background:#fff;color:#666;text-decoration:none;text-shadow:none;}
@@ -191,15 +192,23 @@ header nav li span{display:block;color:#999;font-size:11px;-webkit-text-size-adj
 #news .newsad{position:absolute;top:5px;left:15px;}
 .newsad span{
 	display: block;
-	width: 320px;
-	height: 200px;
+	width: 318px;
+	height: 198px;
 	margin: 5px 0;
-	background: black;
 	color: white;
 	text-align: center;
 	font-weight: bold;
 	font-size: 24px;
-	line-height: 12rem;
+	border: 1px solid #ddd;
+}
+.newsad span a{
+	display: block;
+	width: 320px;
+	height: 200px;
+}
+.newsad span a img{
+	max-width: 100%;
+	max-height: 100%;
 }
 #news ul{position:absolute;width:620px;top:15px;right:15px;}
 #news ul li{position:relative;border-bottom:1px dotted #ccc;padding:12px 0;}
@@ -305,7 +314,7 @@ footer{clear:both;}
 #filter li a:hover{background-image:-webkit-gradient(linear,left top,left bottom,from(#f8f8f8),to(#f1f1f1));background-image:-webkit-linear-gradient(top,#f8f8f8,#f1f1f1);-webkit-box-shadow:0 1px 1px rgba(0,0,0,0.1);background-color:#f8f8f8;background-image:linear-gradient(top,#f8f8f8,#f1f1f1);background-image:-o-linear-gradient(top,#f8f8f8,#f1f1f1);border:1px solid #c6c6c6;box-shadow:0 1px 1px rgba(0,0,0,0.1);text-decoration:none;}
 #filter p{position:absolute;top:25px;right:5px;}
 #caseslist .cases {padding:20px 0;font-size:0;letter-spacing:-6px;}
-#caseslist .cases li{display:inline-block;zoom:1;*display:inline;position:relative;width:240px;height:210px;overflow:hidden;background:#fff;padding:2px;margin:0 0 10px 2px;font-size:12px;letter-spacing:normal;}
+#caseslist .cases li{display:inline-block;zoom:1;*display:inline;position:relative;width:240px;height:220px;overflow:hidden;background:#fff;padding:2px;margin:0 0 10px 2px;font-size:12px;letter-spacing:normal;}
 #caseslist .cases li img{width:240px;height:152px;}
 #caseslist .cases li strong{display:block;font:bold 12px/24px Microsoft YaHei;color:#666;}
 #caseslist .cases li a:hover{text-decoration:none;}
@@ -343,8 +352,8 @@ footer{clear:both;}
 #show_cases #overview #case_info p{line-height:2;padding:10px 0;text-align:left;}
 #show_cases #overview #case_info .brief{text-indent:2em;line-height:1.8;}
 #show_cases #overview .btn_blue{display:block;width:210px;height:40px;font:bold 14px/40px Microsoft YaHei;text-align:center;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;text-shadow:-1px -1px rgba(51,51,51,0.3);}
-#show_cases #detailed{width:716px;line-height:1.8;text-align:justify;color:#666;}
-#show_cases #detailed img{border:8px solid #fff;border:8px solid rgba(255,255,255,0.8);background:url("../images/bg_loading_anim.gif") center no-repeat #fff;}
+#show_cases #detailed{width:716px;line-height:1.8;text-align:justify;color:#666; overflow: hidden;}
+#show_cases #detailed img{border:8px solid #fff;border:8px solid rgba(255,255,255,0.8);background:url("../images/bg_loading_anim.gif") center no-repeat #fff;max-width: 100%}
 #case_footer .showother{height:20px;line-height:20px;}
 #case_footer .showother a span{display:block;width:20px;height:20px;overflow:hidden;position:relative;}
 #case_footer .showother a span img{position:absolute;}
@@ -422,11 +431,11 @@ footer{clear:both;}
 .dede_pages ul li{ float:left; margin:0 3px; background:#ccc; padding:3px 8px}
 .dede_pages ul li a{ display:block; background:#ccc;color:#999}
 
-.news_title{ text-align: center; line-height: 30px; font-size: 18px; }
+.news_title{ text-align: center; line-height: 30px; font-size: 18px; margin-top: 10px; }
+.news_attribute{ margin: 0 auto; text-align: center; line-height: 30px;}
+#footerinfo .Copyright p a{ color:#666;}
 
-
-
-#pagination{ width:30%; height:30px; line-height: 30px;  margin: 0 auto; }
+#pagination{ width:30%; height:30px; line-height: 30px;  margin: 0 auto;   margin-bottom: 10px; }
 #pagination div{ text-align: center;  line-height: 30px; }
 #pagination div a{ border:1px solid #ccc; font-size: 16px; padding:2px 10px; margin:0px 3px; text-decoration none; border-radius: 5px;}
 #pagination div a:hover{ border:1px solid #ccc; background-color: #0084cf; color:#fff; text-decoration none; border-radius: 5px;}

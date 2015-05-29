@@ -1,11 +1,5 @@
-﻿<!DOCTYPE HTML>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=1024" />
-<title>案例_我的网站</title>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
+﻿<include file="Public:meta" />
+
 <link rel="stylesheet" href="{$Think.DH_SKIN}css/style.css" type="text/css" media="all" />
 <!--[if lt IE 9]><script type="text/javascript" src="{$Think.DH_SKIN}js/html5.js" ></script><![endif]-->
 </head>
@@ -39,10 +33,10 @@
 
       <volist name="list" id="list">
 
-          <li class="item1"> <img src="{$list.thumb}" tppabs="{$list.thumb}"  width="240" height="152" alt="{$list.title}" /> <strong>{$list.title}</strong> UPTATED:2013/11/02
+          <li class="item1"> <img src="{$list.thumb|imgurl=###,150}" tppabs="{$list.thumb|imgurl=###,150}"  width="240" height="152" alt="{$list.title}" /> <strong>{$list.title}</strong> UPTATED:2013/11/02
               <p> <strong>{$list.title}</strong> <em>分类：{$list.catid|get_catname}<br/>
                   UPTATED:{$list['addtime']|date='Y-m-d',###}</em>{$addtime.introduce}<br/>
-                  <a href="{:U('show?id='.$list['itemid'])}" tppabs="{:U('show?id='.$list['itemid'])}" class="btn_blue">查看品牌故事</a> <a href="javascript:if(confirm('xxxxxxxxxxxxx'))window.location='#'"  target="_blank" class="openurl" rel="external nofollow">访问品牌网站</a> </p>
+                  <a href="{:U('show?id='.$list['itemid'])}" tppabs="{:U('show?id='.$list['itemid'])}" class="btn_blue">查看详细</a></p>
           </li>
 
       </volist>

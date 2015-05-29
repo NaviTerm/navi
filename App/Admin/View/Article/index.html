@@ -151,20 +151,21 @@ $(function(){
     
     <thead>
     <tr>
-    <th><input type="checkbox" id="checkall"/></th>
-    <th>id</th>
-    <th>排序</th>
-    <th width="100px;">缩略图</th>
+    <th width="50"><input type="checkbox" id="checkall"/></th>
+    <th width="50">id</th>
+    <th width="80">排序</th>
+    <th width="120">缩略图</th>
     <th>标题</th>
     <th>分类</th>
-    <th>级别</th>
-    <th>发布人</th>
-    <th>点击</th>
-    <th>操作</th>    
+    <th width="80">级别</th>
+    <th width="80">发布人</th>
+    <th width="50">点击</th>
+    <th width="100">操作</th>    
     </tr>
     </thead>
     
     <tbody>
+
     <form action="{:U('article/listorder')}" method="post" id="listorder">
 <foreach name='lists' item='t'>
     <tr id="tr_{$t[itemid]}">
@@ -172,7 +173,7 @@ $(function(){
     <td>{$t[itemid]}</td> 
     <td width="90"><input type="text" name="listorder_{$t[itemid]}" value="{$t[listorder]}" class="input10" /></td>   
     <td class="imgtd"><img src="{$t[thumb]|imgurl=###,150}" /></td>
-    <td><a href="#" title="{$t[title]}" target="_blank">{$t[title]}</a><p>发布时间：{$t[addtime]|date='Y-m-d H:i:s',###}</p><p>编辑时间：{$t[edittime]|date='Y-m-d H:i:s',###}</p></td>
+    <td><a href="{:U('admin/article/update',array('itemid'=>$t[itemid]))}" title="{$t[title]|msubstr=###,0,20}" >{$t[title]|msubstr=###,0,20}</a><p>发布时间：{$t[addtime]|date='Y-m-d H:i:s',###}</p><p>编辑时间：{$t[edittime]|date='Y-m-d H:i:s',###}</p></td>
     <td>{$t[catid]|get_catname}</td>
     <td>{$t[level]|get_level_name}</td>
     <td>{$t[username]}</td>

@@ -24,11 +24,11 @@
     <input type="hidden" name="userid" value="{$user['userid']}" />
 </if>
     <ul class="forminfo">
-    <li><label>用户名</label><input name="username" type="text"  class="dfinput" value="{$user['username']}"
-    <if condition="$user['password']">readonly="readonly"</if> /><i>用户不能超过30个字符</i></li>
+    <li><label>用户名</label><input name="username" type="text" maxlength="15" required="required" class="dfinput" value="{$user['username']}"
+    <if condition="$user['password']">readonly="readonly"</if> /><i>用户不能超过15个字符</i></li>
     <li><label>密码</label><input name="password" type="text" class="dfinput"  value=""
      <if condition="$user['password']">placeholder='无需修改请留空'</if> /><i>用户密码</i></li>
-    <li><label>真实姓名</label><input name="truename" type="text" class="dfinput"  value="{$user['truename']}" /><i></i></li>
+    <li><label>真实姓名</label><input maxlength="15" name="truename" type="text" class="dfinput"  value="{$user['truename']}" /><i></i></li>
     <li><label>邮箱</label><input name="email" type="email" class="dfinput"  value="{$user['email']}" /><i></i></li>
     <li><label>联系电话</label><input name="mobile" type="number" class="dfinput"  value="{$user['mobile']}" /><i></i></li>
     <li><label>用户组</label><cite>

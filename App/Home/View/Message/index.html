@@ -1,11 +1,5 @@
-﻿<!DOCTYPE HTML>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
-<meta name="viewport" content="width=1024" />
-<title>服务_我的网站！建荣博客:www.njro168.com</title>
-<meta name="keywords" content="建荣博客:www.njro168.com" />
-<meta name="description" content="建荣博客:www.njro168.com" />      
+﻿<include file="Public:meta" />
+
 <link rel="stylesheet" href="{$Think.DH_SKIN}css/style.css"  type="text/css" />
 <!--[if lt IE 9]>
 	<script type="text/javascript" src="{$Think.DH_SKIN}js/html5.js"></script><![endif]-->
@@ -39,10 +33,10 @@
     			<li class="class">
     				<span class="fl">类型:</span>
     				<span class="radio fr">
-    					<input type="radio" value="问题" name="typeid" checked="checked">问题
-    					<input type="radio" value="建议" name="typeid">建议
-    					<input type="radio" value="合作" name="typeid">合作
-    					<input type="radio" value="投诉" name="typeid">投诉
+    					<input type="radio" value="1" name="typeid" checked="checked">问题
+    					<input type="radio" value="2" name="typeid">建议
+    					<input type="radio" value="3" name="typeid">合作
+    					<input type="radio" value="4" name="typeid">投诉
     				</span>
     			</li>
     			<li>
@@ -60,16 +54,16 @@
     					联系人:
     				</span>
     				<span class="radio fr">
-    					<input type="text" name="truename" id="truename" size="30" value="Origin" class="mess-text">
+    					<input type="text" name="username" id="truename" size="30" value="" class="mess-text">
     				</span>
     			</li>
     			<li>
     				<span class="fl">
     				<span class="f_red">*</span>
-    					手机号码:
+    					联系号码:
     				</span>
     				<span class="radio fr">
-    					<input type="text" name="telephone" id="telephone" size="30" value="13642482411" class="mess-text">
+    					<input type="text" name="telephone" id="telephone" size="30" value="" class="mess-text">
     				</span>
     			</li>
     			<li>
@@ -77,7 +71,7 @@
     					QQ:
     				</span>
     				<span class="radio fr">
-    					<input type="text" name="qq" id="qq" size="20" value="854598416" class="mess-text">
+    					<input type="number" name="qq" id="qq" size="20" value="" class="mess-text">
     				</span>
     			</li>
     			<li>
@@ -85,7 +79,7 @@
     					Email:
     				</span>
     				<span class="radio fr">
-    					<input type="text" name="email" id="email" size="30" value="854598416@qq.com" class="mess-text">
+    					<input type="email" name="email" id="email" size="30" value="" class="mess-text">
     				</span>
     			</li>
     			<li>

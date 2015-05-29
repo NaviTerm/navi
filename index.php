@@ -22,7 +22,7 @@ define('APP_PATH','./App/');
 
 define('DH_PATH','./');
 //定义样式目录
-define("DH_SKIN",'/Public/Home/');
+define("DH_SKIN",'/Public/home/');
 
 //定义公用目录
 define("PUB",'/Public/');
@@ -31,7 +31,7 @@ define("PUB",'/Public/');
 define("UP_PATH",'/Public/upload/');*/
 
 //定义后台样式目录
-define("AD_SKIN",'/Public/Admin/');
+define("AD_SKIN",'/Public/admin/');
 
 // 引入ThinkPHP入口文件
 require './ThinkPHP/ThinkPHP.php';

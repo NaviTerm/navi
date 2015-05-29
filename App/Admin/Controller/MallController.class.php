@@ -63,12 +63,14 @@ class MallController extends SystemController {
 //     }
     public function update($itemid){
         $mall = M('mall');
-        $list = $mall->where($itemid)->find();
-        $this->assign('list',$list);
+
         if(I('post.')){
             $data = I('post.');
             if($data){
+                $data['addtime'] = strtotime($data['addtime']);
                 $result = $mall->save($data);
+                $content = array('itemid'=>$data['itemid'],'content'=>$data['content']);
+                $result += M('mall_data')->save($content);
                 if($result){
                     $this->success("编辑成功",U('mall/index'));
                 }else{
@@ -76,6 +78,12 @@ class MallController extends SystemController {
                 }
             }
         }else{
+            $list = $mall->where("itemid=".$itemid)->find();
+            $content = M('mall_data')->where("itemid=".$itemid)->find();
+            $list['content'] = $content['content'];
+            $cate = M('category')->where('moduleid=2')->select();
+            $this->assign('list',$list);            
+            $this->assign('category',$cate);
             $this->display('add');
         }
     }

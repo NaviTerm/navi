@@ -18,11 +18,13 @@ class BannerController extends SystemController {
         $this->display();
     }
     public function add(){
+
         if(I('post.')){
+        if(!I('post.background'))$this->error("未选择背景图片");            
             $data = I('post.');
             $data['addtime'] = time();
             $data['status'] = 3;
-            $data['introduce'] = $data['content'];
+            $data['introduce'] = strip_tags($data['content'],'<br /><br/><br>');
             $banner = M('banner');
             $result = $banner->create($data);
             if($result){
@@ -61,6 +63,7 @@ class BannerController extends SystemController {
             if($data){
                 $data['addtime'] = strtotime($data['addtime']);
                 $data['edittime'] = time();
+                $data['introduce'] = strip_tags($data['content'],'<br /><br/><br>');
                 $redata = $banner->create($data);
                 $result = $banner->save($redata);
                 if($result){
@@ -79,7 +82,7 @@ class BannerController extends SystemController {
         $banner = M('banner');
         $result = $banner->delete($itemid);
         if($result){
-            $this->success("世界那么大,它出去看看了",U('banner/index'),3);
+            $this->success("删除成功",U('banner/index'),1);
         }else{
             $this->error("删除失败");
         }

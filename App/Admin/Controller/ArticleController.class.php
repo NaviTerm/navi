@@ -14,12 +14,12 @@ class ArticleController extends SystemController{
 
 			$result = $article->add_article(I('post.'));
 			if($result){
-				$this->success('更新成功',U("article/index"));
+				$this->success('添加成功',U("article/index"));
 			}else{
 				$this->error($article->getError());
 			}
 		}else{
-			$cate = M('category')->select();//获取分类
+			$cate = M('category')->where('moduleid=1')->select();//获取分类
 			$this->assign('category',$cate);
 			$this->display();				
 		}
@@ -44,8 +44,10 @@ class ArticleController extends SystemController{
 				$itemid = strstr($itemid,',') ? explode(',',$itemid ) : $itemid ;
 				//判断动作 del是彻底删除  否则就是恢复
 				if($type == 'del'){
-					$result = $article->delete($itemid);
-					$content = M('article_data')->delete($itemid);	
+					// dump($itemid);
+					// exit();
+					$result = $article->delete_all($itemid);
+					// $content = $article->delete_all($itemid);	
 					$message = '文章已经彻底删除';
 				}else{
 					$result = $article->change($itemid);
@@ -82,8 +84,10 @@ class ArticleController extends SystemController{
 		$article = new \Model\ArticleModel();
 		if(!empty($_POST)){
 			$art = $article->create();
+			$art['addtime'] = strtotime($art['addtime']);
+			$art['edittime'] = time();
 			$content = array('itemid'=>$_POST['itemid'],'content'=>$_POST['content']);
-			$update = $article->save(); //更新文章 成功+1
+			$update = $article->save($art); //更新文章 成功+1
 			$update += M('article_data')->save($content); //更新内容  成功+1
 			if($update){
 				$this->success('更新成功',U("article/index"),0);
@@ -91,7 +95,7 @@ class ArticleController extends SystemController{
 				$this->error($article->getError());
 			}
 		}else{
-			$cate = M('category')->select();//获取分类
+			$cate = M('category')->where('moduleid=1')->select();//获取分类
 			$this->assign('category',$cate);
 			$list = $article->where("itemid=".$itemid)->find();//获取当前文章信息
 			$content = M('article_data')->where("itemid=".$itemid)->find();

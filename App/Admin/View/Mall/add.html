@@ -178,7 +178,7 @@ $(document).ready(function(e) {
 <if condition="$list[itemid]"><input type="hidden" name="itemid" value="{$list['itemid']}" /></if>
     <ul class="forminfo">
 
-    <li><label>标题<b>*</b></label><input name="title" type="text" class="dfinput" value="{$list[title]}"  placeholder="请填写标题" style="width:576px;" required="required"/></li>
+    <li><label>标题<b>*</b></label><input name="title" type="text" class="dfinput" value="{$list[title]}"  maxlength="30"  placeholder="请填写标题" style="width:576px;" required="required"/></li>
    
     <li style="position: relative;"><label>标题图片</label><input type="text" name="thumb" id="thumb" class="dfinput" readonly="" value="{$list[thumb]}" />
       <div id="img_div"style="background:url('{$a|imgurl=###,150}') no-repeat;background-size:100% 100%"><img src="{$list[thumb]}" alt="" id="img1" width="100%"/></div>
@@ -213,14 +213,26 @@ $(document).ready(function(e) {
     </div>
     </li>
 
+    <li>
+    	<label>简介</label>
+    	<textarea name="introduce" style="border:1px solid #ccc" cols="80" rows="8">{$list[introduce]}</textarea>
+    </li>
+
     <li><label>产品内容<b>*</b></label>
     <textarea id="content7" name="content" style="width:700px;height:250px;visibility:hidden;">{$list[content]}</textarea>
     </li>
 
-    <li><label>简介</label><input type="text" class="dfinput" value="{$list[introduce]}" name="introduce" /></li>
-
     <li><label>发布时间</label><input name="addtime" type="datetime" class="dfinput" value="{$list[addtime]|default=time()|date='Y-m-d H:i:s',###}
 " /></li>
+
+	<li>
+		<label>内容模版</label>
+		<div class="vocation">
+			<select name="template" class="select1">
+				<option value="0">默认模版</option>
+			</select>
+		</div>
+	</li>
 
     <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="马上发布"/></li>
 
